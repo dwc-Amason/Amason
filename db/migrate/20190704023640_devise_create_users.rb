@@ -36,10 +36,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name_last
       t.string :name_first_phonetic
       t.string :name_last_phonetic
-      t.integer :post_code
+      t.string :post_code
       t.string :address
-      t.integer :phone
-      t.boolean :quit_flag, null: false, default: false
+      t.string :phone
+      t.boolean :is_quit, null: false, default: false
 
       t.timestamps null: false
     end

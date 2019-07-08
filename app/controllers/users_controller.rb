@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   	def link
   	end
 
+
 	private
 
 	def user_params

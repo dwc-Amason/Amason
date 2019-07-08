@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_065853) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
-    t.string "status"
+    t.integer "status"
     t.integer "stack"
     t.string "image_id"
     t.integer "artist_id"
@@ -81,13 +81,15 @@ ActiveRecord::Schema.define(version: 2019_07_07_065853) do
     t.string "name_last"
     t.string "name_first_phonetic"
     t.string "name_last_phonetic"
-    t.integer "post_code"
+    t.string "post_code"
     t.string "address"
-    t.integer "phone"
+    t.string "phone"
     t.integer "total_price"
-    t.string "payment"
+    t.integer "payment"
     t.integer "carriage"
-    t.integer "cart_id"
+    t.integer "shipping_status"
+    t.integer "user_id"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,11 +99,11 @@ ActiveRecord::Schema.define(version: 2019_07_07_065853) do
     t.string "name_last"
     t.string "name_first_phonetic"
     t.string "name_last_phonetic"
-    t.integer "post_code"
+    t.string "post_code"
     t.string "address"
-    t.integer "phone"
+    t.string "phone"
     t.integer "user_id"
-    t.boolean "delete_flag", default: false, null: false
+    t.boolean "is_delete", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -129,10 +131,10 @@ ActiveRecord::Schema.define(version: 2019_07_07_065853) do
     t.string "name_last"
     t.string "name_first_phonetic"
     t.string "name_last_phonetic"
-    t.integer "post_code"
+    t.string "post_code"
     t.string "address"
-    t.integer "phone"
-    t.boolean "quit_flag", default: false, null: false
+    t.string "phone"
+    t.boolean "is_quit", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
