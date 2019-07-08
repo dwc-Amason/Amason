@@ -1,0 +1,22 @@
+<h1>購入履歴詳細</h1>
+	<div>検索フォーム</div>
+	<btn>検索</btn>
+
+     <div><% order.created_at %>購入</div>
+
+
+		 <% @orders.each do |order| %>
+
+			 <div>
+                    <div><%= attachment_image_tag book.user, :image,size: "100x100" %></div>
+				    <div>商品名<% item.name %></div>
+					<div>価格<% order_items.price %></div>
+					<div>購入個数<% order_item.number %></div>
+					<div>在庫数表示<% item.stack %></div>
+					<div>送付先<% order.address %></div>
+					<div>ステータス<% order.status %></div>
+             </div>
+
+		 <% end %>
+
+				   <p><1.2.3.4.></p>
