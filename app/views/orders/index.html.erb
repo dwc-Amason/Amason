@@ -2,16 +2,18 @@
 	<div>検索フォーム</div>
 	<btn>検索</btn>
 
-	 <div>
 
-	　<% @orders.each do |order| %>
+	<% @orders.each do |order| %>
+
+      <div>
 
 	    <div><% order.created_at %></div>
 		<div><% order.total_price %></div>
 		<div><% order_item.number %></div>
 	    <btn><% link_to "購入履歴詳細", "#" %></btn>
-	  <% end %>
+
+	   </div>
+
+	 <% end %>
 
 	      <p><1.2.3.4.></p>
-
-	 </div>
