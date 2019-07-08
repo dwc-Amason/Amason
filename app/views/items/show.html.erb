@@ -1,0 +1,26 @@
+<div>
+	<h1>商品詳細</h1>
+
+    <div>
+
+			<div><%= attachment_image_tag item, :image %></div>
+
+			<div>アーティスト<% artist.name %></div><br>
+			<div>レーベル<% label.name %></div><br>
+			<div>ジャンル<% item.genre_id %></div><br>
+			<div>アルバム名<% item.name %></div>
+
+<!--  eachを二つ使いたい-->
+			<div>
+			        <% @disc.zip(@song)each do |disc,song| %>
+			          <div><% disc.name %></div>
+			          <div><% song.name %></div>
+			        <% end %>
+			</div>
+<!-- ここまで    -->
+			<div>アルバム名<% item.sales_status %></div>
+
+			<%= link_to "カートに入れる", "#" %>
+
+	</div>
+</div>
