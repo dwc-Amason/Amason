@@ -1,0 +1,6 @@
+<div class="container">
+	<%= link_to 'ユーザー情報編集', edit_user_path(user.id),class: "class=btn btn-default" %>
+	<%= link_to '配送先編集', shipping_address_path(user.id),class="btn btn-default" %>
+	<%= link_to '購入履歴', order_path, class: "btn btn-default" %>
+	<%= link_to '退会する',  class: "btn btn-default"     %>
+</div>
