@@ -1,0 +1,23 @@
+<h1>新しいお届け先<h1>
+<%= form_for(shipping_address) do |f| %>
+
+
+   <h3>氏名</h3>
+     <%= f.text_field :#  %>
+     <%= f.text_field :#  %>
+   <h3>フリガナ</h3>
+     <%= f.text_field :#  %>
+     <%= f.text_field :#  %>
+   <h3>郵便番号</h3>
+     <%= f.text_field :#  %>
+   <h3>住所1 :</h3>
+     <%= f.text_field :#  %>
+   <h3>住所2 :</h3>
+     <%= f.text_field :#  %>
+   <h3>電話番号</h3>
+     <%= f.text_field :#  %>
+
+     <%= f.submit 'この住所を使う' %>
+
+<% end %>
+
