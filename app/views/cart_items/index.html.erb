@@ -1,4 +1,11 @@
 <div class="shopping">
 	<h1>ショッピングカート</h1>
-	
+	<%= @items.each do |item| %>
+	<tr>
+	<td><%= attachment_image_tag ,:profile_image, fallback: "no_image.jpg" %></td>
+	<td><%= cart_items.item_id %><td>
+	<td><%= cart_items.number %></td>
+	<td><%= link_to '削除', item_path, method: :delete, class: "glyphicon glyphicon-削除" %></td>
+    </tr>
+    <% end %>
 </div>
