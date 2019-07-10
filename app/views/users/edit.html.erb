@@ -1,0 +1,43 @@
+<div class="contaner">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>ユーザー編集ページ</h2>
+            <%= form_for(@user) do |f| %>
+            <p>姓</p>
+            <%= f.name_first %>
+            <%= f.text_field :name_first %>
+            <p>名</p>
+            <%= f.name_last %>
+            <%= f.text_field :name_last %>
+            <p>セイ</p>
+            <%= f.name_first_phonetic %>
+            <%= f.text_field :name_first_phonetic %>
+            <p>メイ</p>
+            <%= f.name_last_phonetic %>
+            <%= f.text_field :name_last_phonetic %>
+
+            <h3>郵便番号</h3>
+            <%= f.post_code %>
+            <%= f.text_field :post_code %>
+
+            <h3>住所</h3>
+            <%= f.address %>
+            <%= f.text_field :addess %>
+
+            <h3>TEL</h3>
+            <%= f.phone %>
+            <%= f.text_field :phone %>
+
+            <h3>mail</h3>
+            <%= f.email %>
+            <%= f.email_field :email %>
+
+            <h3>pass</h3>
+            <%= f.password %>
+            <% f.password_field :password %>
+
+            <%= f.submit 'アップデート' %>
+            <% end %>
+        </div>
+    </div>
+<div>
