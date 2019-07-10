@@ -10,6 +10,25 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+        <!-- ログイン時 -->
+        <ul class="nav navbar-nav">
+          <li><%= link_to current_user.name, user_path(current_user) %></li>
+          <li><btn>カート</btn></li>
+          <li><btn>log_out</btn></li>
+        </ul>
+      <% else %>
+        <!-- 未ログイン時 -->
+        <div>検索フォーム</div>
+        <ul class="nav navbar-nav">
+          <li><btn>検索</btn></li>
+          <li><% link_to "sign in", new_user_session_path %></li>
+          <li><% link_to "sign up", new_user_registration_path %></li>
+        </ul>
+      <% end %>
+
+    </header>
     <%= yield %>
   </body>
 </html>

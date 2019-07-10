@@ -1,27 +1,10 @@
-<head>ヘッダー
-
-		<!-- 未ログイン時 -->
-		<div>検索フォーム
-			<btn>検索</btn>
-			<btn>sigh up</btn>
-			<btn>log in</btn>
-		</div>
-
-		<!-- ログイン時 -->
-        <div>
-            <link>ユーザー名</link>
-			<btn>カート</btn>
-			<btn>log_out</btn>
-		</div>
-
-</head>
 
 <h1>商品一覧</h1>
 
 
 
 
-<% @books.each do |item| %>
+<% @items.each do |item| %>
 
 <div>
    <%= link_to post_image_path(post_image.id) do %>
