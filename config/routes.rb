@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :items
   resources :carts
   resources :orders
+  root "items#index"
 end

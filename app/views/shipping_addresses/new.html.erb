@@ -3,19 +3,17 @@
 
 
    <h3>氏名</h3>
-     <%= f.text_field :#  %>
-     <%= f.text_field :#  %>
+     <%= f.text_field :name_last  %>
+     <%= f.text_field :name_first  %>
    <h3>フリガナ</h3>
-     <%= f.text_field :#  %>
-     <%= f.text_field :#  %>
+     <%= f.text_field :name_last_phonetic  %>
+     <%= f.text_field :name_first_phonetic  %>
    <h3>郵便番号</h3>
-     <%= f.text_field :#  %>
+     <%= f.text_field :post_code  %>
    <h3>住所1 :</h3>
-     <%= f.text_field :#  %>
-   <h3>住所2 :</h3>
-     <%= f.text_field :#  %>
+     <%= f.text_field :address  %>
    <h3>電話番号</h3>
-     <%= f.text_field :#  %>
+     <%= f.text_field :phone %>
 
      <%= f.submit 'この住所を使う' %>
 
