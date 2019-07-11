@@ -1,0 +1,28 @@
+<h1>CD新規登録</h1>
+<div  class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<%= form_for(@user) do |f| %>
+			<ul>
+				<li>
+					<p>タイトル</p>
+					<%= f.text_field :name %>
+				</li>
+				<li>
+					<p>歌手</p>
+					<%= f.text_field :artist.name %>
+				</li>
+				<li>
+					<p>ジャンル</p>
+					<%= f.text_field :genre.name %>
+				</li>
+				<li>
+					<p>レーベル</p>
+					<%= f.text_field :price %>
+				</li>
+				<li>
+					<p>値段</p>
+					<%= f.text_field :stack %>
+				</li>
+				<% @item_disk.name.each do |item| %>
+				<li>

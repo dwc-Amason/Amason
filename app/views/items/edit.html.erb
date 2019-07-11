@@ -1,0 +1,84 @@
+<h1>CD情報編集</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+			<ul>
+				<li>
+					<p>タイトル</p>
+					<%= @item.name %>
+				</li>
+				<li>
+					<p>歌手</p>
+					<%= @item_artist.name %>
+				</li>
+				<li>
+					<p>ジャンル</p>
+					<%= @item_genre.name %>
+				</li>
+				<li>
+					<p>レーベル</p>
+					<%= @item_label.name %>
+				</li>
+				<li>
+					<p>値段</p>
+					<%= @item.price %>
+				</li>
+				<li>
+					<p>在庫数</p>
+					<%= @item.stack %>
+				</li>
+				<% @item_disk.name.each do |item| %>
+				<li>
+					<p><%= @item_disk.name %></p>
+					<%= @item_disk_song_number.name %>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-4 col-md-offset-2">
+			<%= form_for(@item) do |f| %>
+			<ul>
+				<li>
+					<p>タイトル</p>
+					<%= f.text_field :name %>
+				</li>
+				<li>
+					<p>歌手</p>
+					<%= f.text_field :artist.name %>
+				</li>
+				<li>
+					<p>ジャンル</p>
+					<%= f.text_field :genre.name %>
+				</li>
+				<li>
+					<p>レーベル</p>
+					<%= f.text_field :price %>
+				</li>
+				<li>
+					<p>値段</p>
+					<%= f.text_field :stack %>
+				</li>
+				<% @item_disk.name.each do |item| %>
+				<li>
+					<p><%= @item_disk.name %></p>
+					<%= f.text_area :disk_song_number.name %>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<p>ステータス</p>
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-primary active">
+					<input type="radio" name="sampleRadio" id="sampleRadio1" autocomplete="off" checked> 販売中
+				</label>
+				<label class="btn btn-primary">
+					<input type="radio" name="sampleRadio" id="sampleRadio2" autocomplete="off"> 販売停止中
+				</label>
+			</div>
+
+
+
+
