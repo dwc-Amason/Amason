@@ -1,6 +1,6 @@
 <div class="shopping">
 	<h1>ショッピングカート</h1>
-	<%= @cart_item_items.each do |item| %>
+	<%= @cart_items.each do |item| %>
 	<tr>
 	<td><%= attachment_image_tag, item, :image, :fill, 100, 100, format: "jpg"  %></td>
 	<td><%= item.title %><td>
@@ -10,10 +10,6 @@
     </tr>
     <% end %>
     <
-<<<<<<< HEAD
     <%= link_to 'レジに進む', cart_item_path %>
+    <%= paginate @cart_items, class: "paginate" %>
 </div>
-=======
-    <%= link_to %>
-</div>
->>>>>>> master
