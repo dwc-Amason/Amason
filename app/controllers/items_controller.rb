@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
 	def index
 		@items = Item.all
+		@itemse = Item.page(params[:page]).per(15)
 	end
 
 	def edit
