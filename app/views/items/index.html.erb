@@ -1,20 +1,27 @@
 
-<h1>商品一覧</h1>
 
+
+<h1>商品一覧</h1>
 
 
 
 <% @items.each do |item| %>
 
-<div>
-   <%= link_to post_image_path(post_image.id) do %>
-    <%= attachment_image_tag '#', :image %>
+	<div class="container">
+	 <div class="row">
+	  <div class="col-lg-4">
+	   <%= link_to post_image_path(post_image.id) do %>
+	    <%= attachment_image_tag '#', :image %>
 
-		<div><% item.name %></div>
-		<div><% artists.name %></div>
-		<div><% item.price %></div>
+			<div><% item.name %></div>
+			<div><% artists.name %></div>
+			<div><% item.price %></div>
 
 
 
-   <% end %>
- <% end %>
+	   <% end %>
+	  </div>
+	 </div>
+	</div>
+
+<% end %>
