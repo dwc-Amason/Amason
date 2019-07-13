@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
         <!-- ログイン時 -->
         <p>検索</p>
-        <%= form_tag(search_path,:method => 'get') do %>
+        <%= form_tag('/items',:method => 'get') do %>
          <%= text_field_tag :search %>
          <%= submit_tag 'Search', :name => nil %>
         <% end %>
@@ -26,7 +26,7 @@
       <% else %>
         <!-- 未ログイン時 -->
        <p>検索</p>
-        <%= form_tag(search_path,:method => 'get') do %>
+        <%= form_tag('/items',:method => 'get') do %>
          <%= text_field_tag :search %>
          <%= submit_tag 'Search', :name => nil %>
         <% end %>
