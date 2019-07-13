@@ -9,7 +9,7 @@
 	<%= link_to '購入履歴', order_path, class: "btn btn-default" %>
     </div>
     <div class="row3">
-	<%= link_to '退会する', user_path delete: :method,class: "btn btn-default"     %>
+	<%= f.submit '退会する', data: { confirm: "本当に消しますか？"} %>
     </div>
     <div class="user-info">
 	  	<%= user.name_first %>
