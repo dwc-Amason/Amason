@@ -1,3 +1,32 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.item-show-title{
+	width: 400px;
+	padding: 20px 100px;
+	color: bulu;
+}
+.jakesya{
+	width: 300px;
+	height: 300px;
+	padding: 20px 50px;
+}
+.name-list{
+    float: right;
+}
+.songs{
+	float: left;
+}
+.btn status{
+	float: right;
+}
+.go-cart{
+	float: right;
+}
