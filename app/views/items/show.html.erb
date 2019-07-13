@@ -12,16 +12,19 @@
 				<div>アルバム名<% item.name %></div>
               </div>
 	<!--  eachを二つ使いたい-->
-				<div>
+				<div class="songs">
 				        <% @disc.zip(@song)each do |disc,song| %>
 				          <div><% disc.name %></div>
 				          <div><% song.name %></div>
 				        <% end %>
+				</div>
 
 	<!-- ここまで    -->
-				<div>アルバム名<% item.sales_status %></div>
 
-				<%= link_to "カートに入れる", "#" %>
+
+				<div class="btn status">アルバム名<% item.sales_status %></div>
+
+				<div class="go-cart"><%= link_to "カートに入れる", "#" %></div>
 
 
 	</div>
