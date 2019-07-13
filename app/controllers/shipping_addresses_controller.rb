@@ -2,6 +2,7 @@ class ShippingAddressesController < ApplicationController
 
 	def edit
 		@shipping_address = Shipping_address.find(params[:id])
+		@shipping_addresses = Shipping_address.page(params[:page]).per(5)
 	end
 
 	def new
