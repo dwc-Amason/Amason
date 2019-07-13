@@ -1,0 +1,36 @@
+<h1>ユーザー一覧</h1>
+<!-- 検索フォーム -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<ul>
+				<% @user.name.each do |user| %>
+				<li>
+					<p><%= @user.name %></p>
+					<%= link_to '詳細', user_path(@user) %>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<ul>
+				<li>
+				</li>
+				<% @user.name.each do |user| %>
+				<li>
+					<p><%= @user.name %></p>
+					<%= link_to '詳細', user_path(@user) %>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<ul>
+				<% @user.name.each do |user| %>
+				<li>
+					<p><%= @user.name %></p>
+					<%= link_to '詳細', user_path(@user) %>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- ページング　-->
