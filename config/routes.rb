@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :orders
   root "items#index"
-  get "/admins/index" => "admins#index"
-  get "/admins/link" => "admins#link"
+  get "/admins/index" => "admin#index"
+  get "/admins/link" => "admin#link"
+  get "/admins/order" => "admin#order"
 end
