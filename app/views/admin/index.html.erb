@@ -1,4 +1,5 @@
 <h1>ユーザー一覧</h1>
+<!-- 検索フォーム -->
 <div class="container">
 	<div class="row">
 		<div class="col-md-4">
@@ -13,7 +14,6 @@
 		<div class="col-md-4">
 			<ul>
 				<li>
-					<!-- 検索フォーム -->
 				</li>
 				<% @user.name.each do |user| %>
 				<li>
@@ -31,15 +31,6 @@
 				</li>
 			</ul>
 		</div>
-
-	<% @users.each do |user| %>
-
-	<div class="row">
-		<div class="col-md-4">
-			<%= link_to 名前, user_path(@user) %>
-		</div>
-	</div>
-	<div class="row">
-		<p>ページング機能</p>
 	</div>
 </div>
+<!-- ページング　-->

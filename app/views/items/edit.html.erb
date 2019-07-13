@@ -1,4 +1,5 @@
 <h1>CD情報編集</h1>
+<!-- 画像編集 -->
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-1">
@@ -27,10 +28,8 @@
 					<p>在庫数</p>
 					<%= @item.stack %>
 				</li>
-				<% @item_disk.name.each do |item| %>
-				<li>
-					<p><%= @item_disk.name %></p>
-					<%= @item_disk_song_number.name %>
+				<!-- disk -->
+				<!-- 曲順　-->
 				</li>
 			</ul>
 		</div>
@@ -51,16 +50,19 @@
 				</li>
 				<li>
 					<p>レーベル</p>
-					<%= f.text_field :price %>
+					<%= f.text_field :label.name %>
 				</li>
 				<li>
 					<p>値段</p>
+					<%= f.text_field :price %>
+				</li>
+				<li>
+					<p>在庫数</p>
 					<%= f.text_field :stack %>
 				</li>
-				<% @item_disk.name.each do |item| %>
 				<li>
-					<p><%= @item_disk.name %></p>
-					<%= f.text_area :disk_song_number.name %>
+				<!-- disk -->
+				<!-- 曲順　-->
 				</li>
 			</ul>
 		</div>
@@ -78,6 +80,11 @@
 					<input type="radio" name="sampleRadio" id="sampleRadio2" autocomplete="off"> 販売停止中
 				</label>
 			</div>
+		</div>
+	</div>
+</div>
+<!-- delete botton -->
+<!-- ok botton -->
 
 
 
