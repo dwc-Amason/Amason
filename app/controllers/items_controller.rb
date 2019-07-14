@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 	def new
 		@item = Item.new
 		@disc = @item.discs.build
-		@song = @disc.song.build
+		@song = @disc.songs.build
 	end
 
 	def create

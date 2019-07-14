@@ -21,7 +21,7 @@
         <ul class="nav navbar-nav">
           <li><%= link_to current_user.name_last, user_path(current_user) %></li>
           <li><btn>カート</btn></li>
-          <li><btn>log_out</btn></li>
+          <li> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>
       <% else %>
         <!-- 未ログイン時 -->
@@ -34,6 +34,7 @@
           <li><btn>検索</btn></li>
           <li><%= link_to "sign in", new_user_session_path %></li>
           <li><%= link_to "sign up", new_user_registration_path %></li>
+
         </ul>
       <% end %>
 

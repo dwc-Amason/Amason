@@ -5,18 +5,18 @@
 
 
 
-<% @items.each do |item| %>
 
 	<div class="container">
 	 <div class="row">
-	  <div class="col-lg-4">
-	   <%= link_to post_image_path(post_image.id) do %>
+<% @items.each do |item| %>
+	  <div class="col-md-4">
+	   <%= link_to item_path(item) do %>
 	    <%= attachment_image_tag '#', :image %>
 
-			<div><% item.name %></div>
-			<div><% artists.name %></div>
-			<div><% item.price %></div>
-
+			<div><%= item.name %></div>
+			<div><%= item_artists.name %></div>
+			<div><%= item.price %></div>
+edrftg
 
 
 	   <% end %>
