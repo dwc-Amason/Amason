@@ -1,22 +1,46 @@
 <div class="container">
-    <div class="row">
-	<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn btn-default" %>
-    </div>
-	<div class="row1">
-	<%= link_to '配送先編集', edit_user_path(@user.id),class: "btn btn-default" %>
-    </div>
-    <div class="row2">
-	<%= link_to '購入履歴', order_path, class: "btn btn-default" %>
-    </div>
-    <div class="row3">
-	<%= link_to '退会する', "data-confirm" => "本当に消しますか？" %>
-    </div>
+	<div class="top">
+	    <div class="row">
+		<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
+	    </div>
+		<div class="row1">
+		<%= link_to '配送先編集', edit_user_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
+	    </div>
+	    <div class="row2">
+		<%= link_to '購入履歴', order_path, class: "btn btn-primary btn-lg btn-block active" %>
+	    </div>
+	    <div class="row3">
+		<%= link_to '退会する', "data-confirm" => "本当に消しますか？" %>
+	    </div>
+	</div>
     <div class="user-info">
-	  	<%= @user.name_first %>
-	  	<%= @user.name_last %>
-	  	<%= @user.post_code %>
-	  	<%= @user.address %>
-	  	<%= @user.phone %>
-	  	<%= @user.email %>
+    	<div class="well">
+    	  <div class="table">
+    	  	<thead>
+	    	  	<tr>
+	    	  		<th>姓</th>
+				  	<th><%= @user.name_first %></th>
+				    <th>名</th>
+					<th><%= @user.name_last %></th>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+				  	<th><%= @user.post_code %></th>
+				</tr>
+				<tr>
+					<th>住所</th>
+				  	<th><%= @user.address %></th>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<th><%= @user.phone %></th>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<th><%= @user.email %></th>
+				</tr>
+		    </thead>
+		  </div>
+	  </div>
     </div>
 </div>

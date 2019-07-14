@@ -3,5 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-info {
-	text-align: right;
+	float: right;
 }
+
+.top {
+	width: 450px;
+	float: left;
+}
+.well {
+	background-color: lightblue;
+}
+
