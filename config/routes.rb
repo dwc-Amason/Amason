@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :carts
   resources :orders
   resources :shipping_addresses
+  resources :labels
+  resources :artists
+  resources :genres
   root "items#index"
   get "/admins/index" => "admin#index"
   get "/admins/link" => "admin#link"

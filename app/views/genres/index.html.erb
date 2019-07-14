@@ -1,0 +1,17 @@
+<section class="border">
+	<h2>ジャンル新規作成</h2>
+
+	<%= form_for(@genre) do |f| %>
+	<%= f.text_field :name %>
+	<% end %>
+</section>
+
+
+
+
+<table class="table">
+	<% @genres.each do |genre| %>
+	<tr class="genre"><%= genre.name %></tr>
+	<tr class="genre"><%= link_to "編集", edit_genre_path(genre) %></tr>
+	<% end %>
+</table>

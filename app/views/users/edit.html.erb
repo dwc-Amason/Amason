@@ -4,36 +4,36 @@
             <h2>ユーザー編集ページ</h2>
             <%= form_for(@user) do |f| %>
             <p>姓</p>
-            <%= f.name_first %>
+            <%= @user.name_first %>
             <%= f.text_field :name_first %>
             <p>名</p>
-            <%= f.name_last %>
+            <%= @user.name_last %>
             <%= f.text_field :name_last %>
             <p>セイ</p>
-            <%= f.name_first_phonetic %>
+            <%= @user.name_first_phonetic %>
             <%= f.text_field :name_first_phonetic %>
             <p>メイ</p>
-            <%= f.name_last_phonetic %>
+            <%= @user.name_last_phonetic %>
             <%= f.text_field :name_last_phonetic %>
 
             <h3>郵便番号</h3>
-            <%= f.post_code %>
+            <%= @user.post_code %>
             <%= f.text_field :post_code %>
 
             <h3>住所</h3>
-            <%= f.address %>
-            <%= f.text_field :addess %>
+            <%= @user.address %>
+            <%= f.text_field :address %>
 
             <h3>TEL</h3>
-            <%= f.phone %>
+            <%= @user.phone %>
             <%= f.text_field :phone %>
 
             <h3>mail</h3>
-            <%= f.email %>
+            <%= @user.email %>
             <%= f.email_field :email %>
 
             <h3>pass</h3>
-            <%= f.password %>
+            <%= @user.password %>
             <% f.password_field :password %>
 
             <%= f.submit 'アップデート' %>
