@@ -11,18 +11,22 @@
 				</li>
 				<li>
 					<p>歌手</p>
-					after pulldown
+					<%= f.select :artist_id, Artist.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
 				</li>
 				<li>
 					<p>ジャンル</p>
-					after pulldown
+					<%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
 				</li>
 				<li>
 					<p>レーベル</p>
+					<%= f.select :label_id, Label.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
+				</li>
+				<li>
+					<p>価格</p>
 					<%= f.text_field :price %>
 				</li>
 				<li>
-					<p>値段</p>
+					<p>在庫</p>
 					<%= f.text_field :stack %>
 				</li>
 				<li>

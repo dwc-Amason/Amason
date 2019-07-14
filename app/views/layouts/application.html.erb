@@ -10,34 +10,47 @@
   </head>
 
   <body>
-    <header>
-      <% if user_signed_in? %>
-        <!-- ログイン時 -->
-        <p>検索</p>
-        <%= form_tag('/items',:method => 'get') do %>
-         <%= text_field_tag :search %>
-         <%= submit_tag 'Search', :name => nil %>
-        <% end %>
-        <ul class="nav navbar-nav">
-          <li><%= link_to current_user.name_last, user_path(current_user) %></li>
-          <li><btn>カート</btn></li>
-          <li><btn>log_out</btn></li>
-        </ul>
-      <% else %>
-        <!-- 未ログイン時 -->
-       <p>検索</p>
-        <%= form_tag('/items',:method => 'get') do %>
-         <%= text_field_tag :search %>
-         <%= submit_tag 'Search', :name => nil %>
-        <% end %>
-        <ul class="nav navbar-nav">
-          <li><btn>検索</btn></li>
-          <li><%= link_to "sign in", new_user_session_path %></li>
-          <li><%= link_to "sign up", new_user_registration_path %></li>
-        </ul>
-      <% end %>
+       <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+          <nav class="nav navbar-nav navbar-left" >
+          <h1 class="nav-ver-title">Amason</h1>
 
-    </header>
-    <%= yield %>
+            <% if user_signed_in? %>
+              <!-- ログイン時 -->
+          </nav>
+
+
+          <div>
+            <%= form_tag('/items',:method => 'get') do %>
+               <%= text_field_tag :search %>
+               <%= submit_tag '検索', :name => nil %>
+            <% end %>
+           </div>
+
+
+
+
+            <ul class="nav navbar-nav">
+             <button type="button" class="btn btn-light"><%= link_to current_user.name_last, user_path(current_user) %></button>
+              <button type="button" class="btn btn-light">カート</button>
+              <button type="button" class="btn btn-light"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+            </ul>
+          <% else %>
+            <!-- 未ログイン時 -->
+            <div>
+            <%= form_tag('/items',:method => 'get') do %>
+               <%= text_field_tag :search %>
+               <%= submit_tag '検索', :name => nil %>
+            <% end %>
+           </div>
+            <ul class="nav navbar-nav">
+              <button type="button" class="btn btn-light"><%= link_to "sign in", new_user_session_path %></button>>
+              <button type="button" class="btn btn-light"><%= link_to "sign up", new_user_registration_path %></button>
+
+            </ul>
+          <% end %>
+
+        </header>
+        <%= yield %>
   </body>
 </html>
