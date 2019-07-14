@@ -19,3 +19,4 @@
     	name_last_phonetic: name_l_1, post_code: post, address: add, phone: num }
   )
 end
+

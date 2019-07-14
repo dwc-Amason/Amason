@@ -1,0 +1,17 @@
+<section class="border">
+	<h2>ジャンル新規作成</h2>
+
+	<%= form_for(@artist) do |f| %>
+	<%= f.text_field :name %>
+	<% end %>
+</section>
+
+
+
+
+<table class="table">
+	<% @artists.each do |artist| %>
+	<tr class="artist"><%= artist.name %></tr>
+	<tr class="artist"><%= link_to "編集", edit_artist_path(artist) %></tr>
+	<% end %>
+</table>
