@@ -1,21 +1,21 @@
 <div class="container">
-	<div class="top">
-	    <div class="row">
+	<div class="top row">
+		<div class="col-md-6">
+	    <div>
 		<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
 	    </div>
-		<div class="row1">
+		<div>
 		<%= link_to '配送先編集', edit_user_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
 	    </div>
-	    <div class="row2">
+	    <div>
 		<%= link_to '購入履歴', order_path, class: "btn btn-primary btn-lg btn-block active" %>
 	    </div>
-	    <div class="row3">
+	    <div>
 		<%= link_to '退会する', "data-confirm" => "本当に消しますか？" %>
 	    </div>
 	</div>
-    <div class="user-info">
-    	<div class="well">
-    	  <div class="table">
+    	<div class="well col-md-6">
+    	  <table class="table">
     	  	<thead>
 	    	  	<tr>
 	    	  		<th>姓</th>
@@ -40,7 +40,7 @@
 					<th><%= @user.email %></th>
 				</tr>
 		    </thead>
-		  </div>
+		  </table>
 	  </div>
-    </div>
+	</div>
 </div>
