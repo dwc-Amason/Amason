@@ -24,7 +24,9 @@ class ItemsController < ApplicationController
 	end
 
 	def new
-		@item = Item.new(item_params)
+		@item = Item.new
+		@disc = @item.discs.build
+		@song = @disc.songs.build
 	end
 
 	def create
@@ -43,6 +45,6 @@ class ItemsController < ApplicationController
 
 	private
 	def item_params
-	   	params.require(:item).permit(:name, :price, :status, :stack, :image_id, :artist_id, :genre_id, :label_id)
+	   	params.require(:item).permit(:name, :price, :status, :stack, :image_id, :artist_id, :genre_id, :label_id, discs_attributes: [:id, :_destroy])
 	end
 end
