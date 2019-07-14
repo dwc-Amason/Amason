@@ -19,7 +19,7 @@
          <%= submit_tag 'Search', :name => nil %>
         <% end %>
         <ul class="nav navbar-nav">
-          <li><%= link_to current_user.name, user_path(current_user) %></li>
+          <li><%= link_to current_user.name_last, user_path(current_user) %></li>
           <li><btn>カート</btn></li>
           <li><btn>log_out</btn></li>
         </ul>
