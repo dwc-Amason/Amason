@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
 			redirect_to item_path(@item)
 		else
 			@item = Item.find(params[:id])
-			render :shwow
+			render :show
 		end
   	end
 
