@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-	<%= link_to 'ユーザー情報編集', edit_user_path(user.id),class: "class=btn btn-default" %>
+	<%= link_to 'ユーザー情報編集', edit_user_path(@user.id), class: "class=btn btn-default" %>
     </div>
 	<div class="row1">
-	<%= link_to '配送先編集', shipping_address_path(user.id),class: "btn btn-default" %>
+	<%= link_to '配送先編集', edit_user_path(@user.id),class: "btn btn-default" %>
     </div>
     <div class="row2">
 	<%= link_to '購入履歴', order_path, class: "btn btn-default" %>
@@ -12,11 +12,11 @@
 	<%= f.submit '退会する', data: { confirm: "本当に退会しますか？"} %>
     </div>
     <div class="user-info">
-	  	<%= user.name_first %>
-	  	<%= user.name_last %>
-	  	<%= user.post_code %>
-	  	<%= user.address %>
-	  	<%= user.phone %>
-	  	<%= user.email %>
+	  	<%= @user.name_first %>
+	  	<%= @user.name_last %>
+	  	<%= @user.post_code %>
+	  	<%= @user.address %>
+	  	<%= @user.phone %>
+	  	<%= @user.email %>
     </div>
 </div>
