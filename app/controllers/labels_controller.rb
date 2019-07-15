@@ -3,6 +3,7 @@ class LabelsController < ApplicationController
   def create
   	@label = Label.new(label_params)
   	@label.save
+    redirect_to labels_path
   end
 
   def index
@@ -15,7 +16,9 @@ class LabelsController < ApplicationController
   end
 
   def update
+    @label = Label.find(params[:id])
   	@label.update
+    redirect_to labels_path
   end
 
   private
