@@ -5,16 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-        <nav class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
-         <div class="navbar-header">
-          <div class="collapse navbar-collapse" id="navbarEexample">
-         <h1 class="navbar-brand">Amason</h1>
-         <ul class="nav navbar-nav">
+
+         <h1>Amason</h1>
             <div>
             <%= form_tag('/items',:method => 'get') do %>
                <%= text_field_tag :search %>
@@ -40,11 +35,7 @@
 
           <% end %>
 
-        </ul>
-      </ul>
-    </div>
-         </div>
-       </nav>
+       
         </header>
 
         <%= yield %>
