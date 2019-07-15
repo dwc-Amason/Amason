@@ -1,5 +1,5 @@
 <section class="border">
-	<h2>ジャンル新規作成</h2>
+	<h2>レーベル新規作成</h2>
 
 	<%= form_for(@label) do |f| %>
 	<%= f.text_field :name %>
@@ -10,9 +10,16 @@
 
 
 
-<table class="table">
+<table class="table mar" border="1" >
+
+	<tr>
+		<th>名前</th>
+		<th>編集</th>
+	</tr>
 	<% @labels.each do |label| %>
-	<tr class="label"><%= label.name %></tr>
-	<tr class="label"><%= link_to "編集", edit_label_path(label) %></tr>
+	<tr class="label">
+		<td><%= label.name %></td>
+		<td><%= link_to "編集", edit_label_path(label) %></td>
+	</tr>
 	<% end %>
 </table>
