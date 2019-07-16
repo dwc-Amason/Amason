@@ -8,18 +8,28 @@ class ShippingAddressesController < ApplicationController
 	def new
 		@shipping_address = ShippingAddress.new
 	end
+
     def create
-		@shipping_address = ShippingAddress.new(item_params)
+		@shipping_address = ShippingAddress.new(shipping_address_params)
+		@shipping_address.user_id = current_user.id
 		if @shipping_address.save
-			redirect_to shipping_address_path(@shipping_address)
+			redirect_to shipping_addresses_path
 		else
 			@shipping_address = ShippingAddress.all
-			render :index
+			render :new
 		end
 	end
+
 	def index
 		@shipping_addresses = ShippingAddress.all
+		#binding.pry
 	end
+
+	def update
+    @shipping_address = ShippingAddress.find(params[:id])
+  	@shipping_address.update(shipping_address_params)
+    redirect_to shipping_addresses_path
+  end
 
 	private
 	def shipping_address_params

@@ -2,7 +2,7 @@
 
 
     <div>
-      <%= form_for(shipping_address) do |f| %>
+      <%= form_for(@shipping_address) do |f| %>
        <h3>氏名</h3>
         <div><%= f.text_field :name_last %></div>
         <div><% @shipping_address.name_last %></div>
