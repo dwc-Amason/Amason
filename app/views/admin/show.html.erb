@@ -1,0 +1,39 @@
+<div  class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+    	  	<table class="table">
+    	  		<thead>
+	    	  		<tr>
+	    	  			<th>姓</th>
+				  		<th><%= @user.name_first %></th>
+				    	<th>名</th>
+						<th><%= @user.name_last %></th>
+					</tr>
+					<tr>
+						<th>郵便番号</th>
+				  		<th><%= @user.post_code %></th>
+					</tr>
+					<tr>
+						<th>住所</th>
+				  		<th><%= @user.address %></th>
+					</tr>
+					<tr>
+						<th>電話番号</th>
+						<th><%= @user.phone %></th>
+					</tr>
+					<tr>
+						<th>メールアドレス</th>
+						<th><%= @user.email %></th>
+					</tr>
+		    	</thead>
+		  	</table>
+	  	</div>
+		<!-- ユーザー情報 ユーザー詳細ページから持ってくる -->
+	</div>
+	<div class="row">
+		<!-- 配送先一覧 配送先一覧ページから持ってくる -->
+	</div>
+	<div class="row">
+		<!-- 購入履歴 受注履歴一覧ページから持ってくる -->
+	</div>
+</div>
