@@ -15,7 +15,12 @@
 			<div><%= item.name %></div>
 			<div><%= item.artist_id %></div>
 			<div><%= item.price %></div>
-			<div><%= link_to "カートに入れる", "#" %></div>
+			<div>
+				<%= form_tag(carts_path, method: :post) do %>
+                <%= hidden_field_tag(:item_id, item.id) %>
+                <%= submit_tag("カートに入れる") %>
+            <% end %><br>
+			</div>
 
 
 
