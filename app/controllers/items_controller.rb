@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find(params[:id])
+        @discs = @item.discs
 	end
 
 	def new
