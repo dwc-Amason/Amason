@@ -1,6 +1,10 @@
 class CartItemsController < ApplicationController
-	def index
-		@cart_items = current_cart.cart_items
-		@user = User.find(params[:id])
-	end
+    def index
+    @cart_items = current_user.cart_items
+    end
+
+    def create
+    @cart_item = CartItem.new
+    @cart_item.save
+    end
 end
