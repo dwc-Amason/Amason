@@ -15,21 +15,17 @@
 			<div><%= item.name %></div>
 			<div><%= item.artist_id %></div>
 			<div><%= item.price %></div>
-			<div>
-				<%= form_for(cart_items_path, method: :post) do %>
-                <%= hidden_field_tag(:item_id, item.id) %>
-                <%= submit_tag("カートに入れる")  %>
-            <% end %><br>
-			</div>
-
-
-
 	   <% end %>
+		<div>
+			<%= form_for(@cart_item) do |f| %>
+        	<%= f.number_field :number %>
+        	<%= f.hidden_field :item_id, value: item.id %>
+        	<%= f.hidden_field :user_id, value: current_user.id %>
+    	    <%= f.submit "カートに入れる" %>
+		    <% end %>
+		</div>
 	  </div>
 	 </div>
 	</div>
-<div>
-	<%= paginate(@itemse, :outer_window => 3) %>
-</div>
 <% end %>
 
