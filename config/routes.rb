@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
   resources :items
-  resources :carts
+  resources :cart_items
   resources :orders
   resources :shipping_addresses
   resources :labels

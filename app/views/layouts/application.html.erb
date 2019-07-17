@@ -5,52 +5,39 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-       <header class="navbar navbar-fixed-top navbar-inverse">
-        <div class="container">
-          <nav class="nav navbar-nav navbar-left" >
-          <h1 class="nav-ver-title">Amason</h1>
 
-            <% if user_signed_in? %>
-              <!-- ログイン時 -->
-          </nav>
-
-
-          <div>
-            <%= form_tag('/items',:method => 'get') do %>
-               <%= text_field_tag :search %>
-               <%= submit_tag '検索', :name => nil %>
-            <% end %>
-           </div>
-
-
-
-
-            <ul class="nav navbar-nav">
-             <button type="button" class="btn btn-light"><%= link_to current_user.name_last, user_path(current_user) %></button>
-              <button type="button" class="btn btn-light">カート</button>
-              <button type="button" class="btn btn-light"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-            </ul>
-          <% else %>
-            <!-- 未ログイン時 -->
+         <h1>Amason</h1>
             <div>
             <%= form_tag('/items',:method => 'get') do %>
                <%= text_field_tag :search %>
                <%= submit_tag '検索', :name => nil %>
             <% end %>
            </div>
+
+            <% if user_signed_in? %>
+              <!-- ログイン時 -->
             <ul class="nav navbar-nav">
-              <button type="button" class="btn btn-light"><%= link_to "sign in", new_user_session_path %></button>>
+             <button type="button" class="btn btn-light"><%= link_to current_user.name_last, user_path(current_user) %></button>
+              <button type="button" class="btn btn-light"><%= link_to "カート", carts_path %></button>
+              <button type="button" class="btn btn-light"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+            </ul>
+
+
+          <% else %>
+            <!-- 未ログイン時 -->
+            <ul class="nav navbar-nav">
+              <button type="button" class="btn btn-light"><%= link_to "sign in", new_user_session_path %></button>
               <button type="button" class="btn btn-light"><%= link_to "sign up", new_user_registration_path %></button>
 
-            </ul>
+
           <% end %>
 
+
         </header>
+
         <%= yield %>
   </body>
 </html>

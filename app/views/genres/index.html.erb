@@ -10,9 +10,15 @@
 
 
 
-<table class="table">
+<table class="table mar" border="1" >
+	<tr>
+		<th>名前</th>
+		<th>編集</th>
+	</tr>
 	<% @genres.each do |genre| %>
-	<tr class="genre"><%= genre.name %></tr>
-	<tr class="genre"><%= link_to "編集", edit_genre_path(genre) %></tr>
+	<tr class="genre">
+		<td><%= genre.name %></td>
+		<td><%= link_to "編集", edit_genre_path(genre) %></td>
+	</tr>
 	<% end %>
 </table>

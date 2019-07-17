@@ -3,6 +3,7 @@ class GenresController < ApplicationController
   def create
   	@genre = Genre.new(genre_params)
   	@genre.save
+    redirect_to genres_path
   end
 
   def index
@@ -15,7 +16,9 @@ class GenresController < ApplicationController
   end
 
   def update
+    @genre = Genre.find(params[:id])
   	@genre.update
+    redirect_to genres_path
   end
 
   private

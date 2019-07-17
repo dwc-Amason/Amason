@@ -1,19 +1,17 @@
 <h1>住所選択</h1>
-<% @shipping_addresses.each do |shipping_addresses| %>
+         <% @shipping_addresses.each do |shipping_addresses| %>
 
       <div>
 
-	    <div><% shipping_addresses.name_last %></div>
-	    <div><% shipping_addresses.name_first %></div>
-	    <div><% shipping_addresses.name_last_phonetic %></div>
-	    <div><% shipping_addresses.name_first_phonetic %></div>
-	    <div><% shipping_addresses.post_code %></div>
-	    <div><% shipping_addresses.address %></div>
-	    <div><% shipping_addresses.phone %></div>
-	    <btn><% link_to "この住所を使う", "#" %></btn>
+	    <div><%= shipping_addresses.name_last %></div>
+	    <div><%= shipping_addresses.name_first %></div>
+	    <div><%= shipping_addresses.name_last_phonetic %></div>
+	    <div><%= shipping_addresses.name_first_phonetic %></div>
+	    <div><%= shipping_addresses.post_code %></div>
+	    <div><%= shipping_addresses.address %></div>
+	    <div><%= shipping_addresses.phone %></div>
+	    <btn><%= link_to "この住所を使う", "#" %></btn>
 
 	   </div>
 
 	 <% end %>
-
- <%= paginates(@shipping_addresses, :outer_window => 4) %>
