@@ -22,7 +22,7 @@ end
 
 #artist
 [
-  Takara
+  "Takara"
 ].each do |name|
   Artist.create!(
     { name: name }
@@ -31,7 +31,7 @@ end
 
 #label
 [
-  Takara_comp
+  "Takara_comp"
 ].each do |name|
   Label.create!(
     { name: name }
@@ -40,7 +40,7 @@ end
 
 #genre
 [
-  J-POP
+  "J-POP"
 ].each do |name|
   Genre.create!(
     { name: name }
