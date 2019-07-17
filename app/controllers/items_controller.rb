@@ -33,12 +33,13 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		if @item.save
-			redirect_to root_path
+			redirect_to items_path
 		else
 			@items = Item.all
 			render :index
 		end
 	end
+
 	def search
 		@items = Item.search(params[:search])
 	end
@@ -52,6 +53,23 @@ class ItemsController < ApplicationController
 
 	private
 	def item_params
-	   	params.require(:item).permit(:name, :price, :status, :stack, :image_id, :artist_id, :genre_id, :label_id, discs_attributes: [:id, :_destroy])
+	   	params.require(:item).permit(:id,
+	   								 :name,
+	   								 :price,
+	   								 :status,
+	   								 :stack,
+	   								 :image_id,
+	   								 :artist_id,
+	   								 :genre_id,
+	   								 :label_id,
+	   								 discs_attributes: [:id,
+	   								 	                :name,
+	   								 	                :item_id,
+	   								 	                :_destroy,
+	   	                             					songs_attributes: [:id,
+	   	                             						               :name,
+	   	                             						               :track,
+	   	                             						               :disc_id,
+	   	                             						               :_destroy]])
 	end
 end
