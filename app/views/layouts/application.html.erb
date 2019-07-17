@@ -5,11 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-         <h1>Amason</h1>
+        <nav class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
+         <div class="navbar-header">
+          <div class="collapse navbar-collapse" id="navbarEexample">
+         <h1 class="navbar-brand">Amason</h1>
+         <ul class="nav navbar-nav">
             <div>
             <%= form_tag('/items',:method => 'get') do %>
                <%= text_field_tag :search %>
@@ -21,7 +26,7 @@
               <!-- ログイン時 -->
             <ul class="nav navbar-nav">
              <button type="button" class="btn btn-light"><%= link_to current_user.name_last, user_path(current_user) %></button>
-              <button type="button" class="btn btn-light"><%= link_to "カート", cart_items_path %></button>
+              <button type="button" class="btn btn-light">カート</button>
               <button type="button" class="btn btn-light"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
             </ul>
 
@@ -35,7 +40,11 @@
 
           <% end %>
 
-
+        </ul>
+      </ul>
+    </div>
+         </div>
+       </nav>
         </header>
 
         <%= yield %>
