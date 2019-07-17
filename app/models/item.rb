@@ -5,6 +5,8 @@ class Item < ApplicationRecord
 	belongs_to :label
 	belongs_to :artist
 	belongs_to :genre
+	belongs_to :good
+	belongs_to :cart
 
 	attachment :image
 
@@ -15,7 +17,9 @@ class Item < ApplicationRecord
       Item.where(['content LIKE ?', "%#{search}%"])
     end
 
-
+    def total_price
+    	good.price quantity
+    end
 
 
 end
