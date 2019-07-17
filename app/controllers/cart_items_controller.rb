@@ -6,4 +6,10 @@ class CartItemsController < ApplicationController
 	def show
 		@user = current_user
 	end
+
+    def create
+    @cart_item = CartItem.new
+    @cart_item.save
+    end
+
 end
