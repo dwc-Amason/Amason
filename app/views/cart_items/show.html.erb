@@ -11,14 +11,18 @@
 				    <%= @user.name_first_phonetic %>
 				    <%= @user.name_last_phonetic %></th>
 				  </tr>
-				    <tr>
+				  <tr>
 				    <h3>郵便番号</h3>
-				    <%= user.post_code %>
-				    </tr>
-				    <h3>お届け先住所</h3>
-				    <%= user.address %>
-				    <h3>電話番号</h3>
-				    <%= user.phone %>
+				    <%= @user.post_code %>
+				  </tr>
+				  <tr>
+				    <th><h3>お届け先住所</h3>
+				    <%= @user.address %></th>
+				  </tr>
+				  <tr>
+				    <th><h3>電話番号</h3>
+				    <%= @user.phone %></th>
+				  </tr>
 				</table>
 		    </div>
 		    <%= link_to '既存の住所を使用',class: "btn btn-primary" %>
