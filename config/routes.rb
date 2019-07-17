@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :artists
   resources :genres
   root "items#index"
-  get "/admins/index" => "admin#index"
   get "/admins/link" => "admin#link"
+  get "/admins/index" => "admin#index"
   get "/admins/order" => "admin#order"
+  get 'admins/:id', to: 'admin#show', as: 'admin'
 end
