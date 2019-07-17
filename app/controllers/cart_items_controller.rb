@@ -5,7 +5,6 @@ class CartItemsController < ApplicationController
 
 	def show
 		@user = current_user
-		@cart_item = CartItem.find(params[:id])
 	end
 
     def create
