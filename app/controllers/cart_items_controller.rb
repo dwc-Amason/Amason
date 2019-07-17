@@ -1,13 +1,18 @@
 class CartItemsController < ApplicationController
-    def index
-    @cart_items = current_user.cart_items
+<<<<<<< HEAD
+	def index
+		@cart_items = current_cart.cart_items
+	end
 
-    end
+	def show
+		@user = current_user
+	end
 
     def create
 	    @cart_items = CartItem.new(cart_item_params)
     	@cart_items.save
     end
+
 end
 
 private
