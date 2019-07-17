@@ -1,5 +1,7 @@
 <section>
-	<h2><% @artist.name %></h2>
-	<% form_for(@artist) do |f| %>
-	<% f.text_field :name %>
+	<h2><%= @artist.name %></h2>
+	<%= form_for(@artist) do |f| %>
+	<div><%= f.text_field :name %></div>
+	<div><%= f.submit %></div>
+	<% end %>
 </section>

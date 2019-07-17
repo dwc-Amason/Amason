@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find(params[:id])
+        @discs = @item.discs
 	end
 
 	def new
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		if @item.save
-			redirect_to items_path
+			redirect_to root_path
 		else
 			@items = Item.all
 			render :index
@@ -40,6 +41,12 @@ class ItemsController < ApplicationController
 	end
 	def search
 		@items = Item.search(params[:search])
+	end
+
+	def destroy
+		@item = Item.find(params[:id])
+		@item.destroy
+		redirect_to items_path
 	end
 
 

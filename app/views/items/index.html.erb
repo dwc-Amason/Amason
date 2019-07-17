@@ -1,6 +1,5 @@
 
 
-
 <h1>商品一覧</h1>
 
 
@@ -11,12 +10,12 @@
 <% @items.each do |item| %>
 	  <div class="col-md-4">
 	   <%= link_to item_path(item) do %>
-	    <%= attachment_image_tag '#', :image %>
+	    <div><%= attachment_image_tag item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %></div>
 
 			<div><%= item.name %></div>
-			<div><%= item_artists.name %></div>
+			<div><%= item.artist_id %></div>
 			<div><%= item.price %></div>
-edrftg
+
 
 
 	   <% end %>
@@ -27,3 +26,4 @@ edrftg
 	<%= paginate(@itemse, :outer_window => 3) %>
 </div>
 <% end %>
+

@@ -6,6 +6,8 @@ class Item < ApplicationRecord
 	belongs_to :artist
 	belongs_to :genre
 
+	attachment :image
+
 	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
 
     def self.search(search)
