@@ -1,15 +1,15 @@
 <h1>CD新規登録</h1>
-<div  class="container">
+<div class="container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-6 col-md-offset-3" >
 			<%= form_for(@item) do |f| %>
 			<ul>
 				<li>
 					<p>タイトル</p>
-					<%= f.text_field :name %>
+					<%= f.text_field :name, class: "form-control", placeholder: 'タイトルを入力してください' %>
 				</li>
 				<li>
-					<p>歌手</p>
+					<p>アーティスト</p>
 					<%= f.select :artist_id, Artist.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
 				</li>
 				<li>
@@ -22,44 +22,46 @@
 				</li>
 				<li>
 					<p>価格</p>
-					<%= f.text_field :price %>
+					<%= f.text_field :price, class: "form-control", placeholder: '価格を入力してください' %>
 				</li>
 				<li>
-					<p>在庫</p>
-					<%= f.text_field :stack %>
+					<p>在庫数</p>
+					<%= f.text_field :stack, class: "form-control", placeholder: '在庫数を入力してください' %>
 				</li>
 				<li>
-					<p>画像</p>
+					<p>ジャケット写真</p>
 					<%= f.attachment_field :image %>
 				</li>
 				<li>
-					<h3>Disc</h3>
+					<p>ディスク</p>
 					<div id="discs">
 						<%= f.fields_for :discs do |disc| %>
 						<%= render 'disc_fields', f: disc %>
 						<% end %>
 					</div>
 					<div class="links">
-						<%= link_to_add_association 'add disc', f, :discs %>
+						<%= link_to_add_association 'ディスクを追加', f, :discs %>
 					</div>
-					<%= f.submit %>
-					<% end %>
+				</li>
+				<li>
+					<p>ステータス</p>
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-primary active">
+							<input type="radio" name="sampleRadio" id="sampleRadio1" autocomplete="off" checked> 販売中
+						</label>
+						<label class="btn btn-primary">
+							<input type="radio" name="sampleRadio" id="sampleRadio2" autocomplete="off"> 販売停止中
+						</label>
+					</div>
 				</li>
 			</ul>
+			<% end %>
 		</div>
-	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<p>ステータス</p>
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-primary active">
-					<input type="radio" name="sampleRadio" id="sampleRadio1" autocomplete="off" checked> 販売中
-				</label>
-				<label class="btn btn-primary">
-					<input type="radio" name="sampleRadio" id="sampleRadio2" autocomplete="off"> 販売停止中
-				</label>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5" >
+				<%= form_for(@item) do |f| %>
+					<% f.submit class: "form-control" %>
+				<% end %>
 			</div>
 		</div>
 	</div>

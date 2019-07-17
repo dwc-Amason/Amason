@@ -1,20 +1,33 @@
-<h1>ユーザー一覧</h1>
+<h1>ユーザ一覧</h1>
 <!-- 検索フォーム -->
 <div class="container">
 	<div class="row">
-		<div class="col-md-4">
-			<table class="table table-hover table-inverse">
-				<tbody>
-					<% @users.each do |k| %>
-					<ul>
-						<%= link_to user_path(k) do %>
-						<li><%= k.name_last %><%= k.name_first %></li>
+		<table class="table table-hover table-inverse">
+			<thead>
+            	<tr>
+              		<th>名前</th>
+              		<th>電話番号</th>
+              		<th>住所</th>
+            	</tr>
+          	</thead>
+          	<tbody>
+          		<% @users.each do |user| %>
+          		<tr>
+					<td>
+						<%= link_to admin_path(user.id) do %>
+						<h1><%= user.name_last %><%= user.name_first %></h1>
 						<% end %>
-					</ul>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
+					</td>
+					<td>
+						<h1><%= user.phone %></h1>
+					</td>
+					<td>
+						<h1><%= user.address %></h1>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+        </table>
 	</div>
 </div>
 <!-- ページング　-->
