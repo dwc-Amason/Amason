@@ -16,6 +16,15 @@ class UsersController < ApplicationController
   		@user = User.find(params[:id])
   	end
 
+  	def destroy
+  		@user = User.find_by(id: params[:id])
+  		if @user.destroy
+  			redirect_to users_path
+  		else
+  			render :edit
+  		end
+  	end
+
 	private
 
 	def user_params
