@@ -1,5 +1,5 @@
 class CartItemsController < ApplicationController
-<<<<<<< HEAD
+
 	def index
 		@cart_items = current_cart.cart_items
 	end
@@ -11,6 +11,7 @@ class CartItemsController < ApplicationController
     def create
 	    @cart_items = CartItem.new(cart_item_params)
     	@cart_items.save
+    	redirect_to cart_items_path(@cart_item)
     end
 
 end
