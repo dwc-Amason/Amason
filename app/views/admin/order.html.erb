@@ -1,5 +1,12 @@
-<h1>受注履歴一覧</h1>
-<!-- 検索フォーム -->
-<div  class="container">
-	<div class="row">
-		<!-- 注文履歴 受注履歴一覧から持ってくる -->
+<h1>受注履歴</h1>
+	<!-- 検索フォーム -->
+	<% @orders.each do |order| %>
+	<div>
+	    <%= order.created_at %>
+		<%= order.total_price %>
+		<%= order_item.number %>
+	    <%= link_to "購入履歴詳細", order_path(order.id) %>
+	    <!-- ステータス -->
+	</div>
+	<% end %>
+	<!-- ページング -->
