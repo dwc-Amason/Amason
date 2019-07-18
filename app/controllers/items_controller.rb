@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 	def index
 		@items = Item.all
 		@itemse = Item.page(params[:page]).per(15)
+		@cart_item = CartItem.new
 	end
 
 	def edit
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
 		@item = Item.new
 		@disc = @item.discs.build
 		@song = @disc.songs.build
+		@genres = Genre.all
 	end
 
 	def create

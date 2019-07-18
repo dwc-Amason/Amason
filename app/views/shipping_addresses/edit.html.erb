@@ -1,29 +1,39 @@
-　<h1>配送先の編集ページ<h1>
-
-
-    <div>
-      <%= form_for(@shipping_address) do |f| %>
-       <h3>氏名</h3>
-        <div><%= f.text_field :name_last %></div>
-        <div><% @shipping_address.name_last %></div>
-        <div><%= f.text_field :name_first %></div>
-        <div><% @shipping_address.name_first %></div><br>
-       <h3>フリガナ</h3>
-        <div><%= f.text_field :name_last_phonetic %></div>
-        <div><% @shipping_address.name_last_phonetic %></div>
-        <div><%= f.text_field :name_first_phonetic %></div>
-        <div><% @shipping_address.name_first_phonetic %></div><br>
-       <h3>郵便番号</h3>
-        <div><%= f.text_field :post_code %></div>
-        <div><% @shipping_address.post_code %></div><br>
-       <h3>住所1</h3>
-        <div><%= f.text_field :address %></div>
-        <div><% @shipping_address.address %></div><br>
-       <h3>電話番号</h3>
-        <div><%= f.text_field :phone %></div>
-        <div><% @shipping_address.phone %></div><br>
-     </div>
-        <%= f.submit 'アップデート' %>
-
+<div class="container">
+　<h2>配送先の編集ページ</h2>
+  <table>
+    <%= form_for(@shipping_address) do |f| %>
+    <tr>
+      <h4>氏名</h4>
+      <th><%= @shipping_address.name_last %></th>
+      <td><%= f.text_field :name_last %></td>
+      <th><%= @shipping_address.name_first %></th>
+      <td><%= f.text_field :name_first %></td>
+    </tr>
+    <tr>
+      <h4>フリガナ</h4>
+      <th><%= @shipping_address.name_last_phonetic %></th>
+      <td><%= f.text_field :name_last_phonetic %></td>
+      <th><%= @shipping_address.name_first_phonetic %></th>
+      <td><%= f.text_field :name_first_phonetic %></td>
+    </tr>
+    <tr>
+      <h4>郵便番号</h4>
+      <th><%= @shipping_address.post_code %></th>
+      <td><%= f.text_field :post_code %></td>
+    </tr>
+    <tr>
+      <h4>住所1</h4>
+      <th><%= @shipping_address.address %></th><br>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <h4>電話番号</h4>
+      <th><%= @shipping_address.phone %></th>
+      <td><%= f.text_field :phone %></td>
+    </tr>
+    <tr>
+      <%= f.submit 'アップデート' %>
+    </tr>
     <% end %>
-
+  </table>
+</div>

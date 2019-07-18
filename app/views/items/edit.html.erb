@@ -9,15 +9,15 @@
 				</li>
 				<li>
 					<p>歌手</p>
-					<%= @item_artist.name %>
+					<%= @item.artist.name %>
 				</li>
 				<li>
 					<p>ジャンル</p>
-					<%= @item_genre.name %>
+					<%= @item.genre.name %>
 				</li>
 				<li>
 					<p>レーベル</p>
-					<%= @item_label.name %>
+					<%= @item.label.name %>
 				</li>
 				<li>
 					<p>値段</p>
@@ -29,7 +29,7 @@
 				</li>
 				<li>
 					<p>画像</p>
-					<%= attachment_image_tag @item %>
+					<%= attachment_image_tag item, :image, format: 'jpeg', size: "100x100" %>
 				</li>
 				<li>
 					<p>ディスク</p>
