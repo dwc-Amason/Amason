@@ -15,5 +15,4 @@ class AdminController < ApplicationController
 	def link
   	end
 
-
 end

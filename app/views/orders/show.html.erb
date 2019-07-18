@@ -8,13 +8,13 @@
 		 <% @orders.each do |order| %>
 
 			 <div>
-                    <div><%= attachment_image_tag book.user, :image,size: "100x100" %></div>
-				    <div>商品名<%= item.name %></div>
-					<div>価格<%= order_items.price %></div>
-					<div>購入個数<%= order_item.number %></div>
-					<div>在庫数表示<%= item.stack %></div>
-					<div>送付先<%= order.address %></div>
-					<div>ステータス<%= order.status %></div>
+                    <%= attachment_image_tag book.user, :image,size: "100x100" %>
+				    商品名<%= item.name %>
+					価格<%= order_items.price %>
+					購入個数<%= order_item.number %>
+					在庫数表示<%= item.stack %>
+					送付先<%= order.address %>
+					ステータス<%= order.status %>
              </div>
 
 		 <% end %>
