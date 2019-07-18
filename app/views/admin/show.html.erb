@@ -29,7 +29,6 @@
 		    	</thead>
 		  	</table>
 	  	</div>
-		<!-- ユーザー情報 ユーザー詳細ページから持ってくる -->
 	</div>
 	<div class="row">
 		<% @shipping_addresses.each do |shipping_addresses| %>
@@ -43,7 +42,6 @@
 	    	<div><%= shipping_addresses.phone %></div>
 	    </div>
 	    <% end %>
-		<!-- 配送先一覧 配送先一覧ページから持ってくる -->
 	</div>
 	<div class="row">
 		<% @orders.each do |order| %>
@@ -53,6 +51,5 @@
 			<div><%= order_item.number %></div>
 		</div>
 		<% end %>
-		<!-- 購入履歴 受注履歴一覧ページから持ってくる -->
 	</div>
 </div>
