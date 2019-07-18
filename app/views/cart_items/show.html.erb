@@ -39,11 +39,17 @@
 	    	<h5>クレジットカード</h5>
 	    </div>
 	</div>
-	<div class="botom well">
+	<div class="botom-well">
+		<% @cart_items.each do |cart_item| %>
 		<table>
-
-		<%= @cart_item.id %>
+		<tr>
+		    <th><%= attachment_image_tag item, :image, format: 'jpeg', fallback: "",size: "100x100"%>
+			<%= cart_item.items.name %></th>
+			<th><%= cart_item.item.price %></th>
+		</tr>
 		<% end %>
+	    </table>
+	    <%= link_to '注文確定', orders_path %>
 	</div>
 
 </div>
