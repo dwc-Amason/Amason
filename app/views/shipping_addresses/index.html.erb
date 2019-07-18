@@ -1,7 +1,10 @@
-<h1>住所選択</h1>
+<div class="container">
+	<h1>住所選択</h1>
+	<div class="row" >
          <% @shipping_addresses.each do |shipping_addresses| %>
 
-      <ul>
+
+      <ul class="col-md-4" border="2">
 
 	    <li><%= shipping_addresses.name_last %></li>
 	    <li><%= shipping_addresses.name_first %></li>
@@ -15,3 +18,5 @@
 	   </ul>
 
 	 <% end %>
+	</div>
+</div>

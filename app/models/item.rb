@@ -6,6 +6,7 @@ class Item < ApplicationRecord
 	belongs_to :artist
 	belongs_to :genre
 
+
 	attachment :image
 
 	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
@@ -14,7 +15,6 @@ class Item < ApplicationRecord
       return Item.all unless search
       Item.where(['content LIKE ?', "%#{search}%"])
     end
-
 
 
 
