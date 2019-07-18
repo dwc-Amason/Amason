@@ -7,4 +7,6 @@ class User < ApplicationRecord
          has_many :orders
          has_many :shippingAddresses
 
+         acts_as_paranoid
+
 end

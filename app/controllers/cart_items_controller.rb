@@ -1,11 +1,12 @@
 class CartItemsController < ApplicationController
-<<<<<<< HEAD
+
 	def index
-		@cart_items = current_cart.cart_items
+		@cart_items = current_user.cart_items
 	end
 
 	def show
 		@user = current_user
+		@cart_items = current_user.cart_items
 	end
 
     def create
@@ -13,9 +14,10 @@ class CartItemsController < ApplicationController
     	@cart_items.save
     end
 
-end
 
-private
+
+	private
 	def cart_item_params
 	   	params.require(:cart_item).permit(:id, :number, :user_id, :item_id)
 	end
+end
