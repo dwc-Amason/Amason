@@ -21,6 +21,7 @@ class ShippingAddressesController < ApplicationController
 	end
 
 	def index
+		current_user == @shipping_addresses.user_id
 		@shipping_addresses = ShippingAddress.all
 		#binding.pry
 	end
