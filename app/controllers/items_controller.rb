@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 		@item = Item.new
 		@disc = @item.discs.build
 		@song = @disc.songs.build
+		@genres = Genre.all
 	end
 
 	def create
