@@ -1,5 +1,11 @@
+
 <h1>ユーザ一覧</h1>
-<!-- 検索フォーム -->
+<p>ユーザ検索</p>
+<%= form_tag(admins_index_path, :method => 'get' ) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
 <div class="container">
 	<div class="row">
 		<table class="table table-hover table-inverse">

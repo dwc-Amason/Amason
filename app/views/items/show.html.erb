@@ -6,13 +6,12 @@
 			<div class="jakesya img-circle">
 			  <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
 		    </div>
-	          <div class="name-rist">
+	          <ul class="name-rist">
 				<div>アーティスト<%= @item.artist.name %></div><br>
 				<div>レーベル<%= @item.label.name %></div><br>
 				<div>ジャンル<%= @item.genre.name%></div><br>
 				<div>アルバム名<%= @item.name %></div>
-              </div>
-	<!--  eachを二つ使いたい-->
+              </ul>
 				<div class="songs">
 				        <% @discs.each do |disc| %>
 				          <div><%= disc.name %></div>
@@ -22,14 +21,17 @@
 				        <% end %>
 
 				</div>
-
-	<!-- ここまで    -->
-
-
 				<div class="btn status"><%= @item.status %></div>
 
-				<div class="go-cart"><%= link_to "カートに入れる", cart_items_path %></div>
-
-
+				<% if user_signed_in? %>
+			        <%= form_for(@cart_item) do |f| %>
+		        	<%= f.number_field :number, in:0..10 %>
+		        	<%= f.hidden_field :item_id, value: @item.id %>
+		        	<%= f.hidden_field :user_id, value: current_user.id %>
+		            <%= f.submit "カートに入れる" %>
+		            <% end %>
+		        <% else %>
+		        	<div class="go-cart"><%= link_to "カートに入れる", new_user_session_path %></div>
+		        <% end %>
 	</div>
 </div>

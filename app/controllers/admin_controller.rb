@@ -5,7 +5,7 @@ class AdminController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@shipping_addresses = Shipping_address.all
+		@shipping_addresses = ShippingAddress.all
 		@orders = Order.all
 	end
 
@@ -14,6 +14,5 @@ class AdminController < ApplicationController
 
 	def link
   	end
-
 
 end
