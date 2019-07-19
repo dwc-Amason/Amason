@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get "/admins/index" => "admin#index"
   get "/admins/order" => "admin#order"
   get 'admins/:id', to: 'admin#show', as: 'admin'
+  get "/admin/itemview" => "admin#itemview"
+
 end
