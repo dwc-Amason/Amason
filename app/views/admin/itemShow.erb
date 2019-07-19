@@ -24,16 +24,6 @@
 
 				</div>
 				<div class="btn status"><%= @item.status %></div>
-
-				<% if user_signed_in? %>
-			        <%= form_for(@cart_item) do |f| %>
-		        	<%= f.number_field :number, in:0..10 %>
-		        	<%= f.hidden_field :item_id, value: @item.id %>
-		        	<%= f.hidden_field :user_id, value: current_user.id %>
-		            <%= f.submit "カートに入れる" %>
-		            <% end %>
-		        <% else %>
-		        	<div class="go-cart"><%= link_to "カートに入れる", new_user_session_path %></div>
-		        <% end %>
-	</div>
+				</div>
+	    		<btn><%= link_to "商品編集", edit_item_path %></btn>
 </div>

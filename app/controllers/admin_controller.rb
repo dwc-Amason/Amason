@@ -15,4 +15,9 @@ class AdminController < ApplicationController
 	def link
   	end
 
+  	def itemview
+  		@item = Item.find(params[:id])
+        @discs = @item.discs
+  	end
+
 end
