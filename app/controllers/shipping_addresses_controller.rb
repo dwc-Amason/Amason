@@ -22,7 +22,7 @@ class ShippingAddressesController < ApplicationController
 
 	def index
 		current_user == @shipping_addresses.user_id
-		@shipping_addresses = ShippingAddress.all
+		@shipping_addresses = ShippingAddress.where(user_id: shipping_address.user.id)
 		#binding.pry
 	end
 
