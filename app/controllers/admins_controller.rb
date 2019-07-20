@@ -1,15 +1,21 @@
-class AdminController < ApplicationController
-	def index
+class AdminsController < ApplicationController
+	def userIndex
 		@users = User.all
 	end
 
-	def show
+	def userShow
 		@user = User.find(params[:id])
 		@shipping_addresses = ShippingAddress.all
 		@orders = Order.all
 	end
 
+	def itemShow
+	end
+
 	def order
+	end
+
+	def orderShow
 	end
 
 	def link
@@ -19,5 +25,4 @@ class AdminController < ApplicationController
   		@item = Item.find(params[:id])
         @discs = @item.discs
   	end
-
 end
