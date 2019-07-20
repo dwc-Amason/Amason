@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
@@ -11,9 +12,11 @@ Rails.application.routes.draw do
   resources :genres
   root "items#index"
   get "/admins/link" => "admin#link"
-  get "/admins/index" => "admin#index"
+  get "/admins/userIndex" => "admin#userIndex"
   get "/admins/order" => "admin#order"
-  get 'admins/:id', to: 'admin#show', as: 'admin'
+  get 'admins/itemShow/:id', to: 'admin#itemShow', as: 'admins_itemShow'
+  get 'admins/userShow/:id', to: 'admin#userShow', as: 'admins_userShow'
+  get 'admins/orderShow/:id', to: 'admin#orderShow', as: 'admins_orderShow'
   get "/admin/itemview" => "admin#itemview"
 
 end
