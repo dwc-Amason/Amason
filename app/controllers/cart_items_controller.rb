@@ -21,5 +21,3 @@ class CartItemsController < ApplicationController
 	end
 end
 
-
-ShippingAddress.where(user_id: shipping_address.user.id)
