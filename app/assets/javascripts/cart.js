@@ -1,9 +1,9 @@
 $(function(){
 	/* 初期値の設定 */
 	var priceBase = removeFigure($(".basePrice").text()); //基本価格を取得
-	var priceTax = removeFigure($(".tax").text()); //消費税率を取得
-	var priceTotal = priceBase * priceTax; //基本価格と消費税から総額を計算
-	var optionsPrice = 1.08; //加算する消費税の初期設定
+	var Tax = 1.08; //加算する消費税の初期設定
+	var priceTotal = priceBase * Tax; //基本価格と消費税から総額を計算
+	var priceTax = priceBase * Tax - priceBase; //基本価格と消費税から総額を計算
 	var basePrice = priceBase; //数量変更後の基本価格を変更
 
 	$(".priceTotal").text(addFigure(priceTotal)); //総額を反映

@@ -1,3 +1,4 @@
+
 <div class="shopping">
 	<h1>ショッピングカート</h1>
 	<% @cart_items.each do |cart_item| %>
@@ -8,7 +9,7 @@
 		<td><%= cart_item.item.name %><td>
 		<td class="basePrice"><%= cart_item.item.price %></td>
 		<select class="num num1">
-			<option value="1" data-price= cart_item.price * value>1個</option>
+			<option value="1" data-price="10000">1個</option>
 			<option value="2" data-price= cart_item.price * value>2個</option>
 			<option value="3" data-price= cart_item.price * value>3個</option>
 			<option value="4" data-price= cart_item.price * value>4個</option>
@@ -19,6 +20,9 @@
 			<option value="9" data-price= cart_item.price * value>9個</option>
 			<option value="10" data-price= cart_item.price * value>10個</option>
 		</select>
+		<td class="price">
+			<span class="total"></span>
+		</td>
 		<td>
 			<%= link_to '削除', item_path(cart_item), method: :delete, class: "btn btn-default"%>
 		</td>
