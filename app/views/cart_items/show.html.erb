@@ -34,9 +34,11 @@
 	<div class="">
 	    <h2>お支払い方法の選択</h2>
 	    <div class="top well">
-	    	<h5>代引</h5>
-	    	<h5>銀行振込</h5>
-	    	<h5>クレジットカード</h5>
+	    	<%= form_for(@shipping_address) do |f| %>
+	    	<label><%= f.radio_button :shipping_addresses, "代引" %></label>
+	    	<label><%= f.radio_button :shipping_addresses, "銀行振込" %></label>
+	    	<label><%= f.radio_button :shipping_addresses, "クレジットカード" %></label>
+	    	<% end %>
 	    </div>
 	</div>
 	<div class="botom-well">
