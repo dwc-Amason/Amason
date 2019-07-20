@@ -1,10 +1,5 @@
+<!-- 検索機能 -->
 <h1>ユーザ一覧</h1>
-<p>ユーザ検索</p>
-<%= form_tag(admins_index_path, :method => 'get' ) do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag 'Search', :name => nil %>
-<% end %>
-
 <div class="container">
 	<div class="row">
 		<table class="table table-hover table-inverse">
@@ -19,15 +14,15 @@
           		<% @users.each do |user| %>
           		<tr>
 					<td>
-						<%= link_to admin_path(user.id) do %>
-						<h1><%= user.name_last %><%= user.name_first %></h1>
+						<%= link_to admins_userShow_path(user.id) do %>
+						<p><%= user.name_last %><%= user.name_first %></p>
 						<% end %>
 					</td>
 					<td>
-						<h1><%= user.phone %></h1>
+						<p><%= user.phone %></p>
 					</td>
 					<td>
-						<h1><%= user.address %></h1>
+						<p><%= user.address %></p>
 					</td>
 				</tr>
 				<% end %>
