@@ -12,9 +12,8 @@ class CartItemsController < ApplicationController
     def create
 	    @cart_items = CartItem.new(cart_item_params)
     	@cart_items.save
+    	redirect_to cart_items_path(@cart_item)
     end
-
-
 
 	private
 	def cart_item_params
