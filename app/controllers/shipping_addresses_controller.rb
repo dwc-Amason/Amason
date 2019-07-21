@@ -25,6 +25,7 @@ class ShippingAddressesController < ApplicationController
 	end
 	def set_address
 		redirect_to cart_items_path
+
 	end
 
 	def update
