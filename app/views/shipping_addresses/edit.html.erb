@@ -3,36 +3,36 @@
   <table>
     <%= form_for(@shipping_address) do |f| %>
     <tr>
-      <h4>氏名</h4>
-      <th><%= @shipping_address.name_last %></th>
+      <td>氏名     </td>
+      <td><%= @shipping_address.name_last %></td>
       <td><%= f.text_field :name_last %></td>
-      <th><%= @shipping_address.name_first %></th>
+      <td><%= @shipping_address.name_first %></td>
       <td><%= f.text_field :name_first %></td>
     </tr>
     <tr>
-      <h4>フリガナ</h4>
-      <th><%= @shipping_address.name_last_phonetic %></th>
+      <td>フリガナ     </h4>
+      <td><%= @shipping_address.name_last_phonetic %></td>
       <td><%= f.text_field :name_last_phonetic %></td>
-      <th><%= @shipping_address.name_first_phonetic %></th>
+      <td><%= @shipping_address.name_first_phonetic %></td>
       <td><%= f.text_field :name_first_phonetic %></td>
     </tr>
     <tr>
-      <h4>郵便番号</h4>
-      <th><%= @shipping_address.post_code %></th>
+      <td>郵便番号     </td>
+      <td><%= @shipping_address.post_code %></td>
       <td><%= f.text_field :post_code %></td>
     </tr>
     <tr>
-      <h4>住所1</h4>
-      <th><%= @shipping_address.address %></th><br>
+      <td>住所1     </td>
+      <td><%= @shipping_address.address %></td><br>
       <td><%= f.text_field :address %></td>
     </tr>
     <tr>
-      <h4>電話番号</h4>
-      <th><%= @shipping_address.phone %></th>
+      <td>電話番号     </td>
+      <td><%= @shipping_address.phone %></td>
       <td><%= f.text_field :phone %></td>
-    </tr>
+    </td>
     <tr>
-      <%= f.submit 'アップデート' %>
+      <td><%= f.submit 'アップデート' %></td>
     </tr>
     <% end %>
   </table>

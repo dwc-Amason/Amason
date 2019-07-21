@@ -18,7 +18,7 @@
 				        <% @discs.each do |disc| %>
 				          <div>ディスク名<%= disc.name %></div>
 				          <% disc.songs.each do |song| %>
-				          	<div>曲名<%= song.name %></div>
+				          	<div><%= song.track %>  <%= song.name %></div>
 				          <% end %>
 				        <% end %>
 
