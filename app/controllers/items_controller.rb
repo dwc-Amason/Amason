@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		if @item.save
-			redirect_to items_path
+			redirect_to admins_itemIndex_path
 		else
 			@items = Item.all
 			render :index
@@ -50,7 +50,8 @@ class ItemsController < ApplicationController
 	def destroy
 		@item = Item.find(params[:id])
 		@item.destroy
-		redirect_to items_path
+		redirect_to  admins_itemIndex_path
+		flash[:notice] = "削除されました"
 	end
 
 

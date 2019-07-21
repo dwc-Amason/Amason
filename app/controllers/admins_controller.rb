@@ -34,6 +34,7 @@ class AdminsController < ApplicationController
 	end
 
 	def orderShow
+		@orderitems = Orderitem.all
 	end
 
 	def link
