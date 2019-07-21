@@ -15,12 +15,12 @@
           <div class="collapse navbar-collapse" id="navbarEexample">
          <h1 class="navbar-brand">Amason</h1>
          <ul class="nav navbar-nav">
-            <div>
+            <span>
             <%= form_tag('/items',:method => 'get') do %>
                <%= text_field_tag :search %>
                <%= submit_tag '検索', :name => nil %>
             <% end %>
-           </div>
+           </span>
 
             <% if user_signed_in? %>
               <!-- ログイン時 -->
