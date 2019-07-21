@@ -7,6 +7,7 @@ class CartItemsController < ApplicationController
 	def show
 		@user = current_user
 		@cart_items = current_user.cart_items
+		@Shipping_address = ShippingAddress.find(params[:id])
 	end
 
     def create
@@ -21,5 +22,3 @@ class CartItemsController < ApplicationController
 	end
 end
 
-
-ShippingAddress.where(user_id: shipping_address.user.id)

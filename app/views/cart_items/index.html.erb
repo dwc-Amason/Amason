@@ -1,17 +1,33 @@
+
 <div class="shopping">
 	<h1>ショッピングカート</h1>
 	<% @cart_items.each do |cart_item| %>
 	<tr>
-	<td><%= attachment_image_tag cart_item.item, :image, format: 'jpeg', size: "100x100"  %></td>
-	<td><%= cart_item.item.name %><td>
-	<td><%= cart_item.item.price %></td>
-	<td><%= cart_item.number %></td>
-	<td><%= link_to '削除', item_path(cart_item), method: :delete, class: "btn btn-default" %></td>
+		<td>
+			<%= attachment_image_tag cart_item.item, :image, format: 'jpeg', size: "100x100"  %>
+		</td>
+		<td><%= cart_item.item.name %><td>
+		<td class="basePrice"><%= cart_item.item.price %></td>
+		<select class="num num1">
+			<option value="1" data-price="10000">1個</option>
+			<option value="2" data-price= cart_item.price * value>2個</option>
+			<option value="3" data-price= cart_item.price * value>3個</option>
+			<option value="4" data-price= cart_item.price * value>4個</option>
+			<option value="5" data-price= cart_item.price * value>5個</option>
+			<option value="6" data-price= cart_item.price * value>6個</option>
+			<option value="7" data-price= cart_item.price * value>7個</option>
+			<option value="8" data-price= cart_item.price * value>8個</option>
+			<option value="9" data-price= cart_item.price * value>9個</option>
+			<option value="10" data-price= cart_item.price * value>10個</option>
+		</select>
+		<td class="price">
+			<span class="total"></span>
+		</td>
+		<td>
+			<%= link_to '削除', item_path(cart_item), method: :delete, class: "btn btn-default"%>
+		</td>
     </tr>
     <% end %>
-
-
-    <%= link_to 'レジに進む', "#"  %>
-
+    <%= link_to 'レジに進む', cart_items_path %>
 
 </div>
