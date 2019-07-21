@@ -21,8 +21,11 @@ class ShippingAddressesController < ApplicationController
 	end
 
 	def index
-		@shipping_addresses = ShippingAddress.where(user_id: shipping_address.user_id)
-		#binding.pry
+		@shipping_addresses = ShippingAddress.where(user_id: current_user.id)
+	end
+	def set_address
+		redirect_to cart_items_path
+
 	end
 
 	def update
