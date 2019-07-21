@@ -5,35 +5,35 @@
 			<%= form_for(@item) do |f| %>
 			<ul>
 				<li>
-					<p>タイトル</p>
-					<%= f.text_field :name, class: "form-control", placeholder: 'タイトルを入力してください' %>
+					アルバム名
+					<p><%= f.text_field :name, class: "form-control", placeholder: 'アルバム名を入力してください' %></p>
 				</li>
 				<li>
-					<p>アーティスト</p>
-					<%= f.select :artist_id, Artist.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
+					アーティスト名
+					<p><%= f.select :artist_id, Artist.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %></p>
 				</li>
 				<li>
-					<p>ジャンル</p>
-					<%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
+					ジャンル
+					<p><%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %></p>
 				</li>
 				<li>
-					<p>レーベル</p>
-					<%= f.select :label_id, Label.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
+					レーベル
+					<p><%= f.select :label_id, Label.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %></p>
 				</li>
 				<li>
-					<p>価格</p>
-					<%= f.text_field :price, class: "form-control", placeholder: '価格を入力してください' %>
+					価格
+					<p><%= f.text_field :price, class: "form-control", placeholder: '価格を入力してください' %></p>
 				</li>
 				<li>
-					<p>在庫数</p>
-					<%= f.text_field :stack, class: "form-control", placeholder: '在庫数を入力してください' %>
+					在庫数
+					<p><%= f.text_field :stack, class: "form-control", placeholder: '在庫数を入力してください' %></p>
 				</li>
 				<li>
-					<p>ジャケット写真</p>
-					<%= f.attachment_field :image %>
+					ジャケット写真
+					<p><%= f.attachment_field :image %></p>
 				</li>
 				<li>
-					<p>ディスク</p>
+					ディスク
 					<div id="discs">
 						<%= f.fields_for :discs do |disc| %>
 						<%= render 'disc_fields', f: disc %>
@@ -44,7 +44,7 @@
 					</div>
 				</li>
 				<li>
-					<p>ステータス</p>
+					ステータス
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-primary active">
 							<input type="radio" name="sampleRadio" id="sampleRadio1" autocomplete="off" checked> 販売中

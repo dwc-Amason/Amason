@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   resources :artists
   resources :genres
   root "items#index"
-  get "/admins/link" => "admin#link"
-  get "/admins/userIndex" => "admin#userIndex"
-  get "/admins/order" => "admin#order"
-  get 'admins/itemShow/:id', to: 'admin#itemShow', as: 'admins_itemShow'
-  get 'admins/userShow/:id', to: 'admin#userShow', as: 'admins_userShow'
-  get 'admins/orderShow/:id', to: 'admin#orderShow', as: 'admins_orderShow'
+  get "/admins/link" => "admins#link"
+  get "/admins/userIndex" => "admins#userIndex"
+  get "/admins/itemIndex" => "admins#itemIndex"
+  get "/admins/order" => "admins#order"
+  get 'admins/itemShow/:id', to: 'admins#itemShow', as: 'admins_itemShow'
+  get 'admins/userShow/:id', to: 'admins#userShow', as: 'admins_userShow'
+  get 'admins/orderShow/:id', to: 'admins#orderShow', as: 'admins_orderShow'
+  get 'admins/itemEdit/:id', to: 'admins#itemEdit', as: 'admins_itemEdit'
+  get 'admins/shipping_address/:id', to: 'admins#shipping_address', as: 'admins_shipping_address'
+  get 'admins/enduser_order/:id', to: 'admins#enduser_order', as: 'admins_enduser_order'
   get "/admin/itemview" => "admin#itemview"
-
 end
