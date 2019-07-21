@@ -13,7 +13,7 @@
 	    <li><%= shipping_addresses.post_code %></li>
 	    <li><%= shipping_addresses.address %></li>
 	    <li><%= shipping_addresses.phone %></li>
-	    <btn><%= link_to "この住所を使う", "#" %></btn>
+	    <btn><%= link_to "この住所を使う", cart_item_path shipping_addresses.id %></btn>
 
 	   </ul>
 
