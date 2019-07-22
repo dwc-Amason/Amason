@@ -1,29 +1,62 @@
+<h1>CD情報詳細</h1>
 <div class="container">
-	<h1 class="well item-show-title">商品詳細</h1>
-
-    <div>
-
-			<div class="jakesya img-circle">
-			  <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
-		    </div>
-	          <ul class="name-rist">
-	          	<li>タイトル<%= @item.name %></li>
-				<li>アーティスト<%= @item.artist.name %></li><br>
-				<li>ジャンル<%= @item.genre.name%></li><br>
-				<li>レーベル<%= @item.label.name %></li><br>
-	          	<li>価格<%= @item.price %></li>
-	          	<li>在庫数<%= @item.stack %></li>
-              </ul>
-				<div class="songs">
-				        <% @discs.each do |disc| %>
-				          <div>ディスク名<%= disc.name %></div>
-				          <% disc.songs.each do |song| %>
-				          	<div>曲名<%= song.name %></div>
-				          <% end %>
-				        <% end %>
-
-				</div>
-				<div class="btn status"><%= @item.status %></div>
-				</div>
-	    		<btn><%= link_to "商品編集", edit_item_path %></btn>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2 text-center">
+			<div>
+				<%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200"  %>
+			</div>
+		</div>
+		<div class="col-md-4 text-center">
+	    	<ul>
+	    		<li>
+	        		アルバム名
+	        		<p><%= @item.name %></p>
+	        	</li>
+	        	<li>
+					アーティスト名
+					<p><%= @item.artist.name %></p>
+				</li>
+				<li>
+					ジャンル
+					<p><%= @item.genre.name%></p>
+				</li>
+				<li>
+					レーベル
+					<p><%= @item.label.name %></p>
+				</li>
+				<li>
+	        		価格
+	        		<p><%= @item.price %>円</p>
+	        	</li>
+	        	<li>
+	        		在庫数
+	        		<p><%= @item.stack %></p>
+	        	</li>
+	        	<li>
+	        		販売状況
+	        		<p><%= @item.status %></p>
+	        	</li>
+        	</ul>
+			<div>
+				<% @discs.each do |disc| %>
+				<p>ディスク名<%= disc.name %></p>
+				<% disc.songs.each do |song| %>
+				<p>収録曲<% song.track %><%= song.name %></p>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="row text-center">
+	    <p><%= link_to "編集する", admins_itemEdit_path(@item) %></p>
+	    <p><%= link_to "削除する" , method: :delete, "data-confirm" => "本当に削除しますか？"%></p>
+	</div>
 </div>
+
+
+
+
+
+
+
+

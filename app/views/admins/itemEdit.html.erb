@@ -1,0 +1,111 @@
+<h1>CD情報編集</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<div>
+				<%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200"  %>
+			</div>
+			<ul>
+	    		<li>
+	        		アルバム名
+	        		<p><%= @item.name %></p>
+	        	</li>
+	        	<li>
+					アーティスト名
+					<p><%= @item.artist.name %></p>
+				</li>
+				<li>
+					ジャンル
+					<p><%= @item.genre.name%></p>
+				</li>
+				<li>
+					レーベル
+					<p><%= @item.label.name %></p>
+				</li>
+				<li>
+	        		価格
+	        		<p><%= @item.price %>円</p>
+	        	</li>
+	        	<li>
+	        		在庫数
+	        		<p><%= @item.stack %></p>
+	        	</li>
+	        	<li>
+	        		販売状況
+	        		<p><%= @item.status %></p>
+	        	</li>
+        	</ul>
+			<div>
+				<% @discs.each do |disc| %>
+				<p>ディスク名<%= disc.name %></p>
+				<% disc.songs.each do |song| %>
+				<p>収録曲<% song.track %><%= song.name %></p>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-6 text-center">
+			<%= form_for(@item) do |f| %>
+			<div>
+				<p>ジャケット写真</p>
+				<%= f.attachment_field :image %>
+			</div>
+			<ul>
+				<li>
+					<p>アルバム名</p>
+					<%= f.text_field :name, class: "form-control", placeholder: 'アルバム名を入力してください' %>
+				</li>
+				<li>
+					<p>アーティスト名</p>
+					<%= f.select :artist_id, Artist.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
+				</li>
+				<li>
+					<p>ジャンル</p>
+					<%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
+				</li>
+				<li>
+					<p>レーベル</p>
+					<%= f.select :label_id, Label.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %>
+				</li>
+				<li>
+					<p>価格</p>
+					<%= f.text_field :price, class: "form-control", placeholder: '価格を入力してください' %>
+				</li>
+				<li>
+					<p>在庫数</p>
+					<%= f.text_field :stack, class: "form-control", placeholder: '在庫数を入力してください' %>
+				</li>
+				<li>
+					販売状況
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-primary active">
+							<input type="radio" name="sampleRadio" id="sampleRadio1" autocomplete="off" checked> 販売中
+						</label>
+						<label class="btn btn-primary">
+							<input type="radio" name="sampleRadio" id="sampleRadio2" autocomplete="off"> 販売停止中
+						</label>
+					</div>
+				</li>
+			</ul>
+			<div>
+				<div id="discs">
+					<%= f.fields_for :discs do |disc| %>
+					<%= render 'admin_disc_fields', f: disc %>
+					<% end %>
+				</div>
+				<div class="links">
+					<%= link_to_add_association 'ディスクを追加', f, :discs %>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center">
+			<%= f.submit class: "form-control" %>
+		</div>
+	</div>
+	<% end %>
+</div>
+
+
+
+
+
