@@ -1,14 +1,25 @@
 <h1>購入履歴一覧</h1>
-<% @orders.each do |order| %>
-	<div>
-		<table>
-			<tr>
-			<th>購入履歴</th>
-		    <%= order.created_at %>
-			<%= order.total_price %>
-			<%= order_item.number %>
-		    <%= link_to "購入履歴詳細", order_path(current_user.id) %>
-		    </tr>
-	    </table>
+<div class="container">
+	<div class="row">
+		<table border="1" class="table table-hover table-inverse">
+			<thead>
+				<tr>
+					<th>購入日</th>
+              		<th>合計金額</th>
+            	</tr>
+            </thead>
+            <tbody>
+            	<% @orders.each do |order| %>
+            	<tr>
+					<td>
+						<p><%= order.created_at %></p>
+					</td>
+					<td>
+						<p><%= order.total_price %></p>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
 	</div>
-	<% end %>
+</div>

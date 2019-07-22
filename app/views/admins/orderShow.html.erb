@@ -1,11 +1,15 @@
 <h1>受注履歴詳細</h1>
 <div class="container">
-	<div class="row text-center">
-		<p><%= @orderitem.user.name_last %><%= @orderitem.user.name_first %></p>
+	<div class="row">
 		<p><%= @orderitem.order.created_at %></p>
+		<p><%= @orderitem.user.name_last + @orderitem.user.name_first %></p>
 	</div>
-	<div class="row text-center">
-		<% @orderitems.each do |orderitem| %>
+	<% @orderitems.each do |orderitem| %>
+	<div class="row">
+		<div class="col-md-4 text-center">
+			<%= attachment_image_tag order.item, :image, :fill, 100, 100, format: 'jpeg' %>
+		</div>
+		<dib class="col-md-8 text-center">
 		<ul>
 			<li>
 				CD名
@@ -28,6 +32,6 @@
 				<p><%= orderitem.order.shipping_status %></p>
 			</li>
 		</ul>
-		<% end %>
 	</div>
+	<% end %>
 </div>

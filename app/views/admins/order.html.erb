@@ -13,12 +13,13 @@
           	</thead>
           	<tbody>
           		<% @orders.each do |order| %>
+          		<%= link_to admins_orderShow_path(user.id) do %>
           		<tr>
 					<td>
 						<p><%= order.created_at %></p>
 					</td>
 					<td>
-						<p><%= order.name_last %></p><p><%= order.name_first %></p>
+						<p><%= order.user.name_last + order.user.name_first %></p>
 					</td>
 					<td>
 						<p><%= order.total_price %></p>
@@ -27,6 +28,7 @@
 						<p><%= order.shipping_status %></p>
 					</td>
 				</tr>
+				<% end %>
 				<% end %>
 			</tbody>
 		</table>

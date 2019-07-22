@@ -1,4 +1,33 @@
 <h1>配送先一覧</h1>
 <div class="container">
-	<div class="row text-center">
-		
+	<div class="row">
+		<table border="1" class="table table-hover table-inverse">
+			<thead>
+				<tr class="row">
+					<th class="col-md-2">名前</th>
+					<th class="col-md-2">電話番号</th>
+					<th class="col-md-2">郵便番号</th>
+              		<th class="col-md-6">住所</th>
+            	</tr>
+            </thead>
+            <tbody>
+            	<% @shipping_addresses.each do |shipping_addresses| %>
+            	<tr>
+					<td>
+						<p><%= shipping_addresses.name_last + shipping_addresses.name_first %></p>
+					</td>
+            		<td>
+						<p><%= shipping_addresses.phone %></p>
+					</td>
+					<td>
+						<p><%= shipping_addresses.post_code %></p>
+					</td>
+					<td>
+						<p><%= shipping_addresses.address %></p>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
