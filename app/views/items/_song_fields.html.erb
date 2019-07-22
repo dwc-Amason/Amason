@@ -1,11 +1,13 @@
 <div class="nested-fields">
-	<div class="field">
-		<p>曲</p>
-		<%= f.text_field :name, class: "form-control", placeholder: '曲を入力してください' %>
-		<p>曲順</p>
+	<div class="field　row">
+		<div class="col-md-3">
+			<span>曲順<span>
 		<%= f.text_field :track, class: "form-control", placeholder: '曲順を入力してください' %>
-	</div>
-	<div class="links">
-		<%= link_to_remove_association "曲を削除", f %>
+		</div>
+		<div class="col-md-9">
+			<span>曲</span>
+			<span><%= link_to_remove_association "曲を削除", f %></span>
+		<%= f.text_field :name, class: "form-control", placeholder: '曲を入力してください' %>
+		</div>
 	</div>
 </div>
