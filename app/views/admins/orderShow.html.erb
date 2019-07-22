@@ -1,1 +1,37 @@
 <h1>受注履歴詳細</h1>
+<div class="container">
+	<div class="row">
+		<p><%= @orderitem.order.created_at %></p>
+		<p><%= @orderitem.user.name_last + @orderitem.user.name_first %></p>
+	</div>
+	<% @orderitems.each do |orderitem| %>
+	<div class="row">
+		<div class="col-md-4 text-center">
+			<%= attachment_image_tag order.item, :image, :fill, 100, 100, format: 'jpeg' %>
+		</div>
+		<dib class="col-md-8 text-center">
+		<ul>
+			<li>
+				CD名
+				<p><%= orderitem.item.name %></p>
+			</li>
+			<li>
+				価格
+				<p><%= orderitem.price %>円</p>
+			</li>
+			<li>
+				枚数
+				<p><%= orderitem.number %></p>
+			</li>
+			<li>
+				配送先
+				<p><%= orderitem.user.shipping_address.address %></p>
+			</li>
+			<li>
+				発送状況
+				<p><%= orderitem.order.shipping_status %></p>
+			</li>
+		</ul>
+	</div>
+	<% end %>
+</div>
