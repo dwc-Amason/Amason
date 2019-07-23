@@ -8,9 +8,13 @@ class AdminsController < ApplicationController
 	end
 
 	def shipping_address
+		@user = User.find(params[:id])
+		@shipping_addresses = ShippingAddress.where(user_id: @user)
 	end
 
 	def enduser_order
+		@user = User.find(params[:id])
+		@orders = Order.where(user_id: @user)
 	end
 
 	def itemIndex
@@ -24,9 +28,9 @@ class AdminsController < ApplicationController
 
 	def itemEdit
 		@item = Item.find(params[:id])
-		@discs = @item.discs
-		@disc = @item.discs.build
-		@song = @disc.songs.build
+		@disc = Disc.find(@item.id)
+		@discs = Disc.where(item_id: @item)
+		@songs = Song.where(disc_id: @disc.id)
 	end
 
 	def order
@@ -34,6 +38,7 @@ class AdminsController < ApplicationController
 	end
 
 	def orderShow
+		@orderitems = Orderitem.all
 	end
 
 	def link
@@ -60,4 +65,26 @@ class AdminsController < ApplicationController
   		@item = Item.find(params[:id])
         @discs = @item.discs
   	end
+
+  	private
+  	def item_params
+	   	params.require(:item).permit(:id,
+	   								 :name,
+	   								 :price,
+	   								 :status,
+	   								 :stack,
+	   								 :image_id,
+	   								 :artist_id,
+	   								 :genre_id,
+	   								 :label_id,
+	   								 discs_attributes: [:id,
+	   								 	                :name,
+	   								 	                :item_id,
+	   								 	                :_destroy,
+	   	                             					songs_attributes: [:id,
+	   	                             						               :name,
+	   	                             						               :track,
+	   	                             						               :disc_id,
+	   	                             						               :_destroy]])
+	end
 end

@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   get 'admins/userShow/:id', to: 'admins#userShow', as: 'admins_userShow'
   get 'admins/orderShow/:id', to: 'admins#orderShow', as: 'admins_orderShow'
   get 'admins/itemEdit/:id', to: 'admins#itemEdit', as: 'admins_itemEdit'
+  get 'admins/discEdit/:id', to: 'admins#discEdit', as: 'admins_discEdit'
   get 'admins/shipping_address/:id', to: 'admins#shipping_address', as: 'admins_shipping_address'
   get 'admins/enduser_order/:id', to: 'admins#enduser_order', as: 'admins_enduser_order'
   get "/admin/itemview" => "admin#itemview"
+
 end

@@ -8,41 +8,30 @@
               		<th>購入日</th>
               		<th>購入者</th>
               		<th>合計金額</th>
-              		<th>合計購入点数</th>
               		<th>配送状況</th>
             	</tr>
           	</thead>
           	<tbody>
           		<% @orders.each do |order| %>
+          		<%= link_to admins_orderShow_path(user.id) do %>
           		<tr>
 					<td>
-						<%= link_to admins_orderShow_path(order.id) do %>
 						<p><%= order.created_at %></p>
-						<% end %>
 					</td>
 					<td>
-						<!-- 購入者 -->
+						<p><%= order.user.name_last + order.user.name_first %></p>
 					</td>
 					<td>
-						<%= link_to admins_orderShow_path(order.id) do %>
 						<p><%= order.total_price %></p>
-						<% end %>
 					</td>
 					<td>
-						<%= link_to admins_orderShow_path(order.id) do %>
-						<p><%= order_item.number %></p>
-						<% end %>
-					</td>
-					<td>
-						<%= link_to admins_orderShow_path(order.id) do %>
-						<p><%= order.status %></p>
-						<% end %>
+						<p><%= order.shipping_status %></p>
 					</td>
 				</tr>
+				<% end %>
 				<% end %>
 			</tbody>
 		</table>
 	</div>
 </div>
-<% end %>
 <!-- ページング -->
