@@ -8,6 +8,8 @@ class CartItemsController < ApplicationController
 		@user = current_user
 		@cart_items = current_user.cart_items
 		@Shipping_address = ShippingAddress.find(params[:id])
+		@order = Order.new
+        @shipping_addresses = ShippingAddress.all
 	end
 
     def create
@@ -15,6 +17,7 @@ class CartItemsController < ApplicationController
     	@cart_items.save
     	redirect_to cart_items_path(@cart_item)
     end
+    
 
 	private
 	def cart_item_params
