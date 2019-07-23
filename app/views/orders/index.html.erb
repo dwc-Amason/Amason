@@ -1,19 +1,35 @@
-<h1>購入履歴</h1>
-	<!-- 検索フォーム -->
-	<% @orders.each do |order| %>
-	<div>
-		<table>
-			<tr>
-			<th>購入履歴</th>
-		    <%= order.created_at %>
-			<%= order.total_price %>
-			<%= order_item.number %>
-		    <%= link_to "購入履歴詳細", order_path(current_user.id) %>
-		    </tr>
-	    </table>
+<h1>受注履歴</h1>
+<div class="container">
+	<div class="row">
+		<table class="table table-hover table-inverse">
+			<thead>
+            	<tr>
+              		<th>購入日</th>
+              		<th>購入者</th>
+              		<th>合計金額</th>
+              		<th>配送状況</th>
+            	</tr>
+          	</thead>
+          	<tbody>
+          		<% @orders.each do |order| %>
+	          		<tr>
+						<td>
+							<p><%= link_to order_path(order) do %><%= order.created_at %><% end %></p>
+						</td>
+						<td>
+							<p><%= order.user.name_last + order.user.name_first %></p>
+						</td>
+						<td>
+							<p><%= order.total_price %></p>
+						</td>
+						<td>
+							<p><%= order.shipping_status %></p>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
 	</div>
-	<% end %>
-	<%= paginate @order %>
+</div>
 
-	<!-- ページング -->
-
+<%= paginate @orders %>

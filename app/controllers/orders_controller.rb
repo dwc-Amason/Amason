@@ -1,11 +1,13 @@
 class OrdersController < ApplicationController
 	def index
-		@orders = Order.all
-		@order = Order.page(params[:page]).per(5)
+		@orders = Order.where(user_id: current_user.id)
+		@orders = Order.page(params[:page]).per(5)
 	end
 
 	def show
 		@order = Order.find(params[:id])
+		@order_items = OrderItem.where(order_id: @order)
+		@order_items = @order_items.page(params[:page]).per(5)
 	end
 
 	def new
@@ -15,23 +17,17 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(params_int(order_params))
-		#@order.payment = order_params[:payment]
-		#binding.pry
+
 		@order.user_id = current_user.id
 		if @order.save!
-			redirect_to order_path(@order)
+			redirect_to items_path(@order)
 		else
 			@cart_items = CartItem.all
 			render :new
 		end
 	end
 
-	# def integer_string?(str)
-	#    Integer(str)
-	#    true
-	#  rescue ArgumentError
-	#    false
-	# end
+
 
 	def number?(str)
 		nil != (str =~ /\A[0-9]+\z/)

@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
 
 	def index
-		@items = Item.all
-		@itemse = Item.page(params[:page]).per(15)
+		@items = Item.all.page(params[:page]).per(3)
 		@cart_item = CartItem.new
 	end
 
@@ -58,6 +57,7 @@ class ItemsController < ApplicationController
 	private
 	def item_params
 	   	params.require(:item).permit(:id,
+	   								 :page,
 	   								 :name,
 	   								 :price,
 	   								 :status,
@@ -77,3 +77,4 @@ class ItemsController < ApplicationController
 	   	                             						               :_destroy]])
 	end
 end
+
