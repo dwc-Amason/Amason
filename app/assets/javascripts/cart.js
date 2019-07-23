@@ -5,7 +5,7 @@
 			};
 		$(".subtotal").text(subtotal)
 		let tax = 0.08;
-		let priceTax = subtotal * tax;
+		let priceTax = Math.ceil(subtotal * tax);
 		$(".tax").text(priceTax);
 		console.log(priceTax)
 		let totalPrice = priceTax + subtotal

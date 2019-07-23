@@ -1,7 +1,7 @@
 <h1>CD情報詳細</h1>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4 col-md-offset-2 text-center">
+		<div class="col-md-4  text-center">
 			<div>
 				<%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200"  %>
 			</div>
@@ -10,46 +10,49 @@
 	    	<ul>
 	    		<li>
 	        		アルバム名
-	        		<p><%= @item.name %></p>
+	        		<h4><%= @item.name %></h4>
 	        	</li>
 	        	<li>
 					アーティスト名
-					<p><%= @item.artist.name %></p>
+					<h4><%= @item.artist.name %></h4>
 				</li>
 				<li>
 					ジャンル
-					<p><%= @item.genre.name%></p>
+					<h4><%= @item.genre.name%></h4>
 				</li>
 				<li>
 					レーベル
-					<p><%= @item.label.name %></p>
+					<h4><%= @item.label.name %></h4>
 				</li>
 				<li>
 	        		価格
-	        		<p><%= @item.price %>円</p>
+	        		<h4><%= @item.price %>円</h4>
 	        	</li>
 	        	<li>
 	        		在庫数
-	        		<p><%= @item.stack %></p>
+	        		<h4><%= @item.stack %></h4>
 	        	</li>
 	        	<li>
 	        		販売状況
-	        		<p><%= @item.status %></p>
+	        		<h4><%= @item.status %></h4>
 	        	</li>
         	</ul>
+        </div>
+        <div class="col-md-4 text-center">
 			<div>
 				<% @discs.each do |disc| %>
-				<p>ディスク名<%= disc.name %></p>
+				ディスク名
+				<h4><%= disc.name %></h4>
 				<% disc.songs.each do |song| %>
-				<p>収録曲<% song.track %><%= song.name %></p>
+				<h4><%= song.track %><%= song.name %></h4>
 				<% end %>
 				<% end %>
 			</div>
 		</div>
 	</div>
 	<div class="row text-center">
-	    <p><%= link_to "編集する", admins_itemEdit_path(@item) %></p>
-	    <p><%= link_to "削除する" , method: :delete, "data-confirm" => "本当に削除しますか？"%></p>
+	    <p><%= link_to "編集する", admins_itemEdit_path(@item), class: 'btn btn-primary btn-lg btn-block' %></p>
+	  	<p><%= link_to "削除する" , item_path(@item), method: :delete, data: {confirm: "本当に削除しますか？"} %></p>
 	</div>
 </div>
 
