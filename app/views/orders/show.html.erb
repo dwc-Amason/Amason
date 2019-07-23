@@ -1,9 +1,9 @@
 <h1>購入履歴詳細</h1>
     <div class="well">
-     	<%= order.created_at %>購入
+     	<%= @order.created_at %>購入
     </div>
     <div class="orders-datails">
-    <% @orders.each do |order| %>
+    <% @order.each do |order| %>
 	    <div class="well">
 			<table>
                 <tr>
