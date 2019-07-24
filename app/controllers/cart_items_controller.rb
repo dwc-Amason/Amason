@@ -1,5 +1,7 @@
 class CartItemsController < ApplicationController
 
+	before_action :check_id, only:[:create]
+
 	def index
 		@cart_items = CartItem.where(user_id: current_user.id)
 		@cart_items = @cart_items.page(params[:page]).per(10)
@@ -12,6 +14,16 @@ class CartItemsController < ApplicationController
 		@order = Order.new
         @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
 		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
+	end
+
+	def check_id
+		cart_items = current_user.cart_items
+		cart_items.each do |cart|
+			if cart.item_id == params[:id].to_i
+				flash[:notice] = "既に同じ商品がカートに追加されています。カートから数量を変更してください。"
+				redirect_to root_path
+			end
+		end
 	end
 
     def create

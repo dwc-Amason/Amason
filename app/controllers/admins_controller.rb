@@ -73,7 +73,7 @@ class AdminsController < ApplicationController
 	   								 :price,
 	   								 :status,
 	   								 :stack,
-	   								 :image_id,
+	   								 :image,
 	   								 :artist_id,
 	   								 :genre_id,
 	   								 :label_id,
