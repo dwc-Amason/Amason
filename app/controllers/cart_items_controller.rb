@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 
 	def index
 		@cart_items = CartItem.where(user_id: current_user.id)
-		@cart_items = CartItem.page(params[:page]).per(10)
+		@cart_items = @cart_items.page(params[:page]).per(10)
 	end
 
 	def show
@@ -10,8 +10,8 @@ class CartItemsController < ApplicationController
 		@cart_items = current_user.cart_items
 		@Shipping_address = ShippingAddress.find(params[:id])
 		@order = Order.new
-        @shipping_addresses = ShippingAddress.all
-		@shipping_addresses = ShippingAddress.page(params[:page]).per(3)
+        @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
+		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
 	end
 
     def create
