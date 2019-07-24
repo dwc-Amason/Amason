@@ -1,5 +1,7 @@
 class CartItemsController < ApplicationController
 
+	before_action :check_id, only:[:create]
+
 	def index
 		@cart_items = CartItem.where(user_id: current_user.id)
 	end
@@ -8,6 +10,16 @@ class CartItemsController < ApplicationController
 		@user = current_user
 		@cart_items = current_user.cart_items
 		@Shipping_address = ShippingAddress.find(params[:id])
+	end
+
+	def check_id
+		cart_items = current_user.cart_items
+		cart_items.each do |cart|
+			if cart.item_id == params[:id].to_i
+				flash[:notice] = "既に同じ商品がカートに追加されています。カートから数量を変更してください。"
+				redirect_to root_path
+			end
+		end
 	end
 
     def create

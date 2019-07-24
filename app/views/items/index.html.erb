@@ -7,7 +7,7 @@
 			<%= link_to item_path(item) do %>
 			    <ul>
 	    		<li>
-	    			<%= attachment_image_tag item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
+	    		<%= attachment_image_tag item, :image, fallback: "no_image.jpg", size:'100x100', format:'png' %>
 	    		</li>
 				<li><%= item.name %></li>
 				<li><%= item.artist.name %></li>
@@ -20,9 +20,12 @@
         	<%= f.number_field :number, in:0..10 %>
         	<%= f.hidden_field :item_id, value: item.id %>
         	<%= f.hidden_field :user_id, value: current_user.id %>
-             <%= f.submit "カートに入れる" "#" %>
+            <%= f.submit "カートに入れる" "#" %>
             <% end %>
 	        <% end %>
+	        <% if flash[:notice] %>
+            <p><%= flash[:notice] %></p>
+            <% end %>
 			</div>
 		<% end %>
 		</div>

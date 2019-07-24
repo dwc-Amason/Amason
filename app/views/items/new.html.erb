@@ -44,15 +44,9 @@
 					</div>
 				</li>
 				<li>
-					ステータス
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-primary active">
-							<input type="radio" name="sampleRadio" id="sampleRadio1" autocomplete="off" checked> 販売中
-						</label>
-						<label class="btn btn-primary">
-							<input type="radio" name="sampleRadio" id="sampleRadio2" autocomplete="off"> 販売停止中
-						</label>
-					</div>
+					<%= f.label :status %>
+  					<%= f.radio_button :status, :"販売中" %> 販売中
+  					<%= f.radio_button :status, :"販売停止中" %> 販売停止中
 				</li>
 			</ul>
 		</div>

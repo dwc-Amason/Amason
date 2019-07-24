@@ -6,6 +6,7 @@ class Item < ApplicationRecord
 	belongs_to :artist
 	belongs_to :genre
 
+	enum status:[:"販売中", :"販売停止中"]
 
 	attachment :image
 
@@ -15,7 +16,5 @@ class Item < ApplicationRecord
       return Item.all unless search
       Item.where(['content LIKE ?', "%#{search}%"])
     end
-
-
 
 end
