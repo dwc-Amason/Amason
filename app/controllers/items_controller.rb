@@ -45,6 +45,9 @@ class ItemsController < ApplicationController
 
 	def search
 		@items = Item.search(params[:search])
+		@itemse = Item.page(params[:page]).per(15)
+		@cart_item = CartItem.new
+		render :index
 	end
 
 	def destroy
