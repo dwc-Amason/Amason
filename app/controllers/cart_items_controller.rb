@@ -11,7 +11,7 @@ class CartItemsController < ApplicationController
 		@Shipping_address = ShippingAddress.find(params[:id])
 		@order = Order.new
         @shipping_addresses = ShippingAddress.all
-		@shipping_addresses = ShippingAddress.page(params[:page]).per(2)
+		@shipping_addresses = ShippingAddress.page(params[:page]).per(3)
 	end
 
     def create
