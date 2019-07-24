@@ -1,9 +1,9 @@
 <h1>購入履歴詳細</h1>
     <div class="well">
-     	<%= order.created_at %>購入
+     	<%= @order.created_at %>購入
     </div>
     <div class="orders-datails">
-    <% @orders.each do |order| %>
+    <% @order_items.each do |order| %>
 	    <div class="well">
 			<table>
                 <tr>
@@ -11,33 +11,32 @@
                 </tr>
                 <tr>
 			        <th>商品名</th>
-			        <th><%= item.name %></th>
+			        <th><%= order.item.name %></th>
 			    </tr>
 			    <tr>
 					<th>価格</th>
-					<th><%= order_items.price %></th>
+					<th><%= order.item.price %></th>
 				</tr>
 				<tr>
 					購入個数</p>
-					<%= order_item.number %>
+					<%= order.item.number %>
 				</tr>
 				<tr>
 					<th>在庫数表示</th>
-					<th><%= item.stack %></th>
+					<th><%= order.item.stack %></th>
 				</tr>
 				<tr>
 					<th>送付先</th>
-					<th><%= order.address %></th>
+					<th><%= order.item.address %></th>
 				</tr>
 				<tr>
 					<th>ステータス</th>
-					<th><%= order.status %></th>
+					<th><%= order.item.status %></th>
 				</tr>
             </table>
         </div>
     </div>
     <% end %>
-    <%= pagenate @order_items %>
-
+    <%= paginate @order_items %>
 
 

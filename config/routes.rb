@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get 'admins/enduser_order/:id', to: 'admins#enduser_order', as: 'admins_enduser_order'
   get "/admin/itemview" => "admin#itemview"
 
+  get "/search" => "items#search"
+
 end

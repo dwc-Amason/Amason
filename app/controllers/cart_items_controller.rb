@@ -4,12 +4,16 @@ class CartItemsController < ApplicationController
 
 	def index
 		@cart_items = CartItem.where(user_id: current_user.id)
+		@cart_items = @cart_items.page(params[:page]).per(10)
 	end
 
 	def show
 		@user = current_user
 		@cart_items = current_user.cart_items
 		@Shipping_address = ShippingAddress.find(params[:id])
+		@order = Order.new
+        @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
+		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
 	end
 
 	def check_id
@@ -27,6 +31,7 @@ class CartItemsController < ApplicationController
     	@cart_items.save
     	redirect_to cart_items_path(@cart_item)
     end
+
   	def destroy
   		@cart_item = CartItem.find(params[:id])
   		if @cart_item.destroy
@@ -36,6 +41,7 @@ class CartItemsController < ApplicationController
   			render :index
   		end
   	end
+
 	private
 	def cart_item_params
 	   	params.require(:cart_item).permit(:id, :number, :user_id, :item_id)

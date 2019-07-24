@@ -2,7 +2,6 @@ class ShippingAddressesController < ApplicationController
 
 	def edit
 		@shipping_address = ShippingAddress.find(params[:id])
-		@shipping_addresses = ShippingAddress.page(params[:page]).per(5)
 	end
 
 	def new
@@ -13,7 +12,7 @@ class ShippingAddressesController < ApplicationController
 		@shipping_address = ShippingAddress.new(shipping_address_params)
 		@shipping_address.user_id = current_user.id
 		if @shipping_address.save
-			redirect_to shipping_addresses_path
+			redirect_to cart_item_path(current_user.id)
 		else
 			@shipping_address = ShippingAddress.all
 			render :new
