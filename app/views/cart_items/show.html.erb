@@ -2,56 +2,67 @@
 	<div class="row">
 		<div class="col-md-8">
 		  <h2>注文を確認・確定する</h2>
-			<div class="well">
-				<table>
+			<table>
 				  <thead>
-			      <tr>
-				    <th><h3>氏名・フリガナ</h3>
-				    <%= @user.name_first %>
-				    <%= @user.name_last %>
-				    <%= @user.name_first_phonetic %>
-				    <%= @user.name_last_phonetic %></th>
-				  </tr>
-				  <tr>
-				    <h3>郵便番号</h3>
-				    <%= @user.post_code %>
-				  </tr>
-				  <tr>
-				    <th><h3>お届け先住所</h3>
-				    <%= @user.address %></th>
-				  </tr>
-				  <tr>
-				    <th><h3>電話番号</h3>
-				    <%= @user.phone %></th>
-				  </tr>
+				  	<%= form_for (@order) do |f| %>
+					  	<% @shipping_addresses.each do |shipping_address| %>
+				  	      <div class="well">
+						  	  <tr>
+						  	  	<h3>名前</h3>
+						  	  	<%= shipping_address.name_last %>
+							    <%= f.hidden_field :name_last, :value => shipping_address.name_last %>
+							    <%= shipping_address.name_first %>
+							    <%= f.hidden_field :name_first, :value => shipping_address.name_first %>
+							    <%= shipping_address.name_last_phonetic %>
+							    <%= f.hidden_field :name_last_phonetic, :value => shipping_address.name_last_phonetic %>
+							    <%= shipping_address.name_first_phonetic %>
+							    <%= f.hidden_field :name_first_phonetic, :value => shipping_address.name_first_phonetic %>
+						  	  </tr>
+							  <tr>
+							    <h3>郵便番号</h3>
+							    <%= f.radio_button :address, shipping_address.address %>
+							  <tr>
+							    <h3>お届け先住所</h3>
+							    <%= shipping_address.post_code %>
+							    <%= f.hidden_field :post_code, :value => shipping_address.post_code %>
+							  </tr>
+							  <tr>
+							    <h3>電話番号</h3>
+							    <%= shipping_address.phone %>
+							    <%= f.hidden_field :phone, :value => shipping_address.phone %>
+							  </tr>
+							  <% end %>
+							  </tr>
+						  </div>
 				  </thead>
-				</table>
-		    </div>
-		    <%= link_to '既存の住所を使用',class: "btn btn-primary" %>
-		    <%= link_to '新しいお届け先', class: "btn btn-success" %>
+			</table>
+			<%= paginate @shipping_addresses %>
+		    <%= link_to '新しいお届け先', new_shipping_address_path %>
 		</div>
 	</div>
 	<div class="">
 	    <h2>お支払い方法の選択</h2>
 	    <div class="top well">
-	    	<%= form_for(@shipping_address) do |f| %>
-	    	<label><%= f.radio_button :shipping_addresses, "代引" %></label>
-	    	<label><%= f.radio_button :shipping_addresses, "銀行振込" %></label>
-	    	<label><%= f.radio_button :shipping_addresses, "クレジットカード" %></label>
-	    	<% end %>
+	    	<label><%= f.select :payment, Order.payments.keys.to_a,{} %></label>
+
+
 	    </div>
 	</div>
+
 	<div class="botom-well">
 		<% @cart_items.each do |cart_item| %>
 		<table>
 		<tr>
-		    <th><%= attachment_image_tag item, :image, format: 'jpeg', fallback: "",size: "100x100"%>
-			<%= cart_item.items.name %></th>
+		    <th><%= attachment_image_tag cart_item.item, :image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100"%>
+			<%= cart_item.item.name %></th>
 			<th><%= cart_item.item.price %></th>
 		</tr>
 		<% end %>
+
+
 	    </table>
-	    <%= link_to '注文確定', orders_path, class: "btn btn-warning"%>
+	    <%= f.submit "購入する" %>
+		<% end %>
 	</div>
 
 </div>

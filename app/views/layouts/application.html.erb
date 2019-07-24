@@ -30,6 +30,7 @@
                </button>
                 <button type="button" class="btn"><%= link_to 'カート', cart_items_path %></button>
                 <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+                <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
               </ul>
 
 
@@ -39,7 +40,6 @@
                 <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
                 <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
 
-
               <% end %>
 
               </ul>
@@ -47,7 +47,6 @@
             </div>
           </div>
       </nav>
-
-        <%= yield %>
+      <%= yield %>
   </body>
 </html>
