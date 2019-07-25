@@ -4,9 +4,15 @@
 	    <div>
 		<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
 	    </div>
-		<div>
-		<%= link_to '配送先編集', edit_shipping_address_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
+	     <div>
+		<%= link_to '配送先追加',  new_shipping_address_path(@user.id), class: "btn btn-primary btn-lg btn-block active" %>
 	    </div>
+		<% if @shipping_address.empty? %>
+        <% else %>
+	        <div>
+			<%= link_to '配送先編集', edit_shipping_address_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
+		    </div>
+        <% end %>
 	    <div>
 		<%= link_to '購入履歴', order_path, class: "btn btn-primary btn-lg btn-block active" %>
 	    </div>
