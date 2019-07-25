@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :users
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwors',
+    registrations: 'admins/registrations'
+  }
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
   resources :items
@@ -25,5 +33,6 @@ Rails.application.routes.draw do
   get "/admin/itemview" => "admin#itemview"
 
   get "/search" => "items#search"
+  get "/admins/search" => "admins#search"
 
 end

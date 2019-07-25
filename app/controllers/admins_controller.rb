@@ -66,6 +66,14 @@ class AdminsController < ApplicationController
         @discs = @item.discs
   	end
 
+
+  	def search
+  		@users = User.search(params[:search]).page(params[:page]).per(15)
+  		@items = Item.search(params[:search])
+		@cart_item = CartItem.new
+		render :index
+  	end
+
   	private
   	def item_params
 	   	params.require(:item).permit(:id,
