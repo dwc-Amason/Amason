@@ -14,12 +14,13 @@ class UsersController < ApplicationController
 
   	def show
   		@user = User.find(params[:id])
+  		@shipping_address = ShippingAddress.where(user_id: @user.id)
   	end
 
   	def destroy
   		@user = User.find_by(id: params[:id])
   		if @user.destroy
-  			redirect_to users_path
+  			redirect_to items_path
   		else
   			render :edit
   		end

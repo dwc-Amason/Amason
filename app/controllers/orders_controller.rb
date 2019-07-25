@@ -1,33 +1,35 @@
 class OrdersController < ApplicationController
 	def index
 		@orders = Order.where(user_id: current_user.id)
-		@orders = Order.page(params[:page]).per(5)
+		@orders = @orders.page(params[:page]).per(5)
 	end
 
 	def show
 		@order = Order.find(params[:id])
-		@order_items = OrderItem.where(order_id: @order)
+		@order_items = OrderItem.where(order_id: @order.id)
 		@order_items = @order_items.page(params[:page]).per(5)
 	end
 
 	def new
-		@cart_items = CartItem.all
-		@order_item == @cart_item
+		@user = current_user
+		@cart_items = current_user.cart_items
+		@Shipping_address = ShippingAddress.where(user_id: current_user.id)
+		@order = Order.new
+		@order.order_items.build
+        @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
+		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
 	end
 
 	def create
 		@order = Order.new(params_int(order_params))
-
 		@order.user_id = current_user.id
-		if @order.save!
+		if @order.save
 			redirect_to items_path(@order)
 		else
 			@cart_items = CartItem.all
 			render :new
 		end
 	end
-
-
 
 	def number?(str)
 		nil != (str =~ /\A[0-9]+\z/)
@@ -36,7 +38,25 @@ class OrdersController < ApplicationController
 	private
 
 	def order_params
-	   	params.require(:order).permit(:name_first, :name_last, :name_first_phonetic, :name_last_phonetic, :post_code, :address, :phone, :email, :shipping_status, :payment)
+	   	params.require(:order).permit(:id,
+	   								  :name_first,
+   									  :name_last,
+   									  :name_first_phonetic,
+   									  :name_last_phonetic,
+   									  :post_code,
+   									  :address,
+   									  :phone,
+   									  :email,
+   									  :shipping_status,
+   									  :payment,
+   									  order_items_attributes:[:id,
+		   									  				  :price,
+		   									 				  :number,
+										 					  :order_id,
+										 					  :user_id,
+										 					  :item_id,
+										 					  :created_at,
+										 					  :updated_at])
 	end
 
 	def params_int(order_params)
