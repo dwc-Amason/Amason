@@ -18,9 +18,13 @@
 				</td>
 				<td><%= cart_item.item.name %></td>
 				<td><span class="basePrice" id="basePrice_<%= cart_item.id %>"><%= cart_item.item.price %></span><span>円</span></td>
-				<td><select class="num num1" id="num_<%= cart_item.id %>" >
+				<td><select class="num" id="num_<%= cart_item.id %>" >
 					<% (1..10).each do |i| %>
+					<% if i == cart_item.number %>
+						<option value=<%= i %> selected>　<%= i %>個</option>
+					<% else %>
 						<option value=<%= i %> >　<%= i %>個</option>
+						<% end %>
 					<% end %>
 				</select>
 			</td>
