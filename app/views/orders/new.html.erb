@@ -46,11 +46,14 @@
 	    	<label><%= f.select :payment, Order.payments.keys.to_a,{} %></label>
 	    </div>
 	</div>
-	<%= f.fields_for :order_items do |item| %>
-	 	<%= render 'order_fields', f:item %>
-	<% end %>
 	<div class="botom-well">
 		<% @cart_items.each do |cart_item| %>
+			<%= f.fields_for :order_items do |t| %>
+			 	<%= t.hidden_field :price, :value => cart_item.item.price %>
+			 	<%= t.hidden_field :number, :value => cart_item.number %>
+			 	<%= t.hidden_field :item_id, :value => cart_item.item_id %>
+			 	<%= t.hidden_field :user_id, :value => cart_item.user_id %>
+			<% end %>
 		<table>
 		<tr>
 		    <th><%= attachment_image_tag cart_item.item, :image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100"%>
