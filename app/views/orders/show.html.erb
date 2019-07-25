@@ -1,42 +1,34 @@
 <h1>購入履歴詳細</h1>
+<div class="well">
+ 	<%= @order.created_at %>購入
+</div>
+<div class="orders-datails">
+<% @order_items.each do |order_item| %>
     <div class="well">
-     	<%= @order.created_at %>購入
+		<table>
+            <tr>
+
+            </tr>
+            <tr>
+		        <th>商品名</th>
+		        <th><%= order_item.item.name %></th>
+		    </tr>
+		    <tr>
+				<th>価格</th>
+				<th><%= order_item.item.price %></th>
+			</tr>
+			<tr>
+				購入個数</p>
+				<%= order_item.number %>
+			</tr>
+			<tr>
+				<th>送付先</th>
+				<th><%= order_item.order.address %></th>
+			</tr>
+        </table>
     </div>
-    <div class="orders-datails">
-    <% @order_items.each do |order| %>
-	    <div class="well">
-			<table>
-                <tr>
-                	<%= attachment_image_tag book.user, :image,size: "100x100" %>
-                </tr>
-                <tr>
-			        <th>商品名</th>
-			        <th><%= order.item.name %></th>
-			    </tr>
-			    <tr>
-					<th>価格</th>
-					<th><%= order.item.price %></th>
-				</tr>
-				<tr>
-					購入個数</p>
-					<%= order.item.number %>
-				</tr>
-				<tr>
-					<th>在庫数表示</th>
-					<th><%= order.item.stack %></th>
-				</tr>
-				<tr>
-					<th>送付先</th>
-					<th><%= order.item.address %></th>
-				</tr>
-				<tr>
-					<th>ステータス</th>
-					<th><%= order.item.status %></th>
-				</tr>
-            </table>
-        </div>
-    </div>
-    <% end %>
-    <%= paginate @order_items %>
+<% end %>
+</div>
+<%= paginate @order_items %>
 
 
