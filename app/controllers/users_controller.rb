@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   	def show
   		@user = User.find(params[:id])
+  		@shipping_address = ShippingAddress.where(user_id: @user.id)
   	end
 
   	def destroy

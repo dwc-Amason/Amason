@@ -10,6 +10,7 @@ class CartItemsController < ApplicationController
 		@cart_items = current_user.cart_items
 		@Shipping_address = ShippingAddress.find(params[:id])
 		@order = Order.new
+		@order.order_items.build
         @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
 		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
 	end
@@ -32,7 +33,7 @@ class CartItemsController < ApplicationController
 
 	private
 	def cart_item_params
-	   	params.require(:cart_item).permit(:id, :number, :user_id, :item_id)
+	   	params.require(:cart_item).permit(:id, :number, :user_id, :item_id )
 	end
 end
 

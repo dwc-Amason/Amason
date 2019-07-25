@@ -7,24 +7,27 @@
 				  	<%= form_for (@order) do |f| %>
 					  	<% @shipping_addresses.each do |shipping_address| %>
 				  	      <div class="well">
+						  	<tr>
+						  	 <h3>名前</h3>
 						  	  <tr>
-						  	  	<h3>名前</h3>
-						  	  	<%= shipping_address.name_last %>
+					  	  		<%= shipping_address.name_last %>
 							    <%= f.hidden_field :name_last, :value => shipping_address.name_last %>
 							    <%= shipping_address.name_first %>
 							    <%= f.hidden_field :name_first, :value => shipping_address.name_first %>
+							  </tr>
+							   <tr>
 							    <%= shipping_address.name_last_phonetic %>
 							    <%= f.hidden_field :name_last_phonetic, :value => shipping_address.name_last_phonetic %>
 							    <%= shipping_address.name_first_phonetic %>
 							    <%= f.hidden_field :name_first_phonetic, :value => shipping_address.name_first_phonetic %>
+							   </tr>
 						  	  </tr>
-							  <tr>
-							    <h3>郵便番号</h3>
-							    <%= f.radio_button :address, shipping_address.address %>
-							  <tr>
+						  	  <tr>
 							    <h3>お届け先住所</h3>
+							    <%= f.radio_button :post_code, shipping_address.address %>
 							    <%= shipping_address.post_code %>
-							    <%= f.hidden_field :post_code, :value => shipping_address.post_code %>
+							    <%= shipping_address.address %>
+							    <%= f.hidden_field :address, :value => shipping_address.post_code %>
 							  </tr>
 							  <tr>
 							    <h3>電話番号</h3>
@@ -32,7 +35,7 @@
 							    <%= f.hidden_field :phone, :value => shipping_address.phone %>
 							  </tr>
 							  <% end %>
-							  </tr>
+							 </tr>
 						  </div>
 				  </thead>
 			</table>
