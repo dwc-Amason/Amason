@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 	def userIndex
-		@users = User.all
+		@users = User.all.page(params[:page]).per(15)
 	end
 
 	def userShow
@@ -64,6 +64,14 @@ class AdminsController < ApplicationController
   	def itemview
   		@item = Item.find(params[:id])
         @discs = @item.discs
+  	end
+
+
+  	def search
+  		@users = User.search(params[:search]).page(params[:page]).per(15)
+  		@items = Item.search(params[:search])
+		@cart_item = CartItem.new
+		render :index
   	end
 
   	private

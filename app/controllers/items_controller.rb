@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
 	def index
-		@items = Item.all.page(params[:page]).per(3)
+		@items = Item.page(params[:page]).per(3)
 		@cart_item = CartItem.new
 	end
 
@@ -43,8 +43,7 @@ class ItemsController < ApplicationController
 	end
 
 	def search
-		@items = Item.search(params[:search])
-		@itemse = Item.page(params[:page]).per(15)
+		@items = Item.search(params[:search]).page(params[:page]).per(15)
 		@cart_item = CartItem.new
 		render :index
 	end
