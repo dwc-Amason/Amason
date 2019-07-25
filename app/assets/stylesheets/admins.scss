@@ -1,3 +1,49 @@
 // Place all the styles related to the admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-circle-fishy {
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 250px;
+  height: 250px;
+  line-height: 250px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #709dff 0%, #000000 100%);
+  transition: .4s;
+  font-family: serif;
+}
+
+.btn-circle-fishy:hover {
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+
+.btn-gradient-radius {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #CC0000 100%);
+  transition: .4s;
+  font-family: serif;
+  width: 150px;
+  text-align: center;
+}
+
+.btn-gradient-radius:hover {
+  background-image: linear-gradient(45deg, #FFC107 0%, #CC0000 100%);
+}
+
+.jumbotron {
+	padding-top: 0px;
+	background: url(original.jpg);
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 400px;
+	font-family: serif;
+}

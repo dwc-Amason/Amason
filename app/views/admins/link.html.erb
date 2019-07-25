@@ -1,12 +1,23 @@
-<h1>LINK</h1>
+<div class="jumbotron">
+  <h1>LINK</h1>
+</div>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<%= link_to "商品一覧", admins_itemIndex_path, class: 'btn btn-primary btn-lg btn-block' %>
-    		<%= link_to "ユーザー覧", admins_userIndex_path, class: 'btn btn-primary btn-lg btn-block' %>
-    		<%= link_to "注文一覧", admins_order_path, class: 'btn btn-primary btn-lg btn-block' %>
-    		<%= link_to "商品新規登録", new_item_path, class: 'btn btn-primary btn-lg btn-block' %>
-            <%= link_to 'logout',destroy_admin_session_path, method: :delete, class: 'btn btn-primary btn-lg btn-block' %>
-        </div>
+		<div class="col-md-3">
+			<h2><%= link_to "商品一覧", admins_itemIndex_path, class: 'btn-circle-fishy' %></h2>
+		</div>
+		<div class="col-md-3">
+    		<h2><%= link_to "ユーザー覧", admins_userIndex_path, class: 'btn-circle-fishy' %></h2>
+    	</div>
+    	<div class="col-md-3">
+    		<h2><%= link_to "注文一覧", admins_order_path, class: 'btn-circle-fishy' %></h2>
+    	</div>
+    	<div class="col-md-3">
+    		<h2><%= link_to "商品新規登録", new_item_path, class: 'btn-circle-fishy' %></h2>
+    	</div>
+    	<div class="col-md-1 col-md-offset-11">
+    	<%= link_to 'ログアウト',destroy_admin_session_path, method: :delete, class: 'btn-gradient-radius' %>
+    	</div>
     </div>
+</div>
 </div>
