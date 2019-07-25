@@ -1,10 +1,6 @@
 class AdminsController < ApplicationController
 	def userIndex
-<<<<<<< HEAD
-		@users = User.all.page(params[:page]).per(15)
-=======
 		@users = User.all.page(params[:page]).per(3)
->>>>>>> master
 	end
 
 	def userShow
