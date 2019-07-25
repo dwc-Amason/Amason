@@ -46,3 +46,19 @@ end
     { name: name }
   )
 end
+
+#admin
+[
+  ["john", "john@amason.com", "amasonjohn"],
+  ["jack", "jack@amason.com", "amasonjack"],
+  ["tom", "tom@amason.com", "amasontom"],
+  ["chris", "chris@amason.com", "amasonchris"]
+].each do |name, mail, pass|
+  Admin.create!(
+    { name: name, email: mail, password: pass  }
+  )
+end
+
+
+
+

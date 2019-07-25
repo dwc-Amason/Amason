@@ -1,6 +1,10 @@
 class AdminsController < ApplicationController
 	def userIndex
+<<<<<<< HEAD
 		@users = User.all.page(params[:page]).per(15)
+=======
+		@users = User.all.page(params[:page]).per(3)
+>>>>>>> master
 	end
 
 	def userShow
@@ -9,16 +13,16 @@ class AdminsController < ApplicationController
 
 	def shipping_address
 		@user = User.find(params[:id])
-		@shipping_addresses = ShippingAddress.where(user_id: @user)
+		@shipping_addresses = ShippingAddress.where(user_id: @user).page(params[:page]).per(3)
 	end
 
 	def enduser_order
 		@user = User.find(params[:id])
-		@orders = Order.where(user_id: @user)
+		@orders = Order.where(user_id: @user).page(params[:page]).per(3)
 	end
 
 	def itemIndex
-		@items = Item.all
+		@items = Item.all.page(params[:page]).per(3)
 	end
 
 	def itemShow
@@ -34,11 +38,11 @@ class AdminsController < ApplicationController
 	end
 
 	def order
-		@orders = Order.all
+		@orders = Order.all.page(params[:page]).per(3)
 	end
 
 	def orderShow
-		@orderitems = Orderitem.all
+		@orderitems = Orderitem.all.page(params[:page]).per(3)
 	end
 
 	def link
@@ -81,7 +85,7 @@ class AdminsController < ApplicationController
 	   								 :price,
 	   								 :status,
 	   								 :stack,
-	   								 :image_id,
+	   								 :image,
 	   								 :artist_id,
 	   								 :genre_id,
 	   								 :label_id,
