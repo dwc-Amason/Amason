@@ -47,3 +47,19 @@
 	height: 400px;
 	font-family: serif;
 }
+
+.btn-flat-border1 {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #000000;
+  border: solid 2px #000000;
+  border-radius: 3px;
+  transition: .4s;
+  width: 500px;
+}
+
+.btn-flat-border1:hover {
+  background: #000000;
+  color: white;
+}

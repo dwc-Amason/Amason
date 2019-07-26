@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
 		if @item.save
 			redirect_to admins_itemIndex_path
 		else
-			@items = Item.all
+			@items = Item.all.page(params[:page]).per(3)
 			render :index
 		end
 	end
