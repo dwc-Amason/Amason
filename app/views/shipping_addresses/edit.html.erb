@@ -1,36 +1,36 @@
 <div class="container">
 　<h2>配送先の編集ページ</h2>
   <table>
-    <%= form_for(@shipping_address) do |f| %>
+    <%= form_for(@shipping_address, :url => {:action => 'update'}) do |f| %>
     <tr>
-      <td>氏名     </td>
+      <td>氏名</td>
       <td><%= @shipping_address.name_last %></td>
       <td><%= f.text_field :name_last %></td>
       <td><%= @shipping_address.name_first %></td>
       <td><%= f.text_field :name_first %></td>
     </tr>
     <tr>
-      <td>フリガナ     </h4>
+      <td>フリガナ</td>
       <td><%= @shipping_address.name_last_phonetic %></td>
       <td><%= f.text_field :name_last_phonetic %></td>
       <td><%= @shipping_address.name_first_phonetic %></td>
       <td><%= f.text_field :name_first_phonetic %></td>
     </tr>
     <tr>
-      <td>郵便番号     </td>
+      <td>郵便番号</td>
       <td><%= @shipping_address.post_code %></td>
       <td><%= f.text_field :post_code %></td>
     </tr>
     <tr>
-      <td>住所1     </td>
-      <td><%= @shipping_address.address %></td><br>
+      <td>住所1</td>
+      <td><%= @shipping_address.address %></td>
       <td><%= f.text_field :address %></td>
     </tr>
     <tr>
-      <td>電話番号     </td>
+      <td>電話番号</td>
       <td><%= @shipping_address.phone %></td>
       <td><%= f.text_field :phone %></td>
-    </td>
+    </tr>
     <tr>
       <td><%= f.submit 'アップデート' %></td>
     </tr>
