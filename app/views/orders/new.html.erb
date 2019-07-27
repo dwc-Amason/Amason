@@ -37,7 +37,7 @@
 				  </thead>
 			</table>
 			<%= paginate @shipping_addresses %>
-		    <%= link_to '新しいお届け先', new_shipping_address_path %>
+		    <%= link_to '新しいお届け先',  new_user_shipping_address_path(@user.id) %>
 		</div>
 	</div>
 	<div class="">

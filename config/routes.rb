@@ -10,11 +10,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
+  resources :users  do
+    resources :shipping_addresses
+   end
   resources :items
   resources :cart_items
   resources :orders
-  resources :shipping_addresses
   resources :labels
   resources :artists
   resources :genres
