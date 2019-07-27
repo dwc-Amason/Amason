@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 	def userIndex
-		@users = User.all.page(params[:page]).per(3)
+		@users = User.all.page(params[:page]).per(9)
 	end
 
 	def userShow
@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
 	end
 
 	def itemIndex
-		@items = Item.all.page(params[:page]).per(3)
+		@items = Item.all.page(params[:page]).per(9)
 	end
 
 	def itemShow
@@ -30,7 +30,7 @@ class AdminsController < ApplicationController
 		@item = Item.find(params[:id])
 		@disc = Disc.find(@item.id)
 		@discs = Disc.where(item_id: @item)
-		@songs = Song.where(disc_id: @disc.id)
+		@songs = Song.where(disc_id: @disc)
 	end
 
 	def order
@@ -64,6 +64,14 @@ class AdminsController < ApplicationController
   	def itemview
   		@item = Item.find(params[:id])
         @discs = @item.discs
+  	end
+
+
+  	def search
+  		@users = User.search(params[:search]).page(params[:page]).per(15)
+  		@items = Item.search(params[:search])
+		@cart_item = CartItem.new
+		render :index
   	end
 
   	private

@@ -1,5 +1,4 @@
-<h1>CD新規登録</h1>
-<div class="container">
+<div class="container" style="margin-top:8em;">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3" >
 			<%= form_for(@item) do |f| %>
@@ -33,7 +32,13 @@
 					<p><%= f.attachment_field :image %></p>
 				</li>
 				<li>
-					<p>ディスク</p>
+					ステータス<br>
+  					<p>
+  						<%= f.radio_button :status, :"販売中" %> 販売中
+  						<%= f.radio_button :status, :"販売停止中" %> 販売停止中
+  					</p>
+				</li>
+				<li>
 					<div id="discs">
 						<%= f.fields_for :discs do |disc| %>
 						<%= render 'disc_fields', f: disc %>
@@ -43,19 +48,15 @@
 						<%= link_to_add_association 'ディスクを追加', f, :discs %>
 					</div>
 				</li>
-				<li>
-					<%= f.label :status %>
-  					<%= f.radio_button :status, :"販売中" %> 販売中
-  					<%= f.radio_button :status, :"販売停止中" %> 販売停止中
-				</li>
 			</ul>
 		</div>
 		<div class="row">
 			<div class="col-md-2 col-md-offset-5" >
-					<%= f.submit class: "form-control" %>
+					<%= f.submit class: "btn-flat-border" %>
 			</div>
 		</div>
 		<% end %>
 	</div>
 </div>
+
 

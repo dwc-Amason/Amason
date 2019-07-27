@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
 	def index
-		@items = Item.all.page(params[:page]).per(3)
+		@items = Item.page(params[:page]).per(3)
 		@cart_item = CartItem.new
 	end
 
@@ -37,14 +37,14 @@ class ItemsController < ApplicationController
 		if @item.save
 			redirect_to admins_itemIndex_path
 		else
-			@items = Item.all
+			@items = Item.all.page(params[:page]).per(3)
 			render :index
 		end
 	end
 
 	def search
 		@items = Item.search(params[:search])
-		@itemse = Item.page(params[:page]).per(15)
+		@itemse = Item.page(params[:page]).per(3)
 		@cart_item = CartItem.new
 		render :index
 	end

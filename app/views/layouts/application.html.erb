@@ -11,34 +11,45 @@
         <nav class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
           <div class="navbar-header">
             <div class="collapse navbar-collapse" id="navbarEexample">
-              <h1 class="navbar-brand">Amason</h1>
+              <h1 class="navbar-brand"><%= link_to 'Amason', items_path %></h1>
               <ul class="nav navbar-nav">
-              <span>
-              <%= form_tag('/search',:method => 'get') do %>
-                 <%= text_field_tag :search %>
-                 <%= submit_tag '検索', :name => nil %>
-              <% end %>
-              </span>
+                  <span>
+                  <% if admin_signed_in? %>
 
-              <% if user_signed_in? %>
-                <!-- ログイン時 -->
-              <ul class="nav navbar-nav">
-               <button type="button" class="btn btn-light">
-                <%= link_to current_user.name_last, user_path(current_user) %>
-               </button>
-                <button type="button" class="btn"><%= link_to 'カート', cart_items_path %></button>
-                <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-                <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
-              </ul>
+                    <%= form_tag('/admins/search', :method => 'get') do %>
+                      <%= text_field_tag :search %>
+                      <%= submit_tag '検索', :name_first => nil %>
+                    <% end %>
+                  <% elsif %>
+                    <%= form_tag('/search',:method => 'get') do %>
+                      <%= text_field_tag :search %>
+                      <%= submit_tag '検索', :name => nil %>
+                  <% end %>
+                  <% else %>
+                    <%= form_tag('/search',:method => 'get') do %>
+                      <%= text_field_tag :search %>
+                      <%= submit_tag '検索', :name => nil %>
+                    <% end %>
+                  <% end %>
+                  </span>
 
+                <% if user_signed_in? %>
+                  <!-- ログイン時 -->
+                <ul class="nav navbar-nav">
+                 <button type="button" class="btn btn-light">
+                  <%= link_to current_user.name_last, user_path(current_user) %>
+                 </button>
+                  <button type="button" class="btn"><%= link_to 'カート', cart_items_path %></button>
+                  <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+                  <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
+                </ul>
 
-              <% else %>
-              <!-- 未ログイン時 -->
-              <ul class="nav navbar-nav">
-                <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
-                <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
-
-              <% end %>
+                <% else %>
+                <!-- 未ログイン時 -->
+                <ul class="nav navbar-nav">
+                  <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
+                  <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
+                <% end %>
 
               </ul>
               </ul>
@@ -46,5 +57,18 @@
           </div>
       </nav>
       <%= yield %>
-  </body>
+    </body>
+      <footer style="margin-top:5em;">
+  <div class='container1'>
+    <div class='row'>
+      <div class='col-xs-3 col-xs-offset-9'>
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>
 </html>
+
+
+
+
