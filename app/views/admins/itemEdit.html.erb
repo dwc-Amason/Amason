@@ -7,8 +7,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2 col-md-offset-5 text-center"><br>
-			ジャケット変更
-			<%= f.attachment_field :image %><br>
+			ジャケット変更<%= f.attachment_field :image %><br>
 		</div>
 	</div>
 	<div class="row">
@@ -52,30 +51,19 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-3 col-md-offset-3">
-	        <% @discs.each do |disc| %>
-	        <h5><%= disc.name %></h5>
-	        <% @songs.each do |song| %>
-	        <p><%= song.track %>.<%= song.name %></p>
-	        <% end %>
-	  		<% end %>
-	    </div>
-		<div class="col-md-3"style="margin-bottom:3em;">
+		<div class="col-md-6 col-md-offset-3 text-center" style="margin-bottom:1em;">
+			<h4>収録曲</h4>
 	    	<%= f.fields_for :discs do |m| %>
-	    	<%= m.text_field :name %>
+	    	<p><%= m.text_field :name, :size=>"30x15" %></p>
 	    	<%= m.fields_for :songs do |n| %>
-	    	<%= n.text_field :name %>
+	    	<p><%= n.text_field :name, :size=>"70x10" %></p>
 	    	<% end %>
 	  		<% end %>
 		</div>
 	</div>
 	<div class="row text-center">
-		ステータス
-		<h4><%= @item.status %></h4>
-  		<p>
-  			<%= f.radio_button :status, :"販売中" %> 販売中
-  			<%= f.radio_button :status, :"販売停止中" %> 販売停止中
-  		</p>
+		ステータス<h4><%= @item.status %></h4>
+  		<p><%= f.radio_button :status, :"販売中" %> 販売中<%= f.radio_button :status, :"販売停止中" %> 販売停止中</p>
 	    <%= f.submit 'OK', class: 'btn-flat-border1' %>
 	</div>
 	<% end %>

@@ -27,7 +27,9 @@
 			</tbody>
 		</table>
 		<%= link_to "配送先一覧", admins_shipping_address_path, class: 'btn btn-primary btn-lg btn-block' %>
-		<%= link_to "購入履歴一覧", admins_enduser_order_path, class: 'btn btn-primary btn-lg btn-block' %>
-		<!-- 削除ボタン -->
+		<%= link_to "購入履歴一覧", admins_enduser_order_path, class: 'btn btn-primary btn-lg btn-block' %><br>
+		<p class="text-center">
+			<%= link_to "削除する" , user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn-flat-border1' %>
+		</p>
 	</div>
 </div>
