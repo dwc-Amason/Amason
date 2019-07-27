@@ -1,34 +1,39 @@
 <h1>購入履歴詳細</h1>
-<div class="well">
- 	<%= @order.created_at %>購入
+<div class="container">
+	<div class="well">
+	 	<%= @order.created_at %>購入
+	</div>
+
+	<div class="orders-datails row">
+	<% @order_items.each do |order_item| %>
+	<%= link_to item_path(order_item.item.id) do %>
+	    <div class="well col-md-4">
+			<table>
+	            <tr>
+	            <th><%= attachment_image_tag order_item.item, :image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100"%>
+	            <%= order_item.item.name %></th>
+	            </tr>
+	            <tr>
+			        <th>商品名</th>
+			        <th><%= order_item.item.name %></th>
+			    </tr>
+			    <tr>
+					<th>価格</th>
+					<th><%= order_item.item.price %></th>
+				</tr>
+				<tr>
+					<th>購入個数</th>
+					<th><%= order_item.number %></th>
+				</tr>
+				<tr>
+					<th>送付先</th>
+					<th><%= order_item.order.address %></th>
+				</tr>
+	        </table>
+	    </div>
+	<% end %>
+	<% end %>
+	</div>
+	<%= paginate @order_items %>
+
 </div>
-<div class="orders-datails">
-<% @order_items.each do |order_item| %>
-    <div class="well">
-		<table>
-            <tr>
-
-            </tr>
-            <tr>
-		        <th>商品名</th>
-		        <th><%= order_item.item.name %></th>
-		    </tr>
-		    <tr>
-				<th>価格</th>
-				<th><%= order_item.item.price %></th>
-			</tr>
-			<tr>
-				購入個数</p>
-				<%= order_item.number %>
-			</tr>
-			<tr>
-				<th>送付先</th>
-				<th><%= order_item.order.address %></th>
-			</tr>
-        </table>
-    </div>
-<% end %>
-</div>
-<%= paginate @order_items %>
-
-

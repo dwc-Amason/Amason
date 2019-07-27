@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'cart.js', 'data-turbolinks-track': 'reload'  %>
   </head>
   <body>
-        <nav class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
+        <header class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
           <div class="navbar-header">
             <div class="collapse navbar-collapse" id="navbarEexample">
               <h1 class="navbar-brand"><%= link_to 'Amason', items_path %></h1>
@@ -41,7 +41,6 @@
                  </button>
                   <button type="button" class="btn"><%= link_to 'カート', cart_items_path %></button>
                   <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-                  <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
                 </ul>
 
                 <% else %>
@@ -55,10 +54,11 @@
               </ul>
             </div>
           </div>
-      </nav>
+      </header>
+<div class="body-space">
       <%= yield %>
-    </body>
-      <footer style="margin-top:5em;">
+</div>
+         <footer style="margin-top:5em;">
   <div class='container1'>
     <div class='row'>
       <div class='col-xs-3 col-xs-offset-9'>
@@ -67,6 +67,8 @@
     </div>
   </div>
 </footer>
+    </body>
+
 </html>
 
 
