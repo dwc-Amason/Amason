@@ -1,6 +1,6 @@
 <div>
   <h1>新しいお届け先<h1>
-  <%= form_for(@shipping_address) do |f| %>
+  <%= form_for(@shipping_address, :url => {:action => 'create'}) do |f| %>
   <table>
     <tr>
       <th>氏名</th>
