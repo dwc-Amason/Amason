@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	def edit
 		@user = User.find(params[:id])
+    @q = User.search(params[:q])
+    @users = @q.result(distinct: true)
 	end
 
 	def update

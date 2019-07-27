@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
 
 	def index
-		@items = Item.page(params[:page]).per(3)
 		@cart_item = CartItem.new
 	end
 
@@ -42,12 +41,6 @@ class ItemsController < ApplicationController
 		end
 	end
 
-	def search
-		@items = Item.search(params[:search])
-		@itemse = Item.page(params[:page]).per(3)
-		@cart_item = CartItem.new
-		render :index
-	end
 
 	def destroy
 		@item = Item.find(params[:id])
