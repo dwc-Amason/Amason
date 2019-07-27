@@ -13,10 +13,6 @@ class Item < ApplicationRecord
 	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
 
 
-    def self.search(search)
-      return Item.all unless search
-      Item.where(['name LIKE ?', "%#{search}%"]) +
-      Item.where(['status LIKE ?', "%#{search}%"])
-    end
+
 
 end
