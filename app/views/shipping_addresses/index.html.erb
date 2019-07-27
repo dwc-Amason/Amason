@@ -13,7 +13,7 @@
 	    <li><%= shipping_addresses.post_code %></li>
 	    <li><%= shipping_addresses.address %></li>
 	    <li><%= shipping_addresses.phone %></li>
-	    <btn><%= link_to "この住所を使う", "#" %></btn>
+	    <btn><%= link_to "編集する", edit_user_shipping_address_path(user_id: shipping_addresses.user_id, id: shipping_addresses.id) %></btn>
 
 	   </ul>
 

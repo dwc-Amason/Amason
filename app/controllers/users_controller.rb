@@ -20,13 +20,11 @@ class UsersController < ApplicationController
   	end
 
   	def destroy
-  		@user = User.find_by(id: params[:id])
-  		if @user.destroy
-  			redirect_to items_path
-  		else
-  			render :edit
-  		end
-  	end
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to  admins_userIndex_path
+    flash[:notice] = "削除されました"
+  end
 
 
 	private

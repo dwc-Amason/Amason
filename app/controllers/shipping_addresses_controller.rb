@@ -1,7 +1,7 @@
 class ShippingAddressesController < ApplicationController
 
 	def edit
-		@shipping_address = ShippingAddress.where(user_id: current_user.id)
+		@shipping_address = ShippingAddress.find(params[:id])
 	end
 
 	def new
@@ -30,7 +30,7 @@ class ShippingAddressesController < ApplicationController
 	def update
     @shipping_address = ShippingAddress.find(params[:id])
   	@shipping_address.update(shipping_address_params)
-    redirect_to shipping_addresses_path
+    redirect_to user_shipping_addresses_path
   end
 
 	private
