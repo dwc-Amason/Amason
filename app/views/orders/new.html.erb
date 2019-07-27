@@ -19,12 +19,11 @@
 							    <%= f.hidden_field :name_first_phonetic, :value => shipping_address.name_first_phonetic %>
 						  	  </tr>
 							  <tr>
-							    <h3>郵便番号</h3>
-							    <%= f.radio_button :address, shipping_address.address %>
-							  <tr>
 							    <h3>お届け先住所</h3>
+							    <%= f.radio_button :address, shipping_address.address %>
 							    <%= shipping_address.post_code %>
 							    <%= f.hidden_field :post_code, :value => shipping_address.post_code %>
+							    <%= shipping_address.address %>
 							  </tr>
 							  <tr>
 							    <h3>電話番号</h3>
@@ -32,7 +31,7 @@
 							    <%= f.hidden_field :phone, :value => shipping_address.phone %>
 							  </tr>
 							  <% end %>
-							  </tr>
+							 </tr>
 						  </div>
 				  </thead>
 			</table>
@@ -40,34 +39,42 @@
 		    <%= link_to '新しいお届け先',  new_user_shipping_address_path(@user.id) %>
 		</div>
 	</div>
-	<div class="">
+	<div>
 	    <h2>お支払い方法の選択</h2>
 	    <div class="top well">
 	    	<label><%= f.select :payment, Order.payments.keys.to_a,{} %></label>
 	    </div>
 	</div>
-	<div class="botom-well">
+	<div class="row">
 		<% @cart_items.each do |cart_item| %>
 			<%= f.fields_for :order_items do |t| %>
 			 	<%= t.hidden_field :price, :value => cart_item.item.price %>
 			 	<%= t.hidden_field :number, :value => cart_item.number %>
 			 	<%= t.hidden_field :item_id, :value => cart_item.item_id %>
 			 	<%= t.hidden_field :user_id, :value => cart_item.user_id %>
-			<% end %>
-		<table>
-		<tr>
-		    <th><%= attachment_image_tag cart_item.item, :image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100"%>
-			<%= cart_item.item.name %></th>
-			<th><%= cart_item.item.price %></th>
-		</tr>
+		<table class="col-md-3", border="3">
+			<tr>
+			    <th colspan="2"><%= attachment_image_tag cart_item.item, :image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100"%></th>
+			</tr>
+			 <tr>
+				<th>アルバム名</th>
+				<td><%= cart_item.item.name %></td>
+			 </tr>
+			 <tr>
+				<th>単価</th>
+			 	<td><%= cart_item.item.price %>円</td>
+			 </tr>
+			 <tr>
+				<th>個数</th>
+			 	<td><%= cart_item.number %>枚</td>
+			 </tr>
 		<% end %>
-
-
+		<% end %>
 	    </table>
-	    <%= f.submit "購入する" %>
-		<% end %>
-	</div>
-
 </div>
-
+<div>
+	    <p><%= f.submit "購入する" %></p>
+	</div>
+<% end %>
+</div>
 

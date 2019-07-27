@@ -4,18 +4,31 @@
          <% @shipping_addresses.each do |shipping_addresses| %>
 
 
-      <ul class="col-md-4" border="2">
-
-	    <li><%= shipping_addresses.name_last %></li>
-	    <li><%= shipping_addresses.name_first %></li>
-	    <li><%= shipping_addresses.name_last_phonetic %></li>
-	    <li><%= shipping_addresses.name_first_phonetic %></li>
-	    <li><%= shipping_addresses.post_code %></li>
-	    <li><%= shipping_addresses.address %></li>
-	    <li><%= shipping_addresses.phone %></li>
-	    <btn><%= link_to "編集する", edit_user_shipping_address_path(user_id: shipping_addresses.user_id, id: shipping_addresses.id) %></btn>
-
-	   </ul>
+      <table class="col-md-3", border="3">
+      		<tr>
+				<th>ふりがな</th>
+			 	<td colspan="2"><%= shipping_addresses.name_last_phonetic + shipping_addresses.name_first_phonetic %></td>
+			 </tr>
+			 <tr>
+				<th>氏名</th>
+				<td colspan="2"><%= shipping_addresses.name_last + shipping_addresses.name_first %></td>
+			 </tr>
+			 <tr>
+				<th>郵便番号</th>
+			 	<td colspan="2"><%= shipping_addresses.post_code %></td>
+			 </tr>
+			 <tr>
+				<th>住所</th>
+	    		<td colspan="2"><%= shipping_addresses.address %></td>
+			 </tr>
+			 <tr>
+				<th>電話番号</th>
+			 	<td colspan="2"><%= shipping_addresses.phone %></td>
+			 </tr>
+			 <tr>
+			 	<td colspan="3"><%= link_to "編集する", edit_user_shipping_address_path(user_id: shipping_addresses.user_id, id: shipping_addresses.id) %></td>
+			 </tr>
+	    </table>
 
 	 <% end %>
 	</div>
