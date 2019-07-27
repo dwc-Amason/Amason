@@ -15,7 +15,7 @@
           		<tr>
 					<td>
 						<%= link_to admins_userShow_path(user.id) do %>
-						<p><%= user.name_last %><%= user.name_first %></p>
+						<p><%= user.name_first %><%= user.name_last %></p>
 						<% end %>
 					</td>
 					<td>
@@ -29,6 +29,7 @@
 			</tbody>
         </table>
 	</div>
+	<div class="row text-center">
+		<%= paginate @users %>
+	</div>
 </div>
-<!-- ページング　-->
-<%= paginate @users %>

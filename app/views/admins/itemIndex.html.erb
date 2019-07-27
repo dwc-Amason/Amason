@@ -3,7 +3,7 @@
 		<% @items.each do |item| %>
     	<div class="col-md-4 text-center">
 			<%= link_to admins_itemShow_path(item.id) do %>
-	    	<%= attachment_image_tag item, :image, fallback: "no_image.jpg", size:'150x150', format:'png' %>
+	    	<%= attachment_image_tag item, :image, fallback: "no_image.jpg", size:'200x200', format:'png' %>
 	    	<p style="font-size:20px">¥<%= item.price %></p>
 			<p style="font-size:15px"><%= item.name %></p>
 			<p style="font-size:15px"><%= item.artist.name %></p>
