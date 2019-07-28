@@ -22,6 +22,15 @@
 		$(".tax").text(priceTax);
 		let totalPrice = priceTax + subtotal
 		$(".totalPrice").text(totalPrice)
+		let ShippingCost = totalPrice += 500;
+		$(".ShippingCost").text(ShippingCost)
+// 合計金額仮作成レイアウト皆無変数適当
+		var max = document.getElementById('max').innerHTML;
+		let ta = 1.08;
+		var max = Number(max);
+		var t = Math.ceil(max * ta);
+		var t = t + 500;
+		$("#max").text(t);
 	}
 
 //ページ読み込み時に動作する所

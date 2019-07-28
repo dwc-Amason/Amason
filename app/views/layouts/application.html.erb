@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'cart.js', 'data-turbolinks-track': 'reload'  %>
   </head>
     <body>
+<<<<<<< HEAD
         <header class="navbar navbar-inverse">
               <div class="nav">
                 <h1>
@@ -15,13 +16,14 @@
                   </div>
                 <ul class="head nav">
                     <li>
+
                       <% if admin_signed_in? %>
                         <li>
                         <%= search_form_for @q do |f| %>
                             <% f.label :name_or_artist_name_or_genre_name_cont %>
                             <%= f.search_field :name_or_artist_name_or_genre_name_cont %>
 
-                            <%= f.submit '検索'%>
+                            <%= f.submit '商品検索'%>
                             <% end %>
                           </li>
                         <li>
@@ -30,12 +32,12 @@
                             <% t.label :name_first_or_name_last_or_name_first_phonetic_or_name_last_phonetic_cont %>
                             <%= t.search_field :name_first_or_name_last_or_name_first_phonetic_or_name_last_phonetic_cont %>
 
-                            <%= t.submit '検索' %>
+                            <%= t.submit 'ユーザー検索' %>
                         <% end %>
                       </li>
                       <% elsif user_signed_in? %>
                         <%= search_form_for @q do |f| %>
-                            <%= f.label :name_or_artist_name_or_genre_name_cont %>
+                            <% f.label :name_or_artist_name_or_genre_name_cont %>
                             <%= f.search_field :name_or_artist_name_or_genre_name_cont %>
 
                             <%= f.submit '検索'%>
@@ -51,6 +53,7 @@
                     </li>
                     <li>
                       <% if admin_signed_in? %>
+<<<<<<< HEAD
                           <button type="button" class="btn"> <%= link_to "admin_ログアウト", destroy_admin_session_path, method: :delete %></button>
                           <button type="button" class="btn"><%= link_to 'link', admins_link_path %></button>
                       <% elsif user_signed_in? %>
@@ -68,6 +71,7 @@
                             <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
                             <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
                         </div>
+
                       <% end %>
                     </li>
               </ul>
