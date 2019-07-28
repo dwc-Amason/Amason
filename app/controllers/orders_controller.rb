@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 		@order.order_items.build
         @shipping_addresses = ShippingAddress.where(user_id: current_user.id)
 		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
-@totalPrice = 0
+		@totalPrice = 0
 		@cart_items.each do |cart_item|
 			item = Item.find_by(id: cart_item.item_id)
 			@totalPrice +=  cart_item.number * item.price
