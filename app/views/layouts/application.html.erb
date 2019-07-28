@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'cart.js', 'data-turbolinks-track': 'reload'  %>
   </head>
     <body>
-        <nav class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
+        <header class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
             <div class="navbar-header">
               <div class="collapse navbar-collapse" id="navbarEexample">
                 <h1 class="navbar-brand">
@@ -68,9 +68,9 @@
             </div>
           </div>
       </header>
-<div class="body-space">
+    <div class="body-space">
       <%= yield %>
-  </div>
+    </div>
         <footer style="margin-top:5em;">
           <div class='container1'>
             <div class='row'>
@@ -82,6 +82,7 @@
       </footer>
     </body>
 </html>
+
 
 
 
