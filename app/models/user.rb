@@ -14,8 +14,8 @@ class User < ApplicationRecord
 	validates :name_last, presence: true
 	validates :name_first_phonetic, presence: true
 	validates :name_last_phonetic, presence: true
-	validates :post_code, presence: true, numericality: :only_integer
-	validates :phone, presence: true, numericality: :only_integer
+	validates :post_code, presence: true
+	validates :phone, presence: true
 	validates :address, presence: true
 
 end
