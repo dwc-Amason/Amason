@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
 	def index
 		@cart_item = CartItem.new
+		@items = Item.all.page(params[:page]).per(9)
 	end
 
 	def edit
