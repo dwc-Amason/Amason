@@ -14,7 +14,7 @@
                 <h1 class="navbar-brand">
                     <%= link_to 'Amason', items_path %></h1>
                 <ul class="nav navbar-nav">
-                    <span>
+                    <span class="panel-title pull-left">
                       <% if admin_signed_in? %>
                         <%= search_form_for @q do |f| %>
                             <% f.label :name_or_artist_name_or_genre_name_cont %>
@@ -45,32 +45,33 @@
                             <% end %>
                       <% end %>
                     </span>
-
-                  <% if user_signed_in? %>
-                    <!-- ログイン時 -->
-                  <ul class="nav navbar-nav">
-                   <button type="button" class="btn btn-light">
-                    <%= link_to current_user.name_last, user_path(current_user) %>
-                   </button>
-                    <button type="button" class="btn"><%= link_to 'カート', cart_items_path %></button>
-                    <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-                    <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
-                  </ul>
-                  <% else %>
-                  <!-- 未ログイン時 -->
-                  <ul class="nav navbar-nav">
-                    <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
-                    <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
-                  <% end %>
-                </ul>
-                </ul>
+                    <span class="pull-right">
+                      <% if admin_signed_in? %>
+                          <button type="button" class="btn"> <%= link_to "admin_ログアウト", destroy_admin_session_path, method: :delete %>
+                          <button type="button" class="btn"><%= link_to 'link', admins_link_path %></button>
+                      <% elsif user_signed_in? %>
+                        <ul class="nav navbar-nav">
+                          <button type="button" class="btn btn-light">
+                          <%= link_to current_user.name_last, user_path(current_user) %>
+                          </button>
+                          <button type="button" class="btn"><%= link_to 'カート', cart_items_path %></button>
+                          <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                          </button>
+                          <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
+                        </ul>
+                      <% else %>
+                        <ul class="nav navbar-nav">
+                            <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
+                            <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
+                        </ul>
+                      <% end %>
+                    </span>
               </div>
             </div>
           </div>
       </header>
     <div class="body-space">
       <%= yield %>
-    </div>
         <footer style="margin-top:5em;">
           <div class='container1'>
             <div class='row'>

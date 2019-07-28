@@ -17,19 +17,10 @@ class CartItemsController < ApplicationController
 		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
 	end
 
-	def check_id
-		cart_items = current_user.cart_items
-		cart_items.each do |cart|
-			if cart.item_id == params[:id].to_i
-				flash[:notice] = "既に同じ商品がカートに追加されています。カートから数量を変更してください。"
-				redirect_to root_path
-			end
-		end
-	end
-
     def create
-	    @cart_items = CartItem.new(cart_item_params)
-    	@cart_items.save
+    	check_id
+	    @cart_item = CartItem.new(cart_item_params)
+    	@cart_item.save
     	redirect_to cart_items_path(@cart_item)
     end
 
@@ -43,9 +34,21 @@ class CartItemsController < ApplicationController
   		end
   	end
 
+
 	private
+
 	def cart_item_params
 	   	params.require(:cart_item).permit(:id, :number, :user_id, :item_id )
+	end
+
+	def check_id
+		cart_item =  CartItem.find_by("item_id = ? and user_id = ?", params[:cart_item][:item_id], params[:cart_item][:user_id])
+		unless cart_item.nil?
+			cart_item.number += params[:cart_item][:number].to_i
+			cart_item.save
+			flash[:notice] = "既に同じ商品がカートに追加されています。カートから数量を変更してください。"
+			redirect_to cart_items_path
+		end
 	end
 end
 
