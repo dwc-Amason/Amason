@@ -13,7 +13,7 @@
           	</thead>
           	<tbody>
           		<% @orders.each do |order| %>
-          		<%= link_to admins_orderShow_path(user.id) do %>
+          		<%= link_to admins_orderShow_path(order.id) do %>
           		<tr>
 					<td>
 						<p><%= order.created_at %></p>
