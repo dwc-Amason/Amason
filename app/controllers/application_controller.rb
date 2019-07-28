@@ -10,16 +10,13 @@ before_action :ransack
     def ransack
       if admin_signed_in?
       @q = Item.ransack(params[:q])
-      @items = @q.result.includes(:artist).includes(:genre)
 
       @t = User.ransack(params[:t], search_key: :t)
     elsif user_signed_in?
 
       @q = Item.ransack(params[:q])
-      @items = @q.result.includes(:artist).includes(:genre)
     else
       @q = Item.ransack(params[:q])
-      @items = @q.result.includes(:artist).includes(:genre)
     end
   end
 
@@ -42,7 +39,7 @@ before_action :ransack
     if admin_signed_in?
     else
       redirect_to root_path
-      flash[:notice] = "侵入者、発見　侵入者、発見"
+      flash[:notice] = "ログインしてください"
     end
   end
 
