@@ -4,6 +4,8 @@ class Order < ApplicationRecord
 
 	accepts_nested_attributes_for :order_items, allow_destroy: true
 
+	enum shipping_status:[:"未配送", :"配送中", :"配送済"]
+
 	enum payment: { 代引:0, 銀行振込:1, クレジットカード:2 }
 
 	def self.search(search)
