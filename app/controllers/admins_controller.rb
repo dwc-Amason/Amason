@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+	before_action :check_admin
+
 	def userIndex
 		@users = User.all.page(params[:page]).per(9)
 		@t = User.ransack(params[:t], search_key: :t)

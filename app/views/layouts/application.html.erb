@@ -12,7 +12,7 @@
             <div class="navbar-header">
               <div class="collapse navbar-collapse" id="navbarEexample">
                 <h1 class="navbar-brand">
-                    <%= link_to 'Amason', items_path, class: "btn btn-defult" %></h1>
+                    <%= link_to 'Amason', items_path %></h1>
                 <ul class="nav navbar-nav">
                     <span class="panel-title pull-left">
                       <% if admin_signed_in? %>
@@ -47,19 +47,22 @@
                     </span>
                     <span class="pull-right">
                       <% if admin_signed_in? %>
-                          <%= link_to "admin_ログアウト", destroy_admin_session_path, class: "btn btn-defult", method: :delete %>
-                          <%= link_to 'link', admins_link_path, class: "btn btn-defult" %>
+                          <button type="button" class="btn"> <%= link_to "admin_ログアウト", destroy_admin_session_path, method: :delete %>
+                          <button type="button" class="btn"><%= link_to 'link', admins_link_path %></button>
                       <% elsif user_signed_in? %>
                         <ul class="nav navbar-nav">
-                          <%= link_to current_user.name_last, user_path(current_user), class: "btn btn-defult" %>
-                          <%= link_to 'カート', cart_items_path, class: "btn btn-defult" %>
-                          <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-defult" ,method: :delete %>
-                          <%= link_to '購入履歴', orders_path, class: "btn btn-defult" %></button>
+                          <button type="button" class="btn btn-light">
+                          <%= link_to current_user.name_last, user_path(current_user) %>
+                          </button>
+                          <button type="button" class="btn"><%= link_to 'カート', cart_items_path %></button>
+                          <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                          </button>
+                          <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
                         </ul>
                       <% else %>
                         <ul class="nav navbar-nav">
-                            <%= link_to "sign in", new_user_session_path, class: "btn btn-success" %>
-                          <%= link_to "sign up", new_user_registration_path, class: "btn btn-defult" %></button>
+                            <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
+                            <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
                         </ul>
                       <% end %>
                     </span>
