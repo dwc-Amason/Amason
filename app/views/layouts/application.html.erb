@@ -23,6 +23,7 @@
                             <%= f.submit '検索'%>
                             <% end %>
                         <%= search_form_for @t do |t| %>
+
                             <% t.label :user_name_first_or_user_name_last_or_user_name_first_phonetic_or_user_name_last_phonetic_cont %>
                             <%= t.search_field :user_name_first_or_user_name_last_or_user_name_first_phonetic_or_user_name_last_phonetic_cont %>
 
@@ -55,37 +56,31 @@
                     <button type="button" class="btn"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
                     <button type="button" class="btn"><%= link_to '購入履歴', orders_path %></button>
                   </ul>
-
                   <% else %>
                   <!-- 未ログイン時 -->
                   <ul class="nav navbar-nav">
                     <button type="button" class="btn"><%= link_to "sign in", new_user_session_path %></button>
                     <button type="button" class="btn"><%= link_to "sign up", new_user_registration_path %></button>
                   <% end %>
-
                 </ul>
                 </ul>
               </div>
             </div>
-<<<<<<< HEAD
-        </nav>
-        <%= yield %>
-    </body>
-=======
           </div>
-      </nav>
+      </header>
+<div class="body-space">
       <%= yield %>
-    </body>
-      <footer style="margin-top:5em;">
-  <div class='container1'>
-    <div class='row'>
-      <div class='col-xs-3 col-xs-offset-9'>
-        <p>CopyRight Infratop.inc</p>
-      </div>
-    </div>
   </div>
-</footer>
->>>>>>> master
+        <footer style="margin-top:5em;">
+          <div class='container1'>
+            <div class='row'>
+               <div class='col-xs-3 col-xs-offset-9'>
+               <p>CopyRight Infratop.inc</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </body>
 </html>
 
 
