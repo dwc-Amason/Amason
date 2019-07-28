@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
 	def index
 		@orders = Order.where(user_id: current_user.id)
 		@orders = @orders.page(params[:page]).per(5)
-		#binding.pry
 	end
 
 	def show
