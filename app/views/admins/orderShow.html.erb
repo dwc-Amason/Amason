@@ -1,37 +1,44 @@
+<h1>購入履歴詳細</h1>
 <div class="container">
-	<div class="row">
-		<p><%= @orderitem.order.created_at %></p>
-		<p><%= @orderitem.user.name_last + @orderitem.user.name_first %></p>
+	<div class="well">
+	 	<%= @order.created_at.strftime('%Y/%m/%d') %>購入
 	</div>
-	<% @orderitems.each do |orderitem| %>
-	<div class="row">
-		<div class="col-md-4 text-center">
-			<%= attachment_image_tag order.item, :image, :fill, 100, 100, format: 'jpeg' %>
-		</div>
-		<div class="col-md-8 text-center">
-			<ul>
-				<li>
-					CD名
-					<p><%= orderitem.item.name %></p>
-				</li>
-				<li>
-					価格
-					<p><%= orderitem.price %>円</p>
-				</li>
-				<li>
-					枚数
-					<p><%= orderitem.number %></p>
-				</li>
-				<li>
-					配送先
-					<p><%= orderitem.user.shipping_address.address %></p>
-				</li>
-				<li>
-					発送状況
-					<p><%= orderitem.order.shipping_status %></p>
-				</li>
-			</ul>
-		</div>
-		<% end %>
+
+	<div class="orders-datails row">
+	<% @order_items.each do |order_item| %>
+	<%= link_to item_path(order_item.item.id) do %>
+	    <div class="well col-md-4">
+			<table>
+	            <tr>
+	            <th><%= attachment_image_tag order_item.item, :image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100"%>
+	            <%= order_item.item.name %></th>
+	            </tr>
+	            <tr>
+			        <th>商品名</th>
+			        <th><%= order_item.item.name %></th>
+			    </tr>
+			    <tr>
+					<th>価格</th>
+					<th><%= order_item.price %></th>
+				</tr>
+				<tr>
+					<th>購入個数</th>
+					<th><%= order_item.number %></th>
+				</tr>
+	        </table>
+	    </div>
+	<% end %>
+	<% end %>
 	</div>
+	<%= paginate @order_items %>
+
 </div>
+
+<%= form_for(@order) do |f| %>
+
+<p> <%= f.radio_button :shipping_status, :"未配送" %> 未配送
+	<%= f.radio_button :shipping_status, :"配送中" %> 配送中
+	<%= f.radio_button :shipping_status, :"配送済" %> 配送済
+ </p>
+ <%= f.submit class: "btn-flat-border" %>
+<% end %>
