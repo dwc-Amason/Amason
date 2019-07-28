@@ -22,7 +22,7 @@
 		$(".tax").text(priceTax);
 		let totalPrice = priceTax + subtotal;
 		$(".totalPrice").text(totalPrice);
-// 合計金額仮作成レイアウト皆無変数適当
+//オーダー確認画面部分。
 		var totaltax = Math.ceil(subtotal * tax);
 		$(".totaltax").text(totaltax);
 		let ShippingCost = 500;
