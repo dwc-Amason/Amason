@@ -22,10 +22,10 @@
 
                             <%= f.submit '検索'%>
                             <% end %>
-                        <%= search_form_for @t do |t| %>
+                        <%= search_form_for(@t, as: :t, url:admins_userIndex_path) do |t| %>
 
-                            <% t.label :user_name_first_or_user_name_last_or_user_name_first_phonetic_or_user_name_last_phonetic_cont %>
-                            <%= t.search_field :user_name_first_or_user_name_last_or_user_name_first_phonetic_or_user_name_last_phonetic_cont %>
+                            <% t.label :name_first_or_name_last_or_name_first_phonetic_or_name_last_phonetic_cont %>
+                            <%= t.search_field :name_first_or_name_last_or_name_first_phonetic_or_name_last_phonetic_cont %>
 
                             <%= t.submit '検索' %>
                         <% end %>

@@ -1,6 +1,8 @@
 class AdminsController < ApplicationController
 	def userIndex
 		@users = User.all.page(params[:page]).per(9)
+		@t = User.ransack(params[:t], search_key: :t)
+        @users = @t.result.page(params[:page]).per(9)
 	end
 
 	def userShow
