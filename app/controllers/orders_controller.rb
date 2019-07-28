@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 	def index
 		@orders = Order.where(user_id: current_user.id)
 		@orders = @orders.page(params[:page]).per(5)
+		#binding.pry
 	end
 
 	def show
@@ -23,8 +24,17 @@ class OrdersController < ApplicationController
 	def create
 		@order = Order.new(params_int(order_params))
 		@order.user_id = current_user.id
+		@order.total_price = 0
+		@order.order_items.each do |order_item|
+			price = order_item.price * order_item.number
+			@order.total_price += price
+		end
+		@order.total_price = @order.total_price * 1.08
+		@order.total_price = @order.total_price.floor
 		if @order.save
-			redirect_to items_path(@order)
+			@cart_items = current_user.cart_items
+			@cart_items.destroy_all
+			redirect_to items_path
 		else
 			@cart_items = CartItem.all
 			render :new
