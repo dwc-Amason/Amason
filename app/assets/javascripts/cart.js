@@ -16,12 +16,19 @@
 		for (let i = 0; i < $(".total").length; i++) {
 			    subtotal += Number($(".total").eq(i).text())
 			};
-		$(".subtotal").text(subtotal)
+		$(".subtotal").text(subtotal);
 		let tax = 0.08;
 		let priceTax = Math.ceil(subtotal * tax);
 		$(".tax").text(priceTax);
-		let totalPrice = priceTax + subtotal
-		$(".totalPrice").text(totalPrice)
+		let totalPrice = priceTax + subtotal;
+		$(".totalPrice").text(totalPrice);
+//オーダー確認画面部分。
+		var totaltax = Math.ceil(subtotal * tax);
+		$(".totaltax").text(totaltax);
+		let ShippingCost = 500;
+		$(".carriage").text(ShippingCost);
+		var ordertotal = subtotal + totaltax + ShippingCost;
+		$(".ordertotal").text(ordertotal);
 	}
 
 //ページ読み込み時に動作する所

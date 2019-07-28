@@ -28,17 +28,22 @@ height:100vh;
   padding: 0;
   box-sizing: border-box;
 }
-
+.chris {
+    text-align: center;
+    margin-top: 20px;
+}
 .navbar{
 	height: 75px;
-}
-
-.body-space {
-	margin-top: 75px;
 }
 
 .container1{
 	background: #000000;
 	color: #FFFFFF;
 }
+.hoge {
+	float: left;
+}
 
+.head li{
+	float: left;
+}
