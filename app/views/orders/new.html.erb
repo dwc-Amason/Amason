@@ -61,8 +61,8 @@
 				<td><%= cart_item.item.name %></td>
 			 </tr>
 			 <tr>
-				<th>単価</th>
-			 	<td><%= cart_item.item.price %>円</td>
+				<th>商品ごとの合計</th>
+			 	<td><%= cart_item.item.price * cart_item.number %>円</td>
 			 </tr>
 			 <tr>
 				<th>個数</th>
@@ -76,7 +76,7 @@
 				<th colspan"2">送料</th>
 			 </tr>
 			 <tr>
-			 	<td colspan"2"><%= @carriage %>円</td>
+			 	<td colspan"2" class="ShippingCost"><%= @carriage %></td>
 			 </tr>
 	    </table>
 </div>
@@ -86,3 +86,4 @@
 <% end %>
 </div>
 
+<span id="max"><%= @totalPrice %></span>

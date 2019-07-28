@@ -14,7 +14,6 @@ class ShippingAddressesController < ApplicationController
 		if @shipping_address.save
 			redirect_to user_path(current_user.id)
 		else
-			@shipping_address = ShippingAddress.all
 			render :new
 		end
 	end
