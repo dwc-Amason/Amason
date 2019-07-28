@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 	end
 
 	def new
-		OrderCarriage = 500
+		Order.carriage = 500
 		@carriage = OrderCarriage
 		@user = current_user
 		@cart_items = current_user.cart_items
