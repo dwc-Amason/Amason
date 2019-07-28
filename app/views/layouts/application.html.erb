@@ -14,7 +14,6 @@
                 <h1 class="navbar-brand">
                     <%= link_to 'Amason', items_path %></h1>
                 <ul class="nav navbar-nav">
-                  <div class="panel-heading">
                     <span class="panel-title pull-left">
                       <% if admin_signed_in? %>
                         <%= search_form_for @q do |f| %>
@@ -65,14 +64,12 @@
                         </ul>
                       <% end %>
                     </span>
-                  </div>
               </div>
             </div>
           </div>
       </header>
 <div class="body-space">
       <%= yield %>
-  </div>
         <footer style="margin-top:5em;">
           <div class='container1'>
             <div class='row'>
