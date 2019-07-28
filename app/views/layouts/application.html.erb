@@ -46,6 +46,7 @@
                     </span>
                     <span class="pull-right">
                       <% if admin_signed_in? %>
+                          <button type="button" class="btn"> <%= link_to "admin_ログアウト", destroy_admin_session_path, method: :delete %>
                           <button type="button" class="btn"><%= link_to 'link', admins_link_path %></button>
                       <% elsif user_signed_in? %>
                         <ul class="nav navbar-nav">
