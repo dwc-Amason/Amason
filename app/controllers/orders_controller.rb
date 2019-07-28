@@ -20,6 +20,12 @@ class OrdersController < ApplicationController
 		@shipping_addresses = @shipping_addresses.page(params[:page]).per(3)
 	end
 
+	def update
+		@order = Order.find(params[:id])
+	  	@order.update(order_params)
+		redirect_to admins_order_path
+	end
+
 	def create
 		@order = Order.new(params_int(order_params))
 		@order.user_id = current_user.id

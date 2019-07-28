@@ -40,7 +40,8 @@ class AdminsController < ApplicationController
 	end
 
 	def orderShow
-		@orderitems = Orderitem.all.page(params[:page]).per(3)
+		@order = Order.find(params[:id])
+		@order_items = OrderItem.where(order_id: @order).page(params[:page]).per(6)
 	end
 
 	def link
