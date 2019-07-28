@@ -11,8 +11,6 @@ class OrdersController < ApplicationController
 	end
 
 	def new
-		Order.carriage = 500
-		@carriage = OrderCarriage
 		@user = current_user
 		@cart_items = current_user.cart_items
 		@Shipping_address = ShippingAddress.where(user_id: current_user.id)
