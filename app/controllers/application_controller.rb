@@ -10,10 +10,9 @@ before_action :ransack
     def ransack
       if admin_signed_in?
       @q = Item.ransack(params[:q])
-      @items = @q.result.includes(:artist).includes(:genre).includes(:user)
+      @items = @q.result.includes(:artist).includes(:genre)
 
-      @t = User.ransack(params[:t])
-      @users = @t.result.includes(:user)
+      @t = User.ransack(params[:t], search_key: :t)
     elsif user_signed_in?
       @q = Item.ransack(params[:q])
       @items = @q.result.includes(:artist).includes(:genre)

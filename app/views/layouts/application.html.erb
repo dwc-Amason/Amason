@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'cart.js', 'data-turbolinks-track': 'reload'  %>
   </head>
     <body>
-        <nav class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
+        <header class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-right">
             <div class="navbar-header">
               <div class="collapse navbar-collapse" id="navbarEexample">
                 <h1 class="navbar-brand">
@@ -22,7 +22,8 @@
 
                             <%= f.submit '検索'%>
                             <% end %>
-                        <%= search_form_for @t do |t| %>
+                        <%= search_form_for(@t, as: :t, url:admins_userIndex_path) do |t| %>
+
                             <% t.label :name_first_or_name_last_or_name_first_phonetic_or_name_last_phonetic_cont %>
                             <%= t.search_field :name_first_or_name_last_or_name_first_phonetic_or_name_last_phonetic_cont %>
 
@@ -69,7 +70,7 @@
             </div>
           </div>
       </header>
-<div class="body-space">
+    <div class="body-space">
       <%= yield %>
         <footer style="margin-top:5em;">
           <div class='container1'>
@@ -82,6 +83,7 @@
       </footer>
     </body>
 </html>
+
 
 
 

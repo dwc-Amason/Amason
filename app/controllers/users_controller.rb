@@ -22,9 +22,10 @@ class UsersController < ApplicationController
   	def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to  admins_userIndex_path
+    redirect_to  root_path
     flash[:notice] = "削除されました"
   end
+
 
 
 	private
