@@ -8,7 +8,6 @@
     <%= javascript_include_tag 'application', 'cart.js', 'data-turbolinks-track': 'reload'  %>
   </head>
     <body>
-<<<<<<< HEAD
         <header class="navbar navbar-inverse">
               <div class="nav">
                 <h1>
@@ -53,7 +52,6 @@
                     </li>
                     <li>
                       <% if admin_signed_in? %>
-<<<<<<< HEAD
                           <button type="button" class="btn"> <%= link_to "admin_ログアウト", destroy_admin_session_path, method: :delete %></button>
                           <button type="button" class="btn"><%= link_to 'link', admins_link_path %></button>
                       <% elsif user_signed_in? %>
