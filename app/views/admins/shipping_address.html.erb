@@ -1,6 +1,6 @@
-<div class="container" style="margin-top:6em;">
+<div class="container">
 	<div class="row">
-		<table border="1" class="table table-hover table-inverse">
+		<table class="box table">
 			<thead>
 				<tr class="row">
 					<th class="col-md-2">名前</th>
@@ -14,21 +14,23 @@
             	<tr>
             		<td></td>
 					<td>
-						<p><%= shipping_addresses.name_last + shipping_addresses.name_first %></p>
+						<p style="font-size:20px"><%= shipping_addresses.name_last + shipping_addresses.name_first %></p>
 					</td>
             		<td>
-						<p><%= shipping_addresses.phone %></p>
+						<p style="font-size:20px"><%= shipping_addresses.phone %></p>
 					</td>
 					<td>
-						<p><%= shipping_addresses.post_code %></p>
+						<p style="font-size:20px"><%= shipping_addresses.post_code %></p>
 					</td>
 					<td>
-						<p><%= shipping_addresses.address %></p>
+						<p style="font-size:20px"><%= shipping_addresses.address %></p>
 					</td>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
 	</div>
+	<div class="row text-center">
+		<%= paginate @shipping_addresses %>
+	</div>
 </div>
-<%= paginate @shipping_addresses %>
