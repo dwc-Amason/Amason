@@ -53,7 +53,7 @@
               <%= link_to current_user.name_last, user_path(current_user),class: "btn btn-primary" %></button>
               <%= link_to 'カート', cart_items_path, class: "btn btn-primary" %></button>
                <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %></button>
-              <%= link_to '購入履歴', orders_path %></button>
+              <%= link_to '購入履歴', orders_path, class: "btn btn-primary" %></button>
             <% else %>
               <%= link_to "sign in", new_user_session_path, class: "btn btn-primary" %></button>
               <%= link_to "sign up", new_user_registration_path, class: "btn btn-primary" %></button>
