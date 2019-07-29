@@ -1,57 +1,55 @@
 <div class="container">
-	<div class="top row">
-		<div class="col-md-6">
-			<div class="link">
-				<div>
-			<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn-circle-fishy" %>
-		    </div>
-		     <div>
-			<%= link_to '配送先追加',  new_user_shipping_address_path(@user.id), class: "btn-circle-fishy" %>
-		    </div>
-		</div>
-		<div class="shipping">
-			<% if @shipping_address.empty? %>
-	        <% else %>
-		        <div>
-				<%= link_to '配送先編集', user_shipping_addresses_path(@user.id),class: "btn-circle-fishy" %>
-			    </div>
-	        <% end %>
-		    <div>
-			<%= link_to '購入履歴', orders_path, class: "btn-circle-fishy" %>
-		    </div>
-		    <div>
-			<%= link_to "退会する", user_path(@user.id), class: "btn-circle-border-double",  method: :delete, data: {confirm: "Are you sure you want to leave？"} %>
-		    </div>
-		</div>
+	<div class="row">
+		<div class="col-md-12">
+    	  	<table class="table">
+    	  		<thead>
+	    	  		<tr style="font-size:20px">
+	    	  			<th>名前</th>
+				  		<th><%= @user.name_first %><%= @user.name_last %></th>
+					</tr>
+					<tr style="font-size:20px">
+						<th>郵便番号</th>
+				  		<th><%= @user.post_code %></th>
+					</tr>
+					<tr style="font-size:20px">
+						<th>住所</th>
+				  		<th><%= @user.address %></th>
+					</tr>
+					<tr style="font-size:20px">
+						<th>電話番号</th>
+						<th><%= @user.phone %></th>
+					</tr>
+					<tr style="font-size:20px">
+						<th>メールアドレス</th>
+						<th><%= @user.email %></th>
+					</tr>
+		   		</thead>
+		  	</table>
+	  	</div>
 	</div>
-    	<div class="well col-md-6">
-    	  <table class="table">
-    	  	<thead>
-	    	  	<tr>
-	    	  		<th>姓</th>
-				  	<th><%= @user.name_first %></th>
-				    <th>名</th>
-					<th><%= @user.name_last %></th>
-				</tr>
-				<tr>
-					<th>郵便番号</th>
-				  	<th><%= @user.post_code %></th>
-				</tr>
-				<tr>
-					<th>住所</th>
-				  	<th><%= @user.address %></th>
-				</tr>
-				<tr>
-					<th>電話番号</th>
-					<th><%= @user.phone %></th>
-				</tr>
-				<tr>
-					<th>メールアドレス</th>
-					<th><%= @user.email %></th>
-				</tr>
-		    </thead>
-		  </table>
-	  </div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1 text-center">
+	    	<ul>
+	    		<li>
+					<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn-flat-border1" %>
+				</li>
+				<li>
+					<%= link_to '配送先追加',  new_user_shipping_address_path(@user.id), class: "btn-flat-border1" %>
+				</li>
+				<li class="shipping">
+					<% if @shipping_address.empty? %>
+	        		<% else %>
+					<%= link_to '配送先編集', user_shipping_addresses_path(@user.id),class: "btn-flat-border1" %>
+	        		<% end %>
+	        	</li>
+		    	<li>
+					<%= link_to '購入履歴', orders_path, class: "btn-flat-border1" %>
+		    	</li>
+		    	<li>
+					<%= link_to "退会する", user_path(@user.id), class: "btn-flat-border1",  method: :delete, data: {confirm: "本当に退会しますか？"} %>
+		    	</li>
+		    </ul>
+		</div>
 	</div>
 </div>
 
