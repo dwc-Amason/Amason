@@ -47,3 +47,40 @@ height:100vh;
 .head li{
 	float: left;
 }
+
+.btn-sm  {
+  color: #4689FF;
+}
+
+.btn-social-icon-facebook {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  color: #4966a0;;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.btn-social-icon-facebook:hover {
+  color:#668ad8;
+  transition: .5s;
+}
+
+.btn-social-icon-facebook__square {
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  line-height: 50px;
+  color: #FFF;
+  background: #4966a0;;
+}
+
+.btn-social-icon-facebook__square .fa-facebook {
+  position: absolute;
+  bottom: -3px;
+  right: 6px;
+  font-size: 42px;
+}
