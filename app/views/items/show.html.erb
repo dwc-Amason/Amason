@@ -1,39 +1,64 @@
 <div class="container">
-	<h1 class="well item-show-title">商品詳細</h1>
-
-    <div>
-
-			<div class="jakesya img-circle">
-			  <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
-		    </div>
-	          <ul class="name-rist">
-	          	<li>タイトル<%= @item.name %></li>
-				<li>アーティスト<%= @item.artist.name %></li><br>
-				<li>ジャンル<%= @item.genre.name%></li><br>
-				<li>レーベル<%= @item.label.name %></li><br>
-	          	<li>価格<%= @item.price %></li>
-	          	<li>在庫数<%= @item.stack %></li>
-              </ul>
-				<div class="songs">
-				        <% @discs.each do |disc| %>
-				          <div>ディスク名<%= disc.name %></div>
-				          <% disc.songs.each do |song| %>
-				          	<div><%= song.track %>  <%= song.name %></div>
-				          <% end %>
-				        <% end %>
-
-				</div>
-				<div class="btn status"><%= @item.status %></div>
-
-				<% if user_signed_in? %>
-			        <%= form_for(@cart_item) do |f| %>
-		        	<%= f.number_field :number, in:0..10 %>
-		        	<%= f.hidden_field :item_id, value: @item.id %>
-		        	<%= f.hidden_field :user_id, value: current_user.id %>
-		            <%= f.submit "カートに入れる" %>
-		            <% end %>
-		        <% else %>
-		        	<div class="go-cart"><%= link_to "カートに入れる", new_user_session_path %></div>
-		        <% end %>
+	<div class="row">
+		<div class="col-md-6">
+			<div>
+				<%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "450x450"  %>
+			</div>
+		</div>
+	    <div class="col-md-3">
+	        <ul>
+	    		<li>
+	        		アルバム
+	        		<h4><%= @item.name %></h4><br>
+	        	</li>
+	        	<li>
+					アーティスト
+					<h4><%= @item.artist.name %></h4><br>
+				</li>
+				<li>
+					ジャンル
+					<h4><%= @item.genre.name%></h4><br>
+				</li>
+				<li>
+					レーベル
+					<h4><%= @item.label.name %></h4><br>
+				</li>
+				<li>
+	        		価格
+	        		<h4>¥<%= @item.price %></h4><br>
+	        	</li>
+	        	<li>
+	        		在庫数
+	        		<h4><%= @item.stack %></h4><br>
+	        	</li>
+	        	<li>
+	        		現在
+	        		<h4><%= @item.status %></h4><br>
+	        	</li>
+        	</ul>
+        </div>
+        <div class="col-md-3">
+			<div>
+				収録曲
+				<% @discs.each do |disc| %>
+				<h4><%= disc.name %></h4>
+				<% disc.songs.each do |song| %>
+				<h5><%= song.track %>.<%= song.name %></h5>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="row text-center">
+		<% if user_signed_in? %>
+		<%= form_for(@cart_item) do |f| %>
+		<%= f.number_field :number, in:0..10 %>
+		<%= f.hidden_field :item_id, value: @item.id %>
+		<%= f.hidden_field :user_id, value: current_user.id %>
+		<%= f.submit "カートに入れる" %>
+		<% end %>
+		<% else %>
+		<%= link_to "カートに入れる", new_user_session_path, class: 'btn-flat-border1' %>
+		<% end %>
 	</div>
 </div>

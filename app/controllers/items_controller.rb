@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 	def update
 		@item = Item.find(params[:id])
 	  	if @item.update(item_params)
-			redirect_to item_path(@item)
+			redirect_to admins_itemShow_path(@item)
 		else
 			@item = Item.find(params[:id])
 			render :show

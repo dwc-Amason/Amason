@@ -5,7 +5,6 @@
 			<thead>
             	<tr>
               		<th>購入日</th>
-              		<th>購入者</th>
               		<th>合計金額</th>
               		<th>配送状況</th>
             	</tr>
@@ -14,10 +13,7 @@
           		<% @orders.each do |order| %>
 	          		<tr>
 						<td>
-							<p><%= link_to order_path(order) do %><%= order.created_at %><% end %></p>
-						</td>
-						<td>
-							<p><%= order.user.name_last + order.user.name_first %></p>
+							<p><%= link_to order_path(order) do %><%= order.created_at.strftime('%Y/%m/%d') %><% end %></p>
 						</td>
 						<td>
 							<p><%= order.total_price %></p>

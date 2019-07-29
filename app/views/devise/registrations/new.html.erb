@@ -1,25 +1,23 @@
-<h2>Sign up </h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-  <h4>name</h4>
-    <%= f.label :name_first, '姓' %>
-    <%= f.text_field :name_first %>
-    <%= f.label :name_last, '名' %>
-    <%= f.text_field :name_last %><br>
-
-    <%= f.label :name_first_phonetic, 'セイ' %>
-    <%= f.text_field :name_first_phonetic %>
-    <%= f.label :name_last_phonetic, 'メイ'%>
-    <%= f.text_field :name_last_phonetic %>
-  </div>
-
-  <div class="field">
-    <%= f.label :post_code, '郵便番号'%>
-    <%= f.text_field :post_code %>
-  </div>
+<div class="container">
+  <div class="row text-center">
+    <h2>サインアップ</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <h3>名前</h3>
+      <p>姓</p>
+      <%= f.text_field :name_first %>
+      <p>名</p>
+      <%= f.text_field :name_last %><br>
+      <%= f.label :name_first_phonetic, 'セイ' %>
+      <%= f.text_field :name_first_phonetic %>
+      <%= f.label :name_last_phonetic, 'メイ'%>
+      <%= f.text_field :name_last_phonetic %>
+    </div>
+    <div class="field">
+      <h3>郵便番号</h3>
+      <%= f.text_field :post_code %>
+    </div>
 
   <div class="field">
     <%= f.label :address, '住所'%><br />
