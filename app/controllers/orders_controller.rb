@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
 			price = order_item.price * order_item.number
 			@order.total_price += price
 		end
-		@order.total_price = @order.total_price * 1.08
+		@order.total_price = @order.total_price * 1.08 + 500
 		@order.total_price = @order.total_price.floor
 		if @order.save
 			@cart_items = current_user.cart_items
