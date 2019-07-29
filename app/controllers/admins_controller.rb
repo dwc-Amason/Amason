@@ -1,8 +1,11 @@
 class AdminsController < ApplicationController
+	before_action :check_admin
+
 	def userIndex
 		@users = User.all.page(params[:page]).per(9)
 		@t = User.ransack(params[:t], search_key: :t)
         @users = @t.result.page(params[:page]).per(9)
+        @items = @q.result.includes(:artist).includes(:genre).page(params[:page]).per(9)
 	end
 
 	def userShow
@@ -40,8 +43,7 @@ class AdminsController < ApplicationController
 	end
 
 	def orderShow
-		@order = Order.find(params[:id])
-		@order_items = OrderItem.where(order_id: @order).page(params[:page]).per(6)
+		@orderitems = Orderitem.all.page(params[:page]).per(3)
 	end
 
 	def link

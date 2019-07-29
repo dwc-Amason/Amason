@@ -10,15 +10,13 @@ before_action :ransack
     def ransack
       if admin_signed_in?
       @q = Item.ransack(params[:q])
-      @items = @q.result.includes(:artist).includes(:genre)
 
       @t = User.ransack(params[:t], search_key: :t)
     elsif user_signed_in?
+
       @q = Item.ransack(params[:q])
-      @items = @q.result.includes(:artist).includes(:genre)
     else
       @q = Item.ransack(params[:q])
-      @items = @q.result.includes(:artist).includes(:genre)
     end
   end
 
@@ -34,5 +32,15 @@ before_action :ransack
 		devise_parameter_sanitizer.permit(:sign_up, keys: [:name_first, :name_last, :name_first_phonetic, :name_last_phonetic, :post_code, :email, :address, :phone])
 		devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
 	end
+
+  private
+
+  def check_admin
+    if admin_signed_in?
+    else
+      redirect_to root_path
+      flash[:notice] = "ログインしてください"
+    end
+  end
 
 end

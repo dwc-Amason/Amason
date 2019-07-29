@@ -4,25 +4,27 @@
 		<div class="row">
 			<% @items.each do |item| %>
 	    		<div class="col-md-4">
-					<%= link_to item_path(item) do %>
-					    <ul>
-				    		<li>
-				    			<%= attachment_image_tag item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
-				    		</li>
-							<li><%= item.name %></li>
-							<li><%= item.artist.name %></li>
-							<li><%= item.price %></li>
-						</ul>
-					<% end %>
+	    			<div class="well">
+						<%= link_to item_path(item) do %>
+						    <ul>
+					    		<li>
+					    			<%= attachment_image_tag item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
+					    		</li>
+								<li><%= item.name %></li>
+								<li><%= item.artist.name %></li>
+								<li><%= item.price %></li>
+							</ul>
+						<% end %>
+				    </div>
 		              <!-- ログイン時 -->
-		    	    <% if user_signed_in? %>
-						<%= form_for(@cart_item) do |f| %>
-				        	<%= f.number_field :number, in:0..10 %>
-				        	<%= f.hidden_field :item_id, value: item.id %>
-				        	<%= f.hidden_field :user_id, value: current_user.id %>
-				            <%= f.submit "カートに入れる"  %>
-			            <% end %>
-			        <% end %>
+			    	    <% if user_signed_in? %>
+							<%= form_for(@cart_item) do |f| %>
+					        	<%= f.number_field :number, in:0..10 %>
+					        	<%= f.hidden_field :item_id, value: item.id %>
+					        	<%= f.hidden_field :user_id, value: current_user.id %>
+					            <%= f.submit "カートに入れる", class: "btn btn-warning"  %>
+				            <% end %>
+				        <% end %>
 				</div>
 			<% end %>
 		</div>

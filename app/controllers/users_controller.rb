@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   		@shipping_address = ShippingAddress.where(user_id: @user.id)
   	end
 
-  	def destroy
+  def destroy
     @user = User.find(params[:id])
     @user.destroy
     redirect_to  root_path

@@ -1,24 +1,28 @@
 <div class="container">
 	<div class="top row">
 		<div class="col-md-6">
-	    <div>
-		<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
-	    </div>
-	     <div>
-		<%= link_to '配送先追加',  new_user_shipping_address_path(@user.id), class: "btn btn-primary btn-lg btn-block active" %>
-	    </div>
-		<% if @shipping_address.empty? %>
-        <% else %>
-	        <div>
-			<%= link_to '配送先編集', user_shipping_addresses_path(@user.id),class: "btn btn-primary btn-lg btn-block active" %>
+	    <div class="link">
+		    <div>
+			<%= link_to 'ユーザー情報編集', edit_user_path(@user.id),class: "btn-circle-fishy" %>
 		    </div>
-        <% end %>
-	    <div>
-		<%= link_to '購入履歴', orders_path, class: "btn btn-primary btn-lg btn-block active" %>
-	    </div>
-	    <div>
-		<%= link_to "退会する", user_path(@user.id),  method: :delete, data: {confirm: "Are you sure you want to leave？"} %>
-	    </div>
+		     <div>
+			<%= link_to '配送先追加',  new_user_shipping_address_path(@user.id), class: "btn-circle-fishy" %>
+		    </div>
+		</div>
+		<div class="shipping">
+			<% if @shipping_address.empty? %>
+	        <% else %>
+		        <div>
+				<%= link_to '配送先編集', user_shipping_addresses_path(@user.id),class: "btn-circle-fishy" %>
+			    </div>
+	        <% end %>
+		    <div>
+			<%= link_to '購入履歴', orders_path, class: "btn-circle-fishy" %>
+		    </div>
+		    <div>
+			<%= link_to "退会する", user_path(@user.id), class: "btn-circle-border-double",  method: :delete, data: {confirm: "Are you sure you want to leave？"} %>
+		    </div>
+		</div>
 	</div>
     	<div class="well col-md-6">
     	  <table class="table">
@@ -50,3 +54,4 @@
 	  </div>
 	</div>
 </div>
+
