@@ -1,44 +1,32 @@
-<h1>購入履歴詳細</h1>
 <div class="container">
-	<div class="well">
+	<div class="row">
 	 	<%= @order.created_at.strftime('%Y/%m/%d') %>購入
 	</div>
-
-	<div class="orders-datails row">
+	<div class="row">
 	<% @order_items.each do |order_item| %>
-	<%= link_to item_path(order_item.item.id) do %>
-	    <div class="well col-md-4">
-			<table>
-	            <tr>
-	            <th><%= attachment_image_tag order_item.item, :image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100"%>
-	            <%= order_item.item.name %></th>
-	            </tr>
-	            <tr>
-			        <th>商品名</th>
-			        <th><%= order_item.item.name %></th>
-			    </tr>
-			    <tr>
-					<th>価格</th>
-					<th><%= order_item.price %></th>
-				</tr>
-				<tr>
-					<th>購入個数</th>
-					<th><%= order_item.number %></th>
-				</tr>
-	        </table>
+	    <div class="box col-md-4 text-center">
+		<%= attachment_image_tag order_item.item, :image, fallback: "no_image.jpg", size:'200x200', format:'png' %><br>
+	    商品名<p style="font-size:20px"><%= order_item.item.name %></p><br>
+	    価格<p style="font-size:20px">¥<%= order_item.price %></p><br>
+	    購入個数<p style="font-size:20px"><%= order_item.number %></p>
 	    </div>
 	<% end %>
-	<% end %>
 	</div>
-	<%= paginate @order_items %>
-
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<%= form_for(@order) do |f| %>
+			<p>
+				<%= f.radio_button :shipping_status, :"未配送" %> 未配送
+				<%= f.radio_button :shipping_status, :"配送中" %> 配送中
+				<%= f.radio_button :shipping_status, :"配送済" %> 配送済
+			</p>
+ 			<%= f.submit class: "btn-flat-border" %>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<%= paginate @order_items %>
+		</div>
+	</div>
 </div>
-
-<%= form_for(@order) do |f| %>
-
-<p> <%= f.radio_button :shipping_status, :"未配送" %> 未配送
-	<%= f.radio_button :shipping_status, :"配送中" %> 配送中
-	<%= f.radio_button :shipping_status, :"配送済" %> 配送済
- </p>
- <%= f.submit class: "btn-flat-border" %>
-<% end %>

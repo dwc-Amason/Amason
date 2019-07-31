@@ -1,13 +1,13 @@
-<h1>ユーザ一覧</h1>
-	<div>
+<div class="container">
+	<div class="row text-center">
 		<%= search_form_for(@t, as: :t, url:admins_userIndex_path) do |t| %>
 		<span><%= t.search_field :name_first_or_name_last_or_name_first_phonetic_or_name_last_phonetic_cont %></span>
 		<span><%= t.submit 'ユーザー検索' %></span>
 		<% end %>
 	</div>
-<div class="container">
+
 	<div class="row">
-		<table class="table table-hover table-inverse">
+		<table class="box table">
 			<thead>
             	<tr>
               		<th>名前</th>
@@ -20,14 +20,14 @@
           		<tr>
 					<td>
 						<%= link_to admins_userShow_path(user.id) do %>
-						<p><%= user.name_first %><%= user.name_last %></p>
+						<p  style="font-size:20px"><%= user.name_first %><%= user.name_last %></p>
 						<% end %>
 					</td>
 					<td>
-						<p><%= user.phone %></p>
+						<p style="font-size:20px"><%= user.phone %></p>
 					</td>
 					<td>
-						<p><%= user.address %></p>
+						<p style="font-size:20px"><%= user.address %></p>
 					</td>
 				</tr>
 				<% end %>

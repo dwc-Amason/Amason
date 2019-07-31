@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
 
 	def index
 		@cart_items = CartItem.where(user_id: current_user.id)
-		@cart_items = @cart_items.page(params[:page]).per(10)
+		@cart_items = @cart_items.page(params[:page]).per(5)
 	end
 
 	def show

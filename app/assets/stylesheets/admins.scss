@@ -44,7 +44,7 @@
 	background: url(original.jpg);
 	background-size: cover;
 	background-position: 50% 50%;
-	height: 400px;
+	height: 300px;
 	font-family: serif;
   width: 100%;
 }
@@ -87,4 +87,17 @@
 .btn-circle-border-double:hover {
   -webkit-transform: rotateY(360deg);
   transform: rotateY(360deg);
+}
+
+.box{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box p {
+    margin: 0;
+    padding: 0;
 }
